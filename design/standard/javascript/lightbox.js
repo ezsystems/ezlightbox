@@ -6,3 +6,4 @@ function changeCurrentLightbox()
     inputField.value = lightboxSelect.options[lightboxSelect.selectedIndex].value;
     hiddenForm.submit();
 }
+
