@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet id="1" author="">
+        <createTable tableName="ezlightbox">
+            <column autoIncrement="true" name="id" type="java.sql.Types.INT">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+
+            <column name="owner_id" type="java.sql.Types.INT" defaultValue="0">
+                <constraints unique="false" nullable="false"/>
+            </column>
+
+            <column name="created" type="java.sql.Types.INT" defaultValue="0">
+                <constraints unique="false" nullable="false"/>
+            </column>
+
+            <column name="name" type="java.sql.Types.VARCHAR(255)" defaultValue="New Lightbox">
+                <constraints unique="false" nullable="false"/>
+            </column>
+
+            <column name="external_id" type="java.sql.Types.VARCHAR(255)">
+                <constraints unique="false" nullable="false"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="ezlightbox_object">
+            <column name="lightbox_id" type="java.sql.Types.INT" defaultValue="0">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+
+            <column name="item_id" type="java.sql.Types.INT" defaultValue="0">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+
+            <column name="created" type="java.sql.Types.INT" defaultValue="0">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="type_id" type="java.sql.Types.INT" defaultValue="1">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+
+            <column name="priority" type="java.sql.Types.INT" defaultValue="0">
+                <constraints nullable="true"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="ezlightbox_access">
+            <column name="lightbox_id" type="java.sql.Types.INT" defaultValue="0">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+
+            <column name="user_id" type="java.sql.Types.INT" defaultValue="0">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+
+            <column name="created" type="java.sql.Types.INT" defaultValue="0">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="access_mask" type="java.sql.Types.INT" defaultValue="0">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <modifySql dbms="mysql">
+            <append value=" ENGINE=InnoDB DEFAULT CHARSET=utf8"/>
+        </modifySql>
+
+    </changeSet>
+</databaseChangeLog>
