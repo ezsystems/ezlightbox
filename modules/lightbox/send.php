@@ -26,6 +26,7 @@
 
 require_once( 'autoload.php' );
 require_once( 'kernel/common/template.php' );
+require_once( 'kernel/common/i18n.php' );
 
 $http           = eZHTTPTool::instance();
 $tpl            = templateInit();
@@ -117,7 +118,7 @@ else if ( $http->hasSessionVariable( $redirectName ) )
     $redirectURI = $http->sessionVariable( $redirectName );
 }
 else if ( $http->hasSessionVariable( 'LastAccessesURI' ) &&
-          !ereg( '(type)', $http->sessionVariable( 'LastAccessesURI' ) )
+          !preg_match( '/\b\(type\)\b/', $http->sessionVariable( 'LastAccessesURI' ) )
         )
 {
     $redirectURI = $http->sessionVariable( 'LastAccessesURI' );

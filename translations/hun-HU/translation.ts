@@ -1,9 +1,56 @@
 <!DOCTYPE TS><TS>
 <context>
+    <name>class/ezlightbox/itemMoveDirections</name>
+    <message>
+        <source>Up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Down</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>class/ezlightboxaccess/accessKeys</name>
+    <message>
+        <source>View</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Grant</source>
+        <translation type="unfinished">Megosztott</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Send</source>
+        <translation type="unfinished">Küldés</translation>
+    </message>
+</context>
+<context>
     <name>datatype/lightboxwrapper</name>
     <message>
         <source>This lightbox is empty.</source>
         <translation type="unfinished">Ez a gyűjtődoboz üres.</translation>
+    </message>
+    <message>
+        <source>Lightbox Wrapper</source>
+        <comment>Datatype name</comment>
+        <translation type="unfinished">Gyűjtődoboz-csomag</translation>
+    </message>
+    <message>
+        <source>Version: %old</source>
+        <translation type="unfinished">Verzió: %old</translation>
+    </message>
+    <message>
+        <source>Version: %new</source>
+        <translation type="unfinished">Verzió: %new</translation>
     </message>
 </context>
 <context>
@@ -52,263 +99,263 @@
     <name>design/standard/content/datatype</name>
     <message>
         <source>Version: %old</source>
-        <translation>Verzió: %old</translation>
+        <translation type="obsolete">Verzió: %old</translation>
     </message>
     <message>
         <source>Version: %new</source>
-        <translation>Verzió: %new</translation>
+        <translation type="obsolete">Verzió: %new</translation>
     </message>
 </context>
 <context>
     <name>design/standard/content/view/lightbox_line</name>
     <message>
         <source>Object ID %1 not available</source>
-        <translation>ID %1 objektum nem elérhető.</translation>
+        <translation type="obsolete">ID %1 objektum nem elérhető.</translation>
     </message>
     <message>
         <source>Locations</source>
-        <translation>Helyek</translation>
+        <translation type="obsolete">Helyek</translation>
     </message>
 </context>
 <context>
     <name>design/standard/lightbox/edit</name>
     <message>
         <source>Edit lightbox &quot;%1&quot;</source>
-        <translation>&quot;%1&quot; gyűjtődoboz szerkesztése</translation>
+        <translation type="obsolete">&quot;%1&quot; gyűjtődoboz szerkesztése</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation>Név</translation>
+        <translation type="obsolete">Név</translation>
     </message>
     <message>
         <source>Items</source>
-        <translation>Elemek</translation>
+        <translation type="obsolete">Elemek</translation>
     </message>
     <message>
         <source>No items in this lightbox</source>
-        <translation>Nincs elem a gyűjtődobozban.</translation>
+        <translation type="obsolete">Nincs elem a gyűjtődobozban.</translation>
     </message>
     <message>
         <source>Lightbox users</source>
-        <translation>Gyűjtődoboz felhasználói</translation>
+        <translation type="obsolete">Gyűjtődoboz felhasználói</translation>
     </message>
     <message>
         <source>Granted</source>
-        <translation>Megosztott</translation>
+        <translation type="obsolete">Megosztott</translation>
     </message>
     <message>
         <source>Rights</source>
-        <translation>Jogok</translation>
+        <translation type="obsolete">Jogok</translation>
     </message>
     <message>
         <source>Currently no users are allowed to access this lightbox.</source>
-        <translation>Jelenleg nincs engedélyezve más felhasználónak a gyűjtődoboz elérése.</translation>
+        <translation type="obsolete">Jelenleg nincs engedélyezve más felhasználónak a gyűjtődoboz elérése.</translation>
     </message>
     <message>
         <source>Store changes</source>
-        <translation>Mentés</translation>
+        <translation type="obsolete">Mentés</translation>
     </message>
     <message>
         <source>Use this button to save the changes in the lightbox name and user rights</source>
-        <translation>Itt mentheti el a gyűjtődoboz nevében és felhasználói jogokban történt változásokat.</translation>
+        <translation type="obsolete">Itt mentheti el a gyűjtődoboz nevében és felhasználói jogokban történt változásokat.</translation>
     </message>
     <message>
         <source>Delete lightbox</source>
-        <translation>Gyűjtődoboz törlése</translation>
+        <translation type="obsolete">Gyűjtődoboz törlése</translation>
     </message>
     <message>
         <source>Use this button to delete this lightbox</source>
-        <translation>Itt törölheti a gyűjtődobozt.</translation>
+        <translation type="obsolete">Itt törölheti a gyűjtődobozt.</translation>
     </message>
     <message>
         <source>Delete users</source>
-        <translation>Flehasználó törlése</translation>
+        <translation type="obsolete">Flehasználó törlése</translation>
     </message>
     <message>
         <source>Use this button to delete the selected users from the list of user that are allowed to access your lightbox</source>
-        <translation>Itt törölheti a kiválasztott felhasználót a gyűjtődoboz engedélyezett hozzáféréseinek listájából.</translation>
+        <translation type="obsolete">Itt törölheti a kiválasztott felhasználót a gyűjtődoboz engedélyezett hozzáféréseinek listájából.</translation>
     </message>
     <message>
         <source>Go back</source>
-        <translation>Vissza</translation>
+        <translation type="obsolete">Vissza</translation>
     </message>
     <message>
         <source>Use this button to go back.</source>
-        <translation>Itt mehet vissza.</translation>
+        <translation type="obsolete">Itt mehet vissza.</translation>
     </message>
     <message>
         <source>No lightbox selected</source>
-        <translation>Nincs kiválasztott gyűjtődoboz.</translation>
+        <translation type="obsolete">Nincs kiválasztott gyűjtődoboz.</translation>
     </message>
 </context>
 <context>
     <name>design/standard/lightbox/menu</name>
     <message>
         <source>My lightboxes</source>
-        <translation>Gyűjtődobozaim</translation>
+        <translation type="obsolete">Gyűjtődobozaim</translation>
     </message>
     <message>
         <source>current</source>
-        <translation>jelenlegi</translation>
+        <translation type="obsolete">jelenlegi</translation>
     </message>
     <message>
         <source>View this lightbox</source>
-        <translation>Megtekint</translation>
+        <translation type="obsolete">Megtekint</translation>
     </message>
     <message>
         <source>You do not have any lightbox yet.</source>
-        <translation>Nincs még gyűjtődoboza.</translation>
+        <translation type="obsolete">Nincs még gyűjtődoboza.</translation>
     </message>
     <message>
         <source>Other lightboxes</source>
-        <translation>Más gyűjtődobozok</translation>
+        <translation type="obsolete">Más gyűjtődobozok</translation>
     </message>
     <message>
         <source>View this lightbox owned by %1</source>
-        <translation>%1 gyűjtődobozának megtekintése</translation>
+        <translation type="obsolete">%1 gyűjtődobozának megtekintése</translation>
     </message>
     <message>
         <source>You do not have access to any other lightbox yet.</source>
-        <translation>Önnek nincs még hozzáférése más gyűjtődobozhoz.</translation>
+        <translation type="obsolete">Önnek nincs még hozzáférése más gyűjtődobozhoz.</translation>
     </message>
     <message>
         <source>Granted Users</source>
-        <translation>Megosztott felhasználó</translation>
+        <translation type="obsolete">Megosztott felhasználó</translation>
     </message>
     <message>
         <source>Currently no users are allowed to access this lightbox.</source>
-        <translation>Jelenleg nincs hozzáférés engedélyezve ehhez a gyűjtődobozhoz.</translation>
+        <translation type="obsolete">Jelenleg nincs hozzáférés engedélyezve ehhez a gyűjtődobozhoz.</translation>
     </message>
 </context>
 <context>
     <name>design/standard/lightbox/send</name>
     <message>
         <source>Send lightbox &quot;%1&quot; to %2</source>
-        <translation>&apos;%1&quot; gyűjtődoboz küldése neki: %2</translation>
+        <translation type="obsolete">&apos;%1&quot; gyűjtődoboz küldése neki: %2</translation>
     </message>
     <message>
         <source>Send lightbox &quot;%1&quot;</source>
-        <translation>&apos;%1&quot; gyűjtődoboz küldése</translation>
+        <translation type="obsolete">&apos;%1&quot; gyűjtődoboz küldése</translation>
     </message>
     <message>
         <source>Receiver</source>
-        <translation>Címzett</translation>
+        <translation type="obsolete">Címzett</translation>
     </message>
     <message>
         <source>Subject</source>
-        <translation>Tárgy</translation>
+        <translation type="obsolete">Tárgy</translation>
     </message>
     <message>
         <source>Body</source>
-        <translation>Szöveg</translation>
+        <translation type="obsolete">Szöveg</translation>
     </message>
     <message>
         <source>Access</source>
-        <translation>Hozzáférés</translation>
+        <translation type="obsolete">Hozzáférés</translation>
     </message>
 </context>
 <context>
     <name>design/standard/lightbox/views</name>
     <message>
         <source>Lightbox &quot;%1&quot;</source>
-        <translation>&quot;%1&quot; gyűjtődoboz</translation>
+        <translation type="obsolete">&quot;%1&quot; gyűjtődoboz</translation>
     </message>
     <message>
         <source>Owner</source>
-        <translation>Tulajdonos</translation>
+        <translation type="obsolete">Tulajdonos</translation>
     </message>
     <message>
         <source>This lightbox is empty.</source>
-        <translation>Ez a gyűjtődoboz üres.</translation>
+        <translation type="obsolete">Ez a gyűjtődoboz üres.</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation>Szerkeszt</translation>
+        <translation type="obsolete">Szerkeszt</translation>
     </message>
     <message>
         <source>Use this button to edit this lightbox.</source>
-        <translation>Itt szerkesztheti a gyűjtődobozt.</translation>
+        <translation type="obsolete">Itt szerkesztheti a gyűjtődobozt.</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation>Törlés</translation>
+        <translation type="obsolete">Törlés</translation>
     </message>
     <message>
         <source>Use this button to delete this lightbox</source>
-        <translation>Itt törölheti a gyűjtődobozt.</translation>
+        <translation type="obsolete">Itt törölheti a gyűjtődobozt.</translation>
     </message>
     <message>
         <source>Empty</source>
-        <translation>Üres</translation>
+        <translation type="obsolete">Üres</translation>
     </message>
     <message>
         <source>Use this button to remove all items from this lightbox</source>
-        <translation>Itt törölheti az elemeket a gyűjtődobozból.</translation>
+        <translation type="obsolete">Itt törölheti az elemeket a gyűjtődobozból.</translation>
     </message>
     <message>
         <source>Send</source>
-        <translation>Küldés</translation>
+        <translation type="obsolete">Küldés</translation>
     </message>
     <message>
         <source>Use this button to permit another user to access this lightbox by sending him an email</source>
-        <translation>Itt engedélyezheti más felhasználónak a gyűjtődoboz elérését e-mailben.</translation>
+        <translation type="obsolete">Itt engedélyezheti más felhasználónak a gyűjtődoboz elérését e-mailben.</translation>
     </message>
     <message>
         <source>Choose a lightbox to view</source>
-        <translation>Válasszon egy gyűjtődobozt megtekintésre!</translation>
+        <translation type="obsolete">Válasszon egy gyűjtődobozt megtekintésre!</translation>
     </message>
 </context>
 <context>
     <name>design/standard/node/view/lightbox_line</name>
     <message>
         <source>Node ID %1 not available</source>
-        <translation>ID %1 csomópont nem elérhető.</translation>
+        <translation type="obsolete">ID %1 csomópont nem elérhető.</translation>
     </message>
 </context>
 <context>
     <name>design/standard/view/lightbox_line</name>
     <message>
         <source>Use this button to add the item to the shopping cart</source>
-        <translation>Itt teheti az elemet a kosárba.</translation>
+        <translation type="obsolete">Itt teheti az elemet a kosárba.</translation>
     </message>
     <message>
         <source>Cart</source>
-        <translation>Kosár</translation>
+        <translation type="obsolete">Kosár</translation>
     </message>
     <message>
         <source>Use this button to delete the item from this lightbox</source>
-        <translation>Itt törölheti az elemet ebből a gyűjtődobozból.</translation>
+        <translation type="obsolete">Itt törölheti az elemet ebből a gyűjtődobozból.</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation>Töröl</translation>
+        <translation type="obsolete">Töröl</translation>
     </message>
     <message>
         <source>Move</source>
-        <translation>Mozgat</translation>
+        <translation type="obsolete">Mozgat</translation>
     </message>
     <message>
         <source>Use this button to move the item from this lightbox to the selected one</source>
-        <translation>Itt helyezheti át az elemet az egyik gyűjtődobozból a másikba.</translation>
+        <translation type="obsolete">Itt helyezheti át az elemet az egyik gyűjtődobozból a másikba.</translation>
     </message>
     <message>
         <source>Target lightbox to move the item in</source>
-        <translation>Cél gyűjtődoboz, ahova az elemet mozgatja </translation>
+        <translation type="obsolete">Cél gyűjtődoboz, ahova az elemet mozgatja </translation>
     </message>
 </context>
 <context>
     <name>eZLightboxOperationCollection::addItem</name>
     <message>
         <source>The current user is not allowed to add content object items of this class to a lightbox.</source>
-        <translation>A jelenlegi felhasználónak nem engedélyezett elem hozzáadása ebből a csoportból.</translation>
+        <translation type="obsolete">A jelenlegi felhasználónak nem engedélyezett elem hozzáadása ebből a csoportból.</translation>
     </message>
     <message>
         <source>No content object item with ID %1 found.</source>
-        <translation>ID %1 azonosítóval objektum nem található.</translation>
+        <translation type="obsolete">ID %1 azonosítóval objektum nem található.</translation>
     </message>
     <message>
         <source>No content node item with ID %1 found.</source>
-        <translation>ID %1 azonosítóval csomópont nem található.</translation>
+        <translation type="obsolete">ID %1 azonosítóval csomópont nem található.</translation>
     </message>
     <message>
         <source>Successfully added item of type %1 with ID %2 to lightbox with ID %3.</source>
@@ -321,6 +368,10 @@
     <message>
         <source>A lightbox with ID %1 does not exist.</source>
         <translation>ID %1 azonosítójú gyűjtődoboz nem létezik.</translation>
+    </message>
+    <message>
+        <source>You are not allowed to add lightbox object items of type %1.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -492,33 +543,55 @@
     <message>
         <source>Lightbox Wrapper</source>
         <comment>Datatype name</comment>
-        <translation>Gyűjtődoboz-csomag</translation>
+        <translation type="obsolete">Gyűjtődoboz-csomag</translation>
     </message>
 </context>
 <context>
     <name>ezlightbox/error</name>
     <message>
         <source>Missing or invalid lightbox ID %1.</source>
-        <translation>%1 gyűjtődoboz hiányzik vagy érvénytelen.</translation>
+        <translation type="obsolete">%1 gyűjtődoboz hiányzik vagy érvénytelen.</translation>
     </message>
     <message>
         <source>Missing target lightbox ID.</source>
-        <translation>Hiányzik a gyűjtődoboz azonosítója.</translation>
+        <translation type="obsolete">Hiányzik a gyűjtődoboz azonosítója.</translation>
     </message>
 </context>
 <context>
     <name>ezlightboxaccess/accessKeys</name>
     <message>
         <source>View</source>
-        <translation>Megtekinthető</translation>
+        <translation type="obsolete">Megtekinthető</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation>Szerkeszthető</translation>
+        <translation type="obsolete">Szerkeszthető</translation>
     </message>
     <message>
         <source>Grant</source>
-        <translation>Megosztott</translation>
+        <translation type="obsolete">Megosztott</translation>
+    </message>
+</context>
+<context>
+    <name>lightbox/add</name>
+    <message>
+        <source>Successfully added item to lightbox</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to add item to lightbox</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>lightbox/add/path</name>
+    <message>
+        <source>Lightbox</source>
+        <translation type="unfinished">Gyűjtődoboz</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -542,6 +615,14 @@
     <message>
         <source>Use this button to go back.</source>
         <translation type="unfinished">Itt mehet vissza.</translation>
+    </message>
+    <message>
+        <source>Create new lightbox</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Once the lightbox has been created successfully, a new item will be added to it.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -577,6 +658,74 @@
         <source>No name for lightbox available.</source>
         <translation>Nincs a gyűjtődoboznak neve.</translation>
     </message>
+    <message>
+        <source>Edit lightbox &quot;%1&quot;</source>
+        <translation type="unfinished">&quot;%1&quot; gyűjtődoboz szerkesztése</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished">Név</translation>
+    </message>
+    <message>
+        <source>Items</source>
+        <translation type="unfinished">Elemek</translation>
+    </message>
+    <message>
+        <source>No items in this lightbox</source>
+        <translation type="unfinished">Nincs elem a gyűjtődobozban.</translation>
+    </message>
+    <message>
+        <source>Lightbox users</source>
+        <translation type="unfinished">Gyűjtődoboz felhasználói</translation>
+    </message>
+    <message>
+        <source>Granted</source>
+        <translation type="unfinished">Megosztott</translation>
+    </message>
+    <message>
+        <source>Rights</source>
+        <translation type="unfinished">Jogok</translation>
+    </message>
+    <message>
+        <source>Currently no users are allowed to access this lightbox.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Store changes</source>
+        <translation type="unfinished">Mentés</translation>
+    </message>
+    <message>
+        <source>Use this button to save the changes in the lightbox name and user rights</source>
+        <translation type="unfinished">Itt mentheti el a gyűjtődoboz nevében és felhasználói jogokban történt változásokat.</translation>
+    </message>
+    <message>
+        <source>Delete lightbox</source>
+        <translation type="unfinished">Gyűjtődoboz törlése</translation>
+    </message>
+    <message>
+        <source>Use this button to delete this lightbox</source>
+        <translation type="unfinished">Itt törölheti a gyűjtődobozt.</translation>
+    </message>
+    <message>
+        <source>Delete users</source>
+        <translation type="unfinished">Flehasználó törlése</translation>
+    </message>
+    <message>
+        <source>Use this button to delete the selected users from the list of user that are allowed to access your lightbox</source>
+        <translation type="unfinished">Itt törölheti a kiválasztott felhasználót a gyűjtődoboz engedélyezett hozzáféréseinek listájából.</translation>
+    </message>
+    <message>
+        <source>Go back</source>
+        <translation type="unfinished">Vissza</translation>
+    </message>
+    <message>
+        <source>Use this button to go back.</source>
+        <translation type="unfinished">Itt mehet vissza.</translation>
+    </message>
+    <message>
+        <source>No lightbox selected</source>
+        <translation type="unfinished">Nincs kiválasztott gyűjtődoboz.</translation>
+    </message>
 </context>
 <context>
     <name>lightbox/edit/path</name>
@@ -587,6 +736,143 @@
     <message>
         <source>Edit</source>
         <translation>Szerkeszt</translation>
+    </message>
+</context>
+<context>
+    <name>lightbox/error</name>
+    <message>
+        <source>Missing or invalid lightbox ID %1.</source>
+        <translation type="unfinished">%1 gyűjtődoboz hiányzik vagy érvénytelen.</translation>
+    </message>
+    <message>
+        <source>Missing target lightbox ID.</source>
+        <translation type="unfinished">Hiányzik a gyűjtődoboz azonosítója.</translation>
+    </message>
+</context>
+<context>
+    <name>lightbox/icons</name>
+    <message>
+        <source>Use this button to move the item one position up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use this button to move the item one position down</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use this button to add the item to the shopping cart</source>
+        <translation type="unfinished">Itt teheti az elemet a kosárba.</translation>
+    </message>
+    <message>
+        <source>Are you sure that you want to delete this item ?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use this button to delete the item from this lightbox</source>
+        <translation type="unfinished">Itt törölheti az elemet ebből a gyűjtődobozból.</translation>
+    </message>
+    <message>
+        <source>Use this button to move the item from this lightbox to the selected one</source>
+        <translation type="unfinished">Itt helyezheti át az elemet az egyik gyűjtődobozból a másikba.</translation>
+    </message>
+    <message>
+        <source>Use this button to edit the current lightbox.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Are you sure that you want to delete the lightbox ?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use this button to delete the current lightbox.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You are not allowed to edit the current lightbox.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You are not allowed to delete the current lightbox.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use this button to send the current lightbox by email.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You are not allowed to send the current lightbox by email.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use this button to show the contents of the current lightbox.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You are not allowed to view the contents of the current lightbox.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Currently no lightbox can be edited</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Currently no lightbox can be deleted.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Currently no lightbox can be send by email.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Currently no lightbox can be shown.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use this button to create a new lightbox.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You are not allowed to create a new lightbox.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add this page to the current lightbox.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You are not allowed to add this page to the current lightbox.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>lightbox/menu</name>
+    <message>
+        <source>My lightboxes</source>
+        <translation type="unfinished">Gyűjtődobozaim</translation>
+    </message>
+    <message>
+        <source>current</source>
+        <translation type="unfinished">jelenlegi</translation>
+    </message>
+    <message>
+        <source>View this lightbox</source>
+        <translation type="unfinished">Megtekint</translation>
+    </message>
+    <message>
+        <source>You do not have any lightbox yet.</source>
+        <translation type="unfinished">Nincs még gyűjtődoboza.</translation>
+    </message>
+    <message>
+        <source>Other lightboxes</source>
+        <translation type="unfinished">Más gyűjtődobozok</translation>
+    </message>
+    <message>
+        <source>View this lightbox owned by %1</source>
+        <translation type="unfinished">%1 gyűjtődobozának megtekintése</translation>
+    </message>
+    <message>
+        <source>You do not have access to any other lightbox yet.</source>
+        <translation type="unfinished">Önnek nincs még hozzáférése más gyűjtődobozhoz.</translation>
     </message>
 </context>
 <context>
@@ -635,6 +921,30 @@
         <source>Find user</source>
         <translation type="unfinished">Felhasználó keresése</translation>
     </message>
+    <message>
+        <source>Send lightbox &quot;%1&quot; to %2</source>
+        <translation type="unfinished">&apos;%1&quot; gyűjtődoboz küldése neki: %2</translation>
+    </message>
+    <message>
+        <source>Send lightbox &quot;%1&quot;</source>
+        <translation type="unfinished">&apos;%1&quot; gyűjtődoboz küldése</translation>
+    </message>
+    <message>
+        <source>Receiver</source>
+        <translation type="unfinished">Címzett</translation>
+    </message>
+    <message>
+        <source>Subject</source>
+        <translation type="unfinished">Tárgy</translation>
+    </message>
+    <message>
+        <source>Body</source>
+        <translation type="unfinished">Szöveg</translation>
+    </message>
+    <message>
+        <source>Access</source>
+        <translation type="unfinished">Hozzáférés</translation>
+    </message>
 </context>
 <context>
     <name>lightbox/send/path</name>
@@ -648,6 +958,21 @@
     </message>
 </context>
 <context>
+    <name>lightbox/toolbar</name>
+    <message>
+        <source>Current Lightbox</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Choose current lightbox</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>lightbox/view</name>
     <message>
         <source>Go back</source>
@@ -656,6 +981,86 @@
     <message>
         <source>Use this button to go back to the last page.</source>
         <translation type="unfinished">Itt mehet vissza a legutóbbi oldalra.</translation>
+    </message>
+    <message>
+        <source>Locations</source>
+        <translation type="unfinished">Helyek</translation>
+    </message>
+    <message>
+        <source>Target lightbox to move the item in</source>
+        <translation type="unfinished">Cél gyűjtődoboz, ahova az elemet mozgatja </translation>
+    </message>
+    <message>
+        <source>Item ID</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Type ID</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Created</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lightbox &quot;%1&quot;</source>
+        <translation type="unfinished">&quot;%1&quot; gyűjtődoboz</translation>
+    </message>
+    <message>
+        <source>Owner</source>
+        <translation type="unfinished">Tulajdonos</translation>
+    </message>
+    <message>
+        <source>This lightbox is empty.</source>
+        <translation type="unfinished">Ez a gyűjtődoboz üres.</translation>
+    </message>
+    <message>
+        <source>Granted Users</source>
+        <translation type="unfinished">Megosztott felhasználó</translation>
+    </message>
+    <message>
+        <source>Currently no users are allowed to access this lightbox.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use this button to edit this lightbox.</source>
+        <translation type="unfinished">Itt szerkesztheti a gyűjtődobozt.</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished">Törlés</translation>
+    </message>
+    <message>
+        <source>Use this button to delete this lightbox</source>
+        <translation type="unfinished">Itt törölheti a gyűjtődobozt.</translation>
+    </message>
+    <message>
+        <source>Are you sure that you want to delete the lightbox ?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Empty</source>
+        <translation type="unfinished">Üres</translation>
+    </message>
+    <message>
+        <source>Use this button to remove all items from this lightbox</source>
+        <translation type="unfinished">Itt törölheti az elemeket a gyűjtődobozból.</translation>
+    </message>
+    <message>
+        <source>Send</source>
+        <translation type="unfinished">Küldés</translation>
+    </message>
+    <message>
+        <source>Use this button to permit another user to access this lightbox by sending him an email</source>
+        <translation type="unfinished">Itt engedélyezheti más felhasználónak a gyűjtődoboz elérését e-mailben.</translation>
+    </message>
+    <message>
+        <source>Choose a lightbox to view</source>
+        <translation type="unfinished">Válasszon egy gyűjtődobozt megtekintésre!</translation>
     </message>
 </context>
 <context>

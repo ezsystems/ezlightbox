@@ -1,9 +1,10 @@
 <?php
 //
-// Created on: <11-Sep-2007 09:08:13 ab>
+// Created on: <2007-11-21 13:01:28 ab>
 //
-// ## BEGIN COPYRIGHT, LICENSE AND WARRANTY NOTICE ##
-// COPYRIGHT NOTICE: Copyright (C) 1999-2006 eZ systems AS
+// SOFTWARE NAME: eZ Lightbox extension for eZ Publish
+// SOFTWARE RELEASE: 0.x
+// COPYRIGHT NOTICE: Copyright (C) 1999-2010 eZ Systems AS
 // SOFTWARE LICENSE: GNU General Public License v2.0
 // NOTICE: >
 //   This program is free software; you can redistribute it and/or
@@ -21,11 +22,10 @@
 //   MA 02110-1301, USA.
 //
 //
-// ## END COPYRIGHT, LICENSE AND WARRANTY NOTICE ##
-//
 
 require_once( 'autoload.php' );
 require_once( 'kernel/common/template.php' );
+require_once( 'kernel/common/i18n.php' );
 
 $http              = eZHTTPTool::instance();
 $tpl               = templateInit();
@@ -38,7 +38,8 @@ $lightboxObject    = null;
 $lightboxList      = null;
 $userLightboxList  = array();
 $otherLightboxList = array();
-$viewParameters    = array();
+$viewParameters    = isset( $Params['UserParameters'] ) ? $Params['UserParameters'] : array();
+$scriptMode        = false;
 $url               = '/lightbox/view/' . $view_mode;
 $messages          = array();
 $actionSuccess     = false;
@@ -53,36 +54,42 @@ $path              = array( array( 'text' => ezi18n( 'lightbox/view/path', 'Ligh
                                  )
                           );
 
+if ( isset( $viewParameters['scriptmode'] ) && $viewParameters['scriptmode'] == 1 )
+{
+    $scriptMode = true;
+}
+
 if ( $view_mode == '' )
 {
+    if ( !$scriptMode )
+    {
     return $Module->handleError( eZError::KERNEL_NOT_AVAILABLE, 'kernel' );
+}
+    else
+    {
+        eZDebug::writeError( 'No view mode submitted.', __METHOD__ );
+        eZDB::checkTransactionCounter();
+        eZExecution::cleanExit();
+        return;
+    }
 }
 
 if ( !is_object( $http ) )
 {
-    eZDebug::writeError( 'Failed to get eZHTTPTool instance.' );
+    eZDebug::writeError( 'Failed to get eZHTTPTool instance.', __METHOD__ );
     $error = true;
 }
 
 if ( !is_object( $tpl ) )
 {
-    eZDebug::writeError( 'Failed to get eZTemplate instance.' );
+    eZDebug::writeError( 'Failed to get eZTemplate instance.', __METHOD__ );
     $error = true;
 }
 
 if ( !is_object( $db ) )
 {
-    eZDebug::writeError( 'Failed to get eZDB instance.' );
+    eZDebug::writeError( 'Failed to get eZDB instance.', __METHOD__ );
     $error = true;
-}
-
-if ( isset( $Params['UserParameters'] ) )
-{
-    $UserParameters = $Params['UserParameters'];
-}
-else
-{
-    $UserParameters = array();
 }
 
 if ( array_key_exists( 'LightboxID', $Params ) )
@@ -90,18 +97,18 @@ if ( array_key_exists( 'LightboxID', $Params ) )
     $lightbox_id = $Params['LightboxID'];
     if ( !$lightbox_id || !is_numeric( $lightbox_id ) || $lightbox_id <= 0 )
     {
-        eZDebug::writeNotice( 'Invalid lightbox ID: ' . $lightbox_id );
+        eZDebug::writeNotice( 'Invalid lightbox ID: ' . $lightbox_id, __METHOD__ );
     }
     else
     {
         $lightboxObject = eZLightbox::fetch( $lightbox_id );
         if ( !is_object( $lightboxObject ) )
         {
-            eZDebug::writeWarning( 'Failed to fetch lightbox with ID: ' . $lightbox_id );
+            eZDebug::writeWarning( 'Failed to fetch lightbox with ID: ' . $lightbox_id, __METHOD__ );
         }
         else if ( !$lightboxObject->attribute( 'can_view' ) )
         {
-            eZDebug::writeWarning( 'You are not allowed to view lightbox with ID: ' . $lightbox_id );
+            eZDebug::writeWarning( 'You are not allowed to view lightbox with ID: ' . $lightbox_id, __METHOD__ );
             $lightboxObject = null;
         }
         else
@@ -123,7 +130,7 @@ else if ( $http->hasSessionVariable( $redirectName ) )
     $redirectURI = $http->sessionVariable( $redirectName );
 }
 else if ( $http->hasSessionVariable( 'LastAccessesURI' ) &&
-          !ereg( '(type)', $http->sessionVariable( 'LastAccessesURI' ) )
+          !preg_match( '/\b\(type\)\b/', $http->sessionVariable( 'LastAccessesURI' ) )
         )
 {
     $redirectURI = $http->sessionVariable( 'LastAccessesURI' );
@@ -162,7 +169,7 @@ if ( !$error )
     if ( $http->hasPostVariable( 'GoBackButton' ) && $redirectURI != '' )
     {
         $http->removeSessionVariable( $redirectName );
-        $Module->redirectTo( $redirectURI );
+        return $Module->redirectTo( $redirectURI );
     }
 
     if ( $http->hasPostVariable( 'DeleteLightboxButton' ) )
@@ -182,10 +189,8 @@ $parsed_uri = parse_url( $_SERVER['SCRIPT_URI'] );
 
 if ( isset( $parsed_uri['host'] ) )
 {
-    $parsed_uri['domain'] = ereg_replace( '^[^\.]*\.', '', $parsed_uri['host'] );
+    $parsed_uri['domain'] = preg_replace( '/^[^\.]*\./', '', $parsed_uri['host'] );
 }
-
-$viewParameters = array_merge( $viewParameters, $UserParameters );
 
 $tpl->setVariable( 'parsed_uri',        $parsed_uri );
 $tpl->setVariable( 'url',               $url );
@@ -199,6 +204,7 @@ $tpl->setVariable( 'viewMode',          $view_mode );
 $tpl->setVariable( 'redirectURI',       $redirectURI );
 $tpl->setVariable( 'viewParameters',    $viewParameters );
 $tpl->setVariable( 'currentUserID',     $currentUserID );
+$tpl->setVariable( 'scriptMode',        $scriptMode );
 
 $res = eZTemplateDesignResource::instance();
 
@@ -211,6 +217,14 @@ $res->setKeys( array( array( 'navigation_part_identifier', 'ezlightboxnavigation
 
 $Result = array();
 $Result['content']           = $tpl->fetch( $template );
+
+if ( $scriptMode )
+{
+    echo $Result['content'];
+    eZDB::checkTransactionCounter();
+    eZExecution::cleanExit();
+}
+
 $Result['pagelayout']        = true;
 $Result['path']              = $path;
 $Result['shown_lightbox_id'] = $lightbox_id;

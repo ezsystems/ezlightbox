@@ -1,6 +1,30 @@
 <?php
+//
+// Created on: <2007-11-21 13:01:28 ab>
+//
+// SOFTWARE NAME: eZ Lightbox extension for eZ Publish
+// SOFTWARE RELEASE: 0.x
+// COPYRIGHT NOTICE: Copyright (C) 1999-2010 eZ Systems AS
+// SOFTWARE LICENSE: GNU General Public License v2.0
+// NOTICE: >
+//   This program is free software; you can redistribute it and/or
+//   modify it under the terms of version 2.0  of the GNU General
+//   Public License as published by the Free Software Foundation.
+//
+//   This program is distributed in the hope that it will be useful,
+//   but WITHOUT ANY WARRANTY; without even the implied warranty of
+//   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+//   GNU General Public License for more details.
+//
+//   You should have received a copy of version 2.0 of the GNU General
+//   Public License along with this program; if not, write to the Free
+//   Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+//   MA 02110-1301, USA.
+//
+//
 
 require_once( 'autoload.php' );
+require_once( 'kernel/common/i18n.php' );
 
 class lightboxOperationCollection
 {
@@ -193,58 +217,12 @@ class lightboxOperationCollection
     {
         $status         = eZModuleOperationInfo::STATUS_CANCELLED;
         $messages       = array();
-        $lightboxObject = eZLightbox::fetch( $lightbox_id );
+        $lightboxObject = eZLightbox::fetch( (int)$lightbox_id );
         if ( is_object( $lightboxObject ) )
         {
-            $canAdd = false;
-            switch ( $type_id )
+            if ( $lightboxObject->userCanAddItem( (int)$type_id, (int)$item_id ) )
             {
-                case eZLightboxObject::TYPE_OBJECT_ID:
-                    $contentObject = eZContentObject::fetch( $item_id );
-                    if ( is_object( $contentObject ) )
-                    {
-                        $classList = $lightboxObject->attribute( 'can_add_class_list' );
-                        if ( is_array( $classList ) && in_array( $contentObject->attribute( 'contentclass_id' ), $classList ) )
-                        {
-                            $canAdd = true;
-                        }
-                        else
-                        {
-                            $messages[] = ezi18n( 'eZLightboxOperationCollection::addItem',
-                                                  'The current user is not allowed to add content object items of this class to a lightbox.',
-                                                  null, array( $lightbox_id )
-                                                );
-                        }
-                    }
-                    else
-                    {
-                        $messages[] = ezi18n( 'eZLightboxOperationCollection::addItem',
-                                              'No content object item with ID %1 found.',
-                                              null, array( $item_id )
-                                            );
-                    }
-                    break;
-                case eZLightboxObject::TYPE_NODE_ID:
-                    $nodeObject = eZContentObjectTreeNode::fetch( $item_id );
-                    if ( is_object( $nodeObject ) )
-                    {
-                        $canAdd = true;
-                    }
-                    else
-                    {
-                        $messages[] = ezi18n( 'eZLightboxOperationCollection::addItem',
-                                              'No content node item with ID %1 found.',
-                                              null, array( $item_id )
-                                            );
-                    }
-                    break;
-                default:
-                    $canAdd = true;
-                    break;
-            }
-            if ( $canAdd )
-            {
-                $newObject = eZLightboxObject::create( $lightbox_id, $item_id, $type_id );
+                $newObject = eZLightboxObject::create( (int)$lightbox_id, (int)$item_id, (int)$type_id );
                 if ( is_object( $newObject ) )
                 {
                     if ( isset( $_SESSION ) )
@@ -270,6 +248,12 @@ class lightboxOperationCollection
                                         );
                 }
             }
+            else
+            {
+                $messages[] = ezi18n( 'eZLightboxOperationCollection::addItem',
+                                      'You are not allowed to add lightbox object items of type %1.', null, array( $type_id )
+                                    );
+        }
         }
         else
         {

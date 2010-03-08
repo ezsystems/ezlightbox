@@ -1,0 +1,51 @@
+This file describes the steps that are required to migrate an
+existing eZ Lightbox installation from a minor release of the
+0.7 series to a minor release of the 0.8 series.
+
+0.7.x to 0.8.0
+==============
+
+Javascript function "changeCurrentLightbox()"
+---------------------------------------------
+
+If the javascript function "changeCurrentLightbox()" is used
+in any other than the default templates, this function must be
+renamed to "eZLightboxLibrary.changeCurrentLightbox()"
+
+Images
+------
+
+The following set of images have been merged into one image
+located at design/standard/images/action_lightbox_medium_sprite.png.
+If some of those images are used in other templates than the default
+ones, you need to adjust those templates and make use of CSS classes.
+
+- design/standard/images/action_add_to_cart.png
+- design/standard/images/action_lightbox_view_medium.png
+- design/standard/images/action_lightbox_new_medium.png
+- design/standard/images/action_lightbox_send_medium.png
+- design/standard/images/action_lightbox_delete_medium.png
+- design/standard/images/action_lightbox_edit_medium.png
+- design/standard/images/action_add_to_lightbox.png
+- design/standard/images/action_lightbox_move_medium.png
+
+The following set of images have been merged into one image
+located at design/standard/images/action_lightbox_move_medium.png.
+If some of those images are used in other templates than the default
+ones, you need to adjust those templates and make use of CSS classes.
+
+- design/standard/images/action_move_up.png
+- design/standard/images/action_move_down.png
+
+The following set of images have been merged into one image
+located at design/standard/images/action_lightbox_small_sprite.png.
+If some of those images are used in other templates than the default
+ones, you need to adjust those templates and make use of CSS classes.
+
+- design/standard/images/action_lightbox_view.png
+- design/standard/images/action_lightbox_delete_small.png
+- design/standard/images/action_lightbox_edit_small.png
+- design/standard/images/action_add_to_lightbox_small.png
+- design/standard/images/action_lightbox_send_small.png
+- design/standard/images/action_lightbox_move_small.png
+- design/standard/images/action_lightbox_new_small.png

@@ -3,26 +3,18 @@ eZ Lightbox extension INSTALL
 Introduction
 ============
 
-1. What is the eZ Lightbox extension?
-   --------------------------------
+Read the README file to get further information about the
+eZ Lightbox extension for eZ Publish.
 
-   This extension adds support for lightboxes to eZ Publish by adding a
-   new eZ Publish module named "lightbox" (including operations, triggers,
-   fetch functions). Besides the new modules the extension adds a custom
-   content action handler, a new datatype for the eZ Teamroom extension
-   and a standard design for the provided items.
-
-2. License
-   -------
-
-   This software is licensed under the GNU General Public License v2.0.
-   The complete license agreement is included in the LICENSE file. For
-   more information or questions please contact info@ez.no
-
-3. Requirements
-   ------------
+Requirements
+------------
 
    The following requirements exists for using eZ Lightbox extension:
+
+   o  PHP extensions:
+
+      Make sure the "HASH Message Digest Framework" is compile into
+      your PHP environment.
 
    o  eZ Publish version:
 
@@ -32,6 +24,7 @@ Introduction
 
       Currently the extension supports MySQL and Oracle databases in
       versions that are supported by eZ Publish.
+
 
 Getting eZ Publish
 ==================
@@ -49,30 +42,32 @@ http://ez.no/doc/ez_publish/technical_manual
 Installing eZ Lightbox extension
 ================================
 
-1. Copy or untar the package into the `extension' directory in the root of your
-   eZ Publish installation.
-
-2. Unpack the files in the distribution.
+1. Unpack the files in the distribution.
 
    $ unzip ezlightbox-extension-0.7.4.zip
 
-3. Enable the extension in eZ Publish. To do this edit site.ini.append(.php) in the
-   folder root_of_ezpublish/settings/override. If this file does not exist, create it.
-   Locate (or add) the block [ExtensionSettings] and add the line:
+2. Copy the directory 'ezlightbox' into the 'extension' directory
+   located in the root of your eZ Publish installation.
+
+3. Enable the extension in eZ Publish. To do this edit site.ini.append(.php)
+   in the folder <ROOT_OF_EZPUBLISH>/settings/override. If this file does not
+   exist, create it. Locate (or add) the block [ExtensionSettings] and add
+   the line:
 
    ActiveExtensions[]=ezlightbox
 
-   If you run several sites using only one distribution and only some of the sites should use
-   the extension, make the changes in the override file of that siteaccess.
-   E.g root_of_ezpublish/settings/siteaccess/news/site.ini.append(.php)
+   If you run several sites using only one distribution and only some of the
+   sites should use the extension, make the changes in the override file of
+   that siteaccess.
+   E.g <ROOT_OF_EZPUBLISH>/settings/siteaccess/news/site.ini.append(.php)
    But instead of using ActiveExtensions you must add these lines instead:
 
    [ExtensionSettings]
    ActiveAccessExtensions[]=ezlightbox
 
-   Regenerate the extension autoload file, either via GUI (in case the  eZ Publish
-   site is already installed ) in the Admin interface, "Setup" tab, "Extensions" page,
-   or by executing the ezpgenerateautoloads.php file.
+   Regenerate the extension autoload file, either via GUI (in case the
+   eZ Publish site is already installed ) in the Admin interface, "Setup"
+   tab, "Extensions" page, or by executing the ezpgenerateautoloads.php file.
 
 
 Initializing Lightbox databases
@@ -86,10 +81,10 @@ Initializing Lightbox databases
    $ mysql -u <USERNAME> -h <HOSTNAME> -p <DATABASENAME> < extension/ezlightbox/sql/mysql/ezlightbox.sql
 
    Replace the placeholders <USERNAME>, <HOSTNAME> and <DATABASENAME> with
-   the username of your database, the hostname the MySQL database is running on
-   and the name of the database used by eZ Publish. After executing this command
-   you will be requested to enter the password of the user. Refer to your site.ini
-   file to get the required values.
+   the username of your database, the hostname the MySQL database is running
+   on and the name of the database used by eZ Publish. After executing this
+   command you will be requested to enter the password of the user. Refer to
+   your site.ini file to get the required values.
 
 2. Oracle
    ------
@@ -107,25 +102,27 @@ Initializing Lightbox databases
 Enabling user to make use of lightboxes
 =======================================
 
-Login to the administration interface as an administrator user. Navigate to the "User accounts"
-menu and click on "Roles and policies" on the left handside of the screen. Either edit an existing
-role or create a new one. Add a new policy and in the upcoming dialog select "lightbox" as a module
-name. Depending on your intension you can grant full or limited access to several functions that
-are available in the lightbox module.
+Login to the administration interface as an administrator user. Navigate to
+the "User accounts" menu and click on "Roles and policies" on the left
+handside of the screen. Either edit an existing role or create a new one.
+Add a new policy and in the upcoming dialog select "lightbox" as a module
+name. Depending on your intension you can grant full or limited access to
+several functions that are available in the lightbox module.
+
 
 Integrate lightbox funtionality into your site
 ==============================================
 
-The easiest way is to just include the lightbox toolbar somewhere into your pagelayout. If you
-wish to include the toolbar within a cache-block you should think about modifying it
-accordingly, because the toolbar already demonstrates how the lightbox functionality could
-be used with cache-blocks.
+The easiest way is to just include the lightbox toolbar somewhere into your
+pagelayout. If you wish to include the toolbar within a cache-block you should
+think about modifying it accordingly, because the toolbar already demonstrates
+how the lightbox functionality could be used with cache-blocks.
 
 {include uri="design:lightbox/toolbar.tpl"}
 
-When viewing the content of a lightbox it could be useful to have an additional menu. This
-menu is typically also included within the pagelayout.tpl. If you wish a dependant inclusion
-of the menu, this can be done as follows.
+When viewing the content of a lightbox it could be useful to have an additional
+menu. This menu is typically also included within the pagelayout.tpl. If you
+wish a dependant inclusion of the menu, this can be done as follows.
 
 {def $shown_lightbox_id = first_set( $module_result.shown_lightbox_id, false() )}
 
@@ -144,10 +141,20 @@ of the menu, this can be done as follows.
 
 {/if}
 
-This template does not make use of cache-blocks so far, so it should be safe to use it
-anywhere.
+This template does not make use of cache-blocks so far, so it should be safe
+to use it anywhere.
 
-Troubleshooting
+Update the autoloads
+====================
+
+On the command line use the script bin/php/ezpgenerateautoloads.php with the
+parameter "-e" to update the autoloads array. This will make all PHP files,
+provided by the extension, available in eZ Publish.
+
+Clear the cache
 ===============
 
-Not available yet.
+To be sure all your changes take effect, you should clear the cache. This can
+be done from within the administration interface in the "Setup" top menu.
+Optionally you can clear the cache from the command line by executing the script
+bin/php/ezcache with the parameter "--clear-all"

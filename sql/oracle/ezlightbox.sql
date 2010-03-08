@@ -7,7 +7,7 @@ CREATE TABLE ezlightbox (
  PRIMARY KEY ( id )
 );
 
-CREATE SEQUENCE s_lightbox
+CREATE SEQUENCE s_lightbox;
 CREATE OR REPLACE TRIGGER ezlightbox_tr
 BEFORE INSERT ON ezlightbox FOR EACH ROW WHEN (new.id IS NULL)
 BEGIN

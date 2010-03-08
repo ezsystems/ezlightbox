@@ -1,9 +1,10 @@
 <?php
 //
-// Created on: <25-Aug-2007 11:11:11 dis>
+// Created on: <2007-11-21 13:01:28 ab>
 //
-// ## BEGIN COPYRIGHT, LICENSE AND WARRANTY NOTICE ##
-// COPYRIGHT NOTICE: Copyright (C) 1999-2006 eZ systems AS
+// SOFTWARE NAME: eZ Lightbox extension for eZ Publish
+// SOFTWARE RELEASE: 0.x
+// COPYRIGHT NOTICE: Copyright (C) 1999-2010 eZ Systems AS
 // SOFTWARE LICENSE: GNU General Public License v2.0
 // NOTICE: >
 //   This program is free software; you can redistribute it and/or
@@ -20,8 +21,6 @@
 //   Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
 //   MA 02110-1301, USA.
 //
-//
-// ## END COPYRIGHT, LICENSE AND WARRANTY NOTICE ##
 //
 
 $Module = array( 'name' => 'lightbox' );
@@ -67,47 +66,6 @@ $ViewList['send'] = array(
     'ui_context'              => 'browse'
 );
 
-$ClassID = array(
-    'name'      => 'Class',
-    'values'    => array(),
-    'path'      => 'classes/',
-    'file'      => 'ezcontentclass.php',
-    'class'     => 'eZContentClass',
-    'function'  => 'fetchList',
-    'parameter' => array( 0, false, false, array( 'name' => 'asc' ) )
-);
-
-$Owner = array(
-    'name'   => 'Owner',
-    'values' => array( array( 'Name'  => 'Self',
-                              'value' => '1'
-                            )
-                     )
-);
-
-$GrantOwner = array(
-    'name'   => 'Owner',
-    'values' => array( array( 'Name'  => 'Self',
-                              'value' => '1'
-                            ),
-                       array( 'Name'  => 'Granted',
-                              'value' => '2'
-                            )
-                     )
-);
-
-$FunctionList = array();
-
-$FunctionList['add']    = array( 'Owner' => $Owner, 'Class' => $ClassID );
-
-$FunctionList['create'] = array();
-
-$FunctionList['edit']   = array( 'Owner' => $Owner );
-
-$FunctionList['view']   = array( 'Owner' => $GrantOwner );
-
-$FunctionList['send']   = array( 'Owner' => $Owner );
-
-$FunctionList['grant']  = array( 'Owner' => $Owner );
+$FunctionList = eZLightbox::generatePermissionFunctionList();
 
 ?>

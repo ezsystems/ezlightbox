@@ -8,5 +8,134 @@ div.lightboxlist ul
 div.lightboxlist ul li
 {
     margin: 0px;
+    background-image: none;
 }
 
+div.lightboxitem
+{
+    width: 80%;
+    float: left;
+}
+
+div.lightboxline div.actions
+{
+    display: inline;
+    float: left;
+}
+
+div.iconseparator
+{
+    clear: both;
+}
+
+span.lightboxActionSmall
+{
+    width: 28px;
+    height: 17px;
+    display: block;
+}
+
+span.lightboxCartSmall
+{
+    background: url( '/extension/ezlightbox/design/standard/images/action_lightbox_small_sprite.png' ) no-repeat -84px -17px;
+}
+
+span.lightboxEditSmall
+{
+    background: url( '/extension/ezlightbox/design/standard/images/action_lightbox_small_sprite.png' ) no-repeat -56px -17px;
+}
+
+span.lightboxDeleteSmall
+{
+    background: url( '/extension/ezlightbox/design/standard/images/action_lightbox_small_sprite.png' ) no-repeat -28px -17px;
+}
+
+span.lightboxSendSmall
+{
+    background: url( '/extension/ezlightbox/design/standard/images/action_lightbox_small_sprite.png' ) no-repeat 0px -17px;
+}
+
+span.lightboxAddSmallm
+{
+    background: url( '/extension/ezlightbox/design/standard/images/action_lightbox_small_sprite.png' ) no-repeat -84px 0px;
+}
+
+span.lightboxViewSmall
+{
+    background: url( '/extension/ezlightbox/design/standard/images/action_lightbox_small_sprite.png' ) no-repeat -56px 0px;
+}
+
+span.lightboxCreateSmall
+{
+    background: url( '/extension/ezlightbox/design/standard/images/action_lightbox_small_sprite.png' ) no-repeat -28px 0px;
+}
+
+span.lightboxMoveSmall
+{
+    background: url( '/extension/ezlightbox/design/standard/images/action_lightbox_small_sprite.png' ) no-repeat 0px 0px;
+}
+
+span.lightboxActionMedium
+{
+    width: 38px;
+    height: 23px;
+    display: block;
+}
+
+span.lightboxCartMedium
+{
+    background: url( '/extension/ezlightbox/design/standard/images/action_lightbox_medium_sprite.png' ) no-repeat -114px -23px;
+}
+
+span.lightboxEditMedium
+{
+    background: url( '/extension/ezlightbox/design/standard/images/action_lightbox_medium_sprite.png' ) no-repeat -76px -23px;
+}
+
+span.lightboxDeleteMedium
+{
+    background: url( '/extension/ezlightbox/design/standard/images/action_lightbox_medium_sprite.png' ) no-repeat -38px -23px;
+}
+
+span.lightboxSendMedium
+{
+    background: url( '/extension/ezlightbox/design/standard/images/action_lightbox_medium_sprite.png' ) no-repeat 0px -23px;
+}
+
+span.lightboxAddMedium
+{
+    background: url( '/extension/ezlightbox/design/standard/images/action_lightbox_medium_sprite.png' ) no-repeat -114px 0px;
+}
+
+span.lightboxViewMedium
+{
+    background: url( '/extension/ezlightbox/design/standard/images/action_lightbox_medium_sprite.png' ) no-repeat -76px 0px;
+}
+
+span.lightboxCreateMedium
+{
+    background: url( '/extension/ezlightbox/design/standard/images/action_lightbox_medium_sprite.png' ) no-repeat -38px 0px;
+}
+
+span.lightboxMoveMedium
+{
+    background: url( '/extension/ezlightbox/design/standard/images/action_lightbox_medium_sprite.png' ) no-repeat 0px 0px;
+}
+
+span.lightboxMove
+{
+    width: 16px;
+    height: 16px;
+    display: block;
+    float: left;
+    margin-right: 5px;
+}
+span.lightboxMoveItemUp
+{
+    background: url( '/extension/ezlightbox/design/standard/images/move_action_sprite.png' ) no-repeat 0px 0px;
+}
+
+span.lightboxMoveItemDown
+{
+    background: url( '/extension/ezlightbox/design/standard/images/move_action_sprite.png' ) no-repeat -16px 0px;
+}

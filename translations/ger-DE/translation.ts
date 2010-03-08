@@ -24,6 +24,14 @@
         <source>Grant</source>
         <translation>Freigeben</translation>
     </message>
+    <message>
+        <source>Add</source>
+        <translation>Hinzufügen</translation>
+    </message>
+    <message>
+        <source>Send</source>
+        <translation>Verschicken</translation>
+    </message>
 </context>
 <context>
     <name>datatype/lightboxwrapper</name>
@@ -49,15 +57,15 @@
     <name>eZLightboxOperationCollection::addItem</name>
     <message>
         <source>The current user is not allowed to add content object items of this class to a lightbox.</source>
-        <translation>Der aktuelle Benutzer ist nicht dazu berechtigt Inhaltsobjekte dieser Klasse zu einer Lightbox hinzuzufügen.</translation>
+        <translation type="obsolete">Der aktuelle Benutzer ist nicht dazu berechtigt Inhaltsobjekte dieser Klasse zu einer Lightbox hinzuzufügen.</translation>
     </message>
     <message>
         <source>No content object item with ID %1 found.</source>
-        <translation>Es wurde kein Inhaltsobjekt mit der ID %1 gefunden.</translation>
+        <translation type="obsolete">Es wurde kein Inhaltsobjekt mit der ID %1 gefunden.</translation>
     </message>
     <message>
         <source>No content node item with ID %1 found.</source>
-        <translation>Es wurde kein Inhaltsknoten mit der ID %1 gefunden.</translation>
+        <translation type="obsolete">Es wurde kein Inhaltsknoten mit der ID %1 gefunden.</translation>
     </message>
     <message>
         <source>Successfully added item of type %1 with ID %2 to lightbox with ID %3.</source>
@@ -70,6 +78,10 @@
     <message>
         <source>A lightbox with ID %1 does not exist.</source>
         <translation>Eine Lightbox mit der ID %1 existiert nicht.</translation>
+    </message>
+    <message>
+        <source>You are not allowed to add lightbox object items of type %1.</source>
+        <translation>Sie haben keine Berechtigung Elemente des Typs %1 zur Lightbox hinzuzufügen.</translation>
     </message>
 </context>
 <context>
@@ -237,6 +249,28 @@
     </message>
 </context>
 <context>
+    <name>lightbox/add</name>
+    <message>
+        <source>Successfully added item to lightbox</source>
+        <translation>Element erfolgreich zur Lightbox hinzugefügt</translation>
+    </message>
+    <message>
+        <source>Failed to add item to lightbox</source>
+        <translation>Element konnte nicht zur Lightbox hinzugefügt werden</translation>
+    </message>
+</context>
+<context>
+    <name>lightbox/add/path</name>
+    <message>
+        <source>Lightbox</source>
+        <translation>Lightbox</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation>Hinzufügen</translation>
+    </message>
+</context>
+<context>
     <name>lightbox/create</name>
     <message>
         <source>Name</source>
@@ -392,6 +426,101 @@
     </message>
 </context>
 <context>
+    <name>lightbox/icons</name>
+    <message>
+        <source>Use this button to move the item one position up</source>
+        <translation>Klicken Sie auf diesen Knopf, um das Element eine Position nach oben zu verschieben</translation>
+    </message>
+    <message>
+        <source>Use this button to move the item one position down</source>
+        <translation>Klicken Sie auf diesen Knopf, um das Element eine Position nach unten zu verschieben</translation>
+    </message>
+    <message>
+        <source>Use this button to add the item to the shopping cart</source>
+        <translation>Klicken Sie auf diesen Knopf um das Element zum Einkaufskorb hinzuzufügen</translation>
+    </message>
+    <message>
+        <source>Are you sure that you want to delete this item ?</source>
+        <translation>Sind Sie sicher das Sie dieses Element entfernen wollen?</translation>
+    </message>
+    <message>
+        <source>Use this button to delete the item from this lightbox</source>
+        <translation>Klicken Sie auf diesen Knopf um das Element aus der Lightbox zu entfernen</translation>
+    </message>
+    <message>
+        <source>Use this button to move the item from this lightbox to the selected one</source>
+        <translation>Klicken Sie auf diesen Knopf um das Element in die ausgewählte Lightbox zu verschieben</translation>
+    </message>
+    <message>
+        <source>Use this button to edit the current lightbox.</source>
+        <translation>Klicken Sie auf diesen Knopf um die aktuelle Lightbox zu bearbeiten.</translation>
+    </message>
+    <message>
+        <source>Are you sure that you want to delete the lightbox ?</source>
+        <translation>Sind Sie sicher das Sie diese Lightbox löschen möchten?</translation>
+    </message>
+    <message>
+        <source>Use this button to delete the current lightbox.</source>
+        <translation>Klicken Sie auf diesen Knopf um die aktuelle Lightbox zu entfernen.</translation>
+    </message>
+    <message>
+        <source>You are not allowed to edit the current lightbox.</source>
+        <translation>Sie haben keine Berechtigung die aktuelle Lightbox zu bearbeiten.</translation>
+    </message>
+    <message>
+        <source>You are not allowed to delete the current lightbox.</source>
+        <translation>Sie haben keine Berechtigung die aktuelle Lightbox zu entfernen.</translation>
+    </message>
+    <message>
+        <source>Use this button to send the current lightbox by email.</source>
+        <translation>Klicken Sie auf diesen Knopf um die aktuelle Lightbox per E-Mail zu verschicken.</translation>
+    </message>
+    <message>
+        <source>You are not allowed to send the current lightbox by email.</source>
+        <translation>Sie haben nicht die Berechtigung die aktuelle Lightbox per E-Mail zu verschicken.</translation>
+    </message>
+    <message>
+        <source>Use this button to show the contents of the current lightbox.</source>
+        <translation>Klicken Sie auf diesen Knopf um die Inhalte der aktuellen Lightbox anzuzeigen.</translation>
+    </message>
+    <message>
+        <source>You are not allowed to view the contents of the current lightbox.</source>
+        <translation>Sie haben nicht die Berechtigung die Inhalte der aktuellen Lightbox anzeigen zu lassen.</translation>
+    </message>
+    <message>
+        <source>Currently no lightbox can be edited</source>
+        <translation>Derzeit kann keine Lightbox bearbeitet werden</translation>
+    </message>
+    <message>
+        <source>Currently no lightbox can be deleted.</source>
+        <translation>Derzeit kann keine Lightbox gelöscht werden.</translation>
+    </message>
+    <message>
+        <source>Currently no lightbox can be send by email.</source>
+        <translation>Derzeit kann keine Lightbox per E-Mail verschickt werden.</translation>
+    </message>
+    <message>
+        <source>Currently no lightbox can be shown.</source>
+        <translation>Derzeit können keine Lightbox-Inhalte angezeigt werden.</translation>
+    </message>
+    <message>
+        <source>Use this button to create a new lightbox.</source>
+        <translation>Klicken Sie auf diesen Knopf um eine neue Lightbox anzulegen.</translation>
+    </message>
+    <message>
+        <source>You are not allowed to create a new lightbox.</source>
+        <translation>Sie haben nicht die Berechtigung eine neue Lightbox anzulegen.</translation>
+    </message>
+    <message>
+        <source>Add this page to the current lightbox.</source>
+        <translation>Diese Seite zur aktuellen Lightbox hinzufügen.</translation>
+    </message>
+    <message>
+        <source>You are not allowed to add this page to the current lightbox.</source>
+        <translation>Sie haben nicht die Berechtigung diese Seite zur aktuellen Lightbox hinzuzufügen.</translation>
+    </message>
+</context>
+<context>
     <name>lightbox/menu</name>
     <message>
         <source>My lightboxes</source>
@@ -505,6 +634,21 @@
     </message>
 </context>
 <context>
+    <name>lightbox/toolbar</name>
+    <message>
+        <source>Current Lightbox</source>
+        <translation>Aktuelle Lightbox</translation>
+    </message>
+    <message>
+        <source>Choose current lightbox</source>
+        <translation>Wählen Sie die aktuelle Lightbox</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>Keine</translation>
+    </message>
+</context>
+<context>
     <name>lightbox/view</name>
     <message>
         <source>Go back</source>
@@ -568,27 +712,27 @@
     </message>
     <message>
         <source>Use this button to add the item to the shopping cart</source>
-        <translation>Klicken Sie auf diesen Knopf um das Element zum Einkaufskorb hinzuzufügen</translation>
+        <translation type="obsolete">Klicken Sie auf diesen Knopf um das Element zum Einkaufskorb hinzuzufügen</translation>
     </message>
     <message>
         <source>Cart</source>
-        <translation>Einkaufskorb</translation>
+        <translation type="obsolete">Einkaufskorb</translation>
     </message>
     <message>
         <source>Use this button to delete the item from this lightbox</source>
-        <translation>Klicken Sie auf diesen Knopf um das Element aus der Lightbox zu entfernen</translation>
+        <translation type="obsolete">Klicken Sie auf diesen Knopf um das Element aus der Lightbox zu entfernen</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation>Entfernen</translation>
+        <translation type="obsolete">Entfernen</translation>
     </message>
     <message>
         <source>Move</source>
-        <translation>Verschieben</translation>
+        <translation type="obsolete">Verschieben</translation>
     </message>
     <message>
         <source>Use this button to move the item from this lightbox to the selected one</source>
-        <translation>Klicken Sie auf diesen Knopf um das Element in die ausgewählte Lightbox zu verschieben</translation>
+        <translation type="obsolete">Klicken Sie auf diesen Knopf um das Element in die ausgewählte Lightbox zu verschieben</translation>
     </message>
     <message>
         <source>Target lightbox to move the item in</source>
@@ -608,23 +752,35 @@
     </message>
     <message>
         <source>Use this button to move the item one position up</source>
-        <translation>Klicken Sie auf diesen Knopf, um das Element eine Position nach oben zu verschieben</translation>
+        <translation type="obsolete">Klicken Sie auf diesen Knopf, um das Element eine Position nach oben zu verschieben</translation>
     </message>
     <message>
         <source>Up</source>
-        <translation>Nach oben</translation>
+        <translation type="obsolete">Nach oben</translation>
     </message>
     <message>
         <source>Use this button to move the item one position down</source>
-        <translation>Klicken Sie auf diesen Knopf, um das Element eine Position nach unten zu verschieben</translation>
+        <translation type="obsolete">Klicken Sie auf diesen Knopf, um das Element eine Position nach unten zu verschieben</translation>
     </message>
     <message>
         <source>Down</source>
-        <translation>Nach unten</translation>
+        <translation type="obsolete">Nach unten</translation>
     </message>
     <message>
         <source>Unknown item type for item ID %1</source>
-        <translation>Unbekannter Typ für das Element mit der ID %1</translation>
+        <translation type="obsolete">Unbekannter Typ für das Element mit der ID %1</translation>
+    </message>
+    <message>
+        <source>Item ID</source>
+        <translation>Element ID</translation>
+    </message>
+    <message>
+        <source>Type ID</source>
+        <translation>Typ ID</translation>
+    </message>
+    <message>
+        <source>Created</source>
+        <translation>Erstellt</translation>
     </message>
 </context>
 <context>

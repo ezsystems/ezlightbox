@@ -1,3 +1,10 @@
 - Add action dependent redirection (redirectUri_<ACTIONNAME>) to be more flexible
 - Add multilanguage support for lightbox names
+- Adjust names of classes and variables related to lightbox item types and
+  lightbox items because they are mixed up somehow
+- Add javascript functions to provide better sorting of items in a lightbox
+  and to add item to a lightbox on the fly
+- Add further limitations to the node and object item types (sections, etc.)
+- Add further keys to the template design ressource in all views
+- Improve handling of item types from within templates (avoid usage of ids)
 

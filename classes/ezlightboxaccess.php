@@ -1,13 +1,40 @@
 <?php
+//
+// Created on: <2007-11-21 13:01:28 ab>
+//
+// SOFTWARE NAME: eZ Lightbox extension for eZ Publish
+// SOFTWARE RELEASE: 0.x
+// COPYRIGHT NOTICE: Copyright (C) 1999-2010 eZ Systems AS
+// SOFTWARE LICENSE: GNU General Public License v2.0
+// NOTICE: >
+//   This program is free software; you can redistribute it and/or
+//   modify it under the terms of version 2.0  of the GNU General
+//   Public License as published by the Free Software Foundation.
+//
+//   This program is distributed in the hope that it will be useful,
+//   but WITHOUT ANY WARRANTY; without even the implied warranty of
+//   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+//   GNU General Public License for more details.
+//
+//   You should have received a copy of version 2.0 of the GNU General
+//   Public License along with this program; if not, write to the Free
+//   Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+//   MA 02110-1301, USA.
+//
+//
 
 require_once( 'autoload.php' );
+require_once( 'kernel/common/i18n.php' );
 
 class eZLightboxAccess extends eZPersistentObject
 {
 
-    const VIEW  = 1;
-    const EDIT  = 2;
-    const GRANT = 4; // ToDo: Add "SEND" here
+    const VIEW  = 1,
+          EDIT  = 2,
+          GRANT = 4,
+          ADD   = 8,
+          SEND  = 16,
+          MAX_ACCESS_VALUE = 32; // Sum of all the above +1
 
     function eZLightboxAccess( $row = array() )
     {
@@ -59,20 +86,26 @@ class eZLightboxAccess extends eZPersistentObject
     {
         return array( eZLightboxAccess::VIEW  => ezi18n( 'class/ezlightboxaccess/accessKeys', 'View'  ),
                       eZLightboxAccess::EDIT  => ezi18n( 'class/ezlightboxaccess/accessKeys', 'Edit'  ),
-                      eZLightboxAccess::GRANT => ezi18n( 'class/ezlightboxaccess/accessKeys', 'Grant' ) // ToDo: Add 'Send' here
+                      eZLightboxAccess::GRANT => ezi18n( 'class/ezlightboxaccess/accessKeys', 'Grant' ),
+                      eZLightboxAccess::ADD   => ezi18n( 'class/ezlightboxaccess/accessKeys', 'Add'   ),
+                      eZLightboxAccess::SEND  => ezi18n( 'class/ezlightboxaccess/accessKeys', 'Send'  )
                     );
     }
 
     public static function accessKeyByName( $accessKeyName )
     {
         switch ( strtolower( trim( $accessKeyName ) ) )
-        {   // ToDo: Add 'send' here
+        {
             case 'view':
                 return eZLightboxAccess::VIEW;
             case 'edit':
                 return eZLightboxAccess::EDIT;
             case 'grant':
                 return eZLightboxAccess::GRANT;
+            case 'add':
+                return eZLightboxAccess::ADD;
+            case 'send':
+                return eZLightboxAccess::SEND;
             default:
                 eZDebug::writeWarning( 'Unkown access key name "' . $accessKeyName . '". Should be one of "view", "edit" or "grant".' );
                 return null;
@@ -83,7 +116,9 @@ class eZLightboxAccess extends eZPersistentObject
     {   // ToDo: Add "SEND" here
         return array( eZLightboxAccess::VIEW  => 'v',
                       eZLightboxAccess::EDIT  => 'e',
-                      eZLightboxAccess::GRANT => 'g'
+                      eZLightboxAccess::GRANT => 'g',
+                      eZLightboxAccess::ADD   => 'a',
+                      eZLightboxAccess::SEND  => 's'
                     );
     }
 
@@ -97,6 +132,10 @@ class eZLightboxAccess extends eZPersistentObject
                 return eZLightboxAccess::EDIT;
             case 'g':
                 return eZLightboxAccess::GRANT;
+            case 'a':
+                return eZLightboxAccess::ADD;
+            case 's':
+                return eZLightboxAccess::SEND;
             default:
                 eZDebug::writeWarning( 'Unkown access key name "' . $accessKeyFlag . '". Should be one of "v", "e" or "g".' );
                 return null;
@@ -115,7 +154,7 @@ class eZLightboxAccess extends eZPersistentObject
             eZDebug::writeWarning( 'Invalid user ID: ' . $userID, 'eZLightboxAccess::create' );
             return null;
         }
-        if ( $accessMask > 0 && $accessMask < 8 )
+        if ( $accessMask > 0 && $accessMask < eZLightboxAccess::MAX_ACCESS_VALUE )
         {
             $lightboxAccessObject = new eZLightboxAccess( array( 'lightbox_id' => $lightboxID,
                                                                  'user_id'     => $userID,
@@ -323,7 +362,7 @@ class eZLightboxAccess extends eZPersistentObject
 
     public function checkAccess( $access )
     {
-        if ( $access > 0 && $access < 8 )
+        if ( $access > 0 && $access < eZLightboxAccess::MAX_ACCESS_VALUE )
         {
             return ( $this->attribute( 'access_mask' ) & $access ) == true;
         }

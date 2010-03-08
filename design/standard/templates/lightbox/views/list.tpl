@@ -17,19 +17,27 @@
     {def $isForeignLightbox = $selectedLightbox.owner_id|ne( $currentUserID )}
 
 <h1>{'Lightbox "%1"'|i18n( 'lightbox/view', , hash( '%1', $selectedLightbox.name ) )}</h1>
+<div class="lightboxlist">
 
     {if $isForeignLightbox}
 
-<div class="lightboxlist">
  <div class="lightboxowner">
   <strong>{'Owner'|i18n( 'lightbox/view' )}:</strong> {$selectedLightbox.owner.contentobject.name|wash()}
  </div>
- <div class="itemlist">
 
     {/if}
 
+ <div class="itemlist">
+
     {if $selectedLightbox.itemlist|count()|gt( 0 )}
 
+  <form action={'/content/action'|ezurl()} method="post" id="hiddenLightboxListActionForm">
+   <input type="hidden" name="ContentObjectID" value="0" />
+   <input type="hidden" name="ItemID"          value=""                        id="hiddenLightboxListActionFormItemID" />
+   <input type="hidden" name="ItemType"        value=""                        id="hiddenLightboxListActionFormItemType" />
+   <input type="hidden" name=""                value="1"                       id="hiddenLightboxListActionFormSubmitField" />
+   <input type="hidden" name="LightboxID"      value="{$selectedLightbox.id}"  id="hiddenLightboxListActionFormLightboxID" />
+  </form>
   <ul id="itemlist_{$selectedLightbox.id}">
 
         {def $content_object = false()
@@ -52,31 +60,12 @@
 
    <li id="item_{$itemObject.item_id}">
 
-            {if $itemObject.type_id|eq( 1 )} {* Content object *}
-
-                {content_view_gui content_object = fetch( 'content', 'object', hash( 'object_id', $itemObject.item_id ) )
-                                       object_id = $itemObject.item_id
-                                            view = lightbox_line
+            {lightbox_item_view_gui     itemObject = $itemObject
+                                              view = 'line'
                                               bg = $bg
                                   can_use_basket = $can_use_basket
                                     lightboxList = $userLightboxList
                                         lightbox = $selectedLightbox}
-
-            {elseif $itemObject.type_id|eq( 2 )} {* Content node *}
-
-                {node_view_gui   content_node = fetch( 'content', 'node', hash( 'node_id', $itemObject.item_id ) )
-                                      node_id = $itemObject.item_id
-                                         view = lightbox_line
-                                           bg = $bg
-                               can_use_basket = $can_use_basket
-                                 lightboxList = $userLightboxList
-                                     lightbox = $selectedLightbox}
-
-            {else}
-
-                {'Unknown item type for item ID %1'|i18n( 'lightbox/view', , array( $itemObject.item_id ) )}
-
-            {/if}
 
    </li>
 

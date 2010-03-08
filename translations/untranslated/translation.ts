@@ -24,6 +24,14 @@
         <source>Grant</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Send</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>datatype/lightboxwrapper</name>
@@ -49,15 +57,15 @@
     <name>eZLightboxOperationCollection::addItem</name>
     <message>
         <source>The current user is not allowed to add content object items of this class to a lightbox.</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete"></translation>
     </message>
     <message>
         <source>No content object item with ID %1 found.</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete"></translation>
     </message>
     <message>
         <source>No content node item with ID %1 found.</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete"></translation>
     </message>
     <message>
         <source>Successfully added item of type %1 with ID %2 to lightbox with ID %3.</source>
@@ -69,6 +77,10 @@
     </message>
     <message>
         <source>A lightbox with ID %1 does not exist.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You are not allowed to add lightbox object items of type %1.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -237,6 +249,28 @@
     </message>
 </context>
 <context>
+    <name>lightbox/add</name>
+    <message>
+        <source>Successfully added item to lightbox</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to add item to lightbox</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>lightbox/add/path</name>
+    <message>
+        <source>Lightbox</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>lightbox/create</name>
     <message>
         <source>Name</source>
@@ -392,6 +426,101 @@
     </message>
 </context>
 <context>
+    <name>lightbox/icons</name>
+    <message>
+        <source>Use this button to move the item one position up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use this button to move the item one position down</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use this button to add the item to the shopping cart</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Are you sure that you want to delete this item ?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use this button to delete the item from this lightbox</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use this button to move the item from this lightbox to the selected one</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use this button to edit the current lightbox.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Are you sure that you want to delete the lightbox ?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use this button to delete the current lightbox.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You are not allowed to edit the current lightbox.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You are not allowed to delete the current lightbox.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use this button to send the current lightbox by email.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You are not allowed to send the current lightbox by email.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use this button to show the contents of the current lightbox.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You are not allowed to view the contents of the current lightbox.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Currently no lightbox can be edited</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Currently no lightbox can be deleted.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Currently no lightbox can be send by email.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Currently no lightbox can be shown.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use this button to create a new lightbox.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You are not allowed to create a new lightbox.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add this page to the current lightbox.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You are not allowed to add this page to the current lightbox.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>lightbox/menu</name>
     <message>
         <source>My lightboxes</source>
@@ -505,6 +634,21 @@
     </message>
 </context>
 <context>
+    <name>lightbox/toolbar</name>
+    <message>
+        <source>Current Lightbox</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Choose current lightbox</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>lightbox/view</name>
     <message>
         <source>Go back</source>
@@ -568,27 +712,27 @@
     </message>
     <message>
         <source>Use this button to add the item to the shopping cart</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete"></translation>
     </message>
     <message>
         <source>Cart</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete"></translation>
     </message>
     <message>
         <source>Use this button to delete the item from this lightbox</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete"></translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete"></translation>
     </message>
     <message>
         <source>Move</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete"></translation>
     </message>
     <message>
         <source>Use this button to move the item from this lightbox to the selected one</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete"></translation>
     </message>
     <message>
         <source>Target lightbox to move the item in</source>
@@ -608,22 +752,34 @@
     </message>
     <message>
         <source>Use this button to move the item one position up</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete"></translation>
     </message>
     <message>
         <source>Up</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete"></translation>
     </message>
     <message>
         <source>Use this button to move the item one position down</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete"></translation>
     </message>
     <message>
         <source>Down</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete"></translation>
     </message>
     <message>
         <source>Unknown item type for item ID %1</source>
+        <translation type="obsolete"></translation>
+    </message>
+    <message>
+        <source>Item ID</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Type ID</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Created</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

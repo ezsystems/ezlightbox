@@ -1,4 +1,27 @@
 <?php
+//
+// Created on: <2007-11-21 13:01:28 ab>
+//
+// SOFTWARE NAME: eZ Lightbox extension for eZ Publish
+// SOFTWARE RELEASE: 0.x
+// COPYRIGHT NOTICE: Copyright (C) 1999-2010 eZ Systems AS
+// SOFTWARE LICENSE: GNU General Public License v2.0
+// NOTICE: >
+//   This program is free software; you can redistribute it and/or
+//   modify it under the terms of version 2.0  of the GNU General
+//   Public License as published by the Free Software Foundation.
+//
+//   This program is distributed in the hope that it will be useful,
+//   but WITHOUT ANY WARRANTY; without even the implied warranty of
+//   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+//   GNU General Public License for more details.
+//
+//   You should have received a copy of version 2.0 of the GNU General
+//   Public License along with this program; if not, write to the Free
+//   Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+//   MA 02110-1301, USA.
+//
+//
 
 require_once( 'autoload.php' );
 
@@ -7,35 +30,66 @@ interface ieZLightboxObjectItem
 
     public function getID();
 
+    public function fetchItemObjectById( $itemID );
+
     public function itemIDisValid( $itemID );
+
+    public function itemObjectIsValid( $itemObject );
+
+    public function cleanUp();
+
+    public function getPermissionFunctionListByName( $functionName );
+
+    public function policyMatchItemObject( $policy, $itemObject );
 
 }
 
 class eZLightboxObjectItem
 {
 
-    private static $definition   = null;
-    private static $itemNameList = null;
-    private static $itemIDList   = null;
+    private static $definition        = null,
+                   $itemNameList      = null,
+                   $itemIDList        = null,
+                   $itemList          = null,
+                   $itemIDAndNameList = null,
+                   $itemsFetched      = false;
 
-    public function __construct( $definition = null )
+    protected $itemType = '';
+
+    protected function __construct( $definition = null )
     {
         if ( $definition !== null && is_array( $definition ) )
         {
             if ( !isset( $definition['function_attributes'] ) )
             {
-                $definition['function_attributes'] = array( 'id' => 'getID' );
+                $definition['function_attributes'] = array( 'id'   => 'getID',
+                                                            'type' => 'getItemType'
+                                                          );
             }
             else
             {
                 $definition['function_attributes']['id'] = 'getID';
+                $definition['function_attributes']['type'] = 'getItemType';
             }
             eZLightboxObjectItem::$definition = $definition;
         }
         else
         {
-            eZLightboxObjectItem::$definition = array( 'function_attributes' => array( 'id' => 'getID' ) );
+            eZLightboxObjectItem::$definition = array( 'function_attributes' => array( 'id'   => 'getID',
+                                                                                       'type' => 'getItemType'
+                                                                                     )
+                                                     );
         }
+    }
+
+    public static function cleanUpAllItems()
+    {
+        $result = array();
+        foreach ( eZLightboxObjectItem::itemsByName() as $itemName => $item )
+        {
+            $result[$itemName] = $item->cleanUp();
+        }
+        return $result;
     }
 
     public static function definition()
@@ -63,15 +117,15 @@ class eZLightboxObjectItem
         return false;
     }
 
+    public function getItemType()
+    {
+        return $this->itemType;
+    }
+
     public static function fetch( $itemID )
     {
-        $itemObjectList = eZLightboxObjectItem::itemsByID();
-        if ( isset( $itemObjectList[ $itemID ] ) )
-        {
-            return $itemObjectList[ $itemID ];
+        return eZLightboxObjectItem::fetchByID( $itemID );
         }
-        return null;
-    }
 
     public static function fetchByName( $itemName )
     {
@@ -94,6 +148,15 @@ class eZLightboxObjectItem
         return null;
     }
 
+    public static function itemsByIDAndType()
+    {
+        if ( eZLightboxObjectItem::$itemIDAndNameList === null )
+        {
+            eZLightboxObjectItem::fetchItems();
+        }
+        return eZLightboxObjectItem::$itemIDAndNameList;
+    }
+
     public static function itemsByName()
     {
         if ( eZLightboxObjectItem::$itemNameList === null )
@@ -112,8 +175,21 @@ class eZLightboxObjectItem
         return eZLightboxObjectItem::$itemIDList;
     }
 
+    public static function items()
+    {
+        if ( eZLightboxObjectItem::$itemList === null )
+        {
+            eZLightboxObjectItem::fetchItems();
+        }
+        return eZLightboxObjectItem::$itemList;
+    }
+
     private static function fetchItems()
     {
+        if ( eZLightboxObjectItem::$itemsFetched === true )
+        {
+            return;
+        }
         $lightboxINI = eZINI::instance( 'lightbox.ini' );
         if ( $lightboxINI->hasVariable( 'LightboxItemSettings', 'AvailableItemList' ) )
         {
@@ -131,40 +207,46 @@ class eZLightboxObjectItem
                         if ( is_object( $lightboxItemObject ) )
                         {
                             $itemID = $lightboxItemObject->getID();
+                            $lightboxItemObject->itemType = $itemName;
                             if ( !is_int( $itemID ) )
                             {
-                                eZDebug::writeWarning( 'The ID of an item must be an integer value but not ' . $itemID . '.', 'eZLightboxObjectItem::lightboxobject' );
+                                eZDebug::writeWarning( 'The ID of an item must be an integer value but not ' . $itemID . '.', __METHOD__ );
                             }
                             elseif ( isset( eZLightboxObjectItem::$itemIDList[ $itemID ] ) )
                             {
-                                eZDebug::writeWarning( 'There is already a lightbox item that uses the ID ' . $itemID . '.', 'eZLightboxObjectItem::lightboxobject' );
+                                eZDebug::writeWarning( 'There is already a lightbox item that uses the ID ' . $itemID . '.', __METHOD__ );
                             }
                             else
                             {
                                 eZLightboxObjectItem::$itemNameList[ strtolower( $itemName ) ] = $lightboxItemObject;
                                 eZLightboxObjectItem::$itemIDList[ $itemID ]                   = $lightboxItemObject;
+                                eZLightboxObjectItem::$itemList[]                              = $lightboxItemObject;
+                                eZLightboxObjectItem::$itemIDAndNameList[]                     = array( 'id'   => $lightboxItemObject->getID(),
+                                                                                                        'name' => $lightboxItemObject->getItemType()
+                                                                                                      );
                             }
                         }
                         else
                         {
-                            eZDebug::writeWarning( 'No object of the class ' . $className . ' can be instantiated.', 'eZLightboxObjectItem::lightboxobject' );
+                            eZDebug::writeWarning( 'No object of the class ' . $className . ' can be instantiated.', __METHOD__ );
                         }
                     }
                     else
                     {
-                        eZDebug::writeWarning( 'The class ' . $className . ' for the lightbox object item can not be found.', 'eZLightboxObjectItem::lightboxobject' );
+                        eZDebug::writeWarning( 'The class ' . $className . ' for the lightbox object item can not be found.', __METHOD__ );
                     }
                 }
             }
             else
             {
-                eZDebug::writeWarning( 'There are no available lightbox object items.', 'eZLightboxObjectItem::lightboxobject' );
+                eZDebug::writeWarning( 'There are no available lightbox object items.', __METHOD__ );
             }
         }
         else
         {
-            eZDebug::writeWarning( 'The lightbox object items are not configured.', 'eZLightboxObjectItem::lightboxobject' );
+            eZDebug::writeWarning( 'The lightbox object items are not configured.', __METHOD__ );
         }
+        eZLightboxObjectItem::$itemsFetched = true;
     }
 
 }

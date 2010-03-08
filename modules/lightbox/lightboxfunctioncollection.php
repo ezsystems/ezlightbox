@@ -1,4 +1,27 @@
 <?php
+//
+// Created on: <2007-11-21 13:01:28 ab>
+//
+// SOFTWARE NAME: eZ Lightbox extension for eZ Publish
+// SOFTWARE RELEASE: 0.x
+// COPYRIGHT NOTICE: Copyright (C) 1999-2010 eZ Systems AS
+// SOFTWARE LICENSE: GNU General Public License v2.0
+// NOTICE: >
+//   This program is free software; you can redistribute it and/or
+//   modify it under the terms of version 2.0  of the GNU General
+//   Public License as published by the Free Software Foundation.
+//
+//   This program is distributed in the hope that it will be useful,
+//   but WITHOUT ANY WARRANTY; without even the implied warranty of
+//   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+//   GNU General Public License for more details.
+//
+//   You should have received a copy of version 2.0 of the GNU General
+//   Public License along with this program; if not, write to the Free
+//   Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+//   MA 02110-1301, USA.
+//
+//
 
 require_once( 'autoload.php' );
 
@@ -167,6 +190,35 @@ class lightboxFunctionCollection
     function fetchLightboxItemMoveDirectionsByName( $directionName )
     {
         return array( 'result' => eZLightbox::itemMoveDirectionsByName( $directionName ) );
+    }
+
+    function fetchLightboxItemPermission( $lightbox, $item, $itemTypeID )
+    {
+        $lightboxObject = false;
+        if ( is_numeric( $lightbox ) )
+        {
+            $lightboxObject = eZLightbox::fetch( (int)$lightbox );
+            if ( !is_object( $lightboxObject ) )
+            {
+                eZDebug::writeDebug( 'Invalid lightbox ID: ' . $lightbox, __METHOD__ );
+                return false;
+}
+        }
+        else if ( is_object( $lightbox ) )
+        {
+            if ( !( $lightbox instanceof eZLightbox ) )
+            {
+                eZDebug::writeDebug( 'Invalid lightbox object.', __METHOD__ );
+                return false;
+            }
+            $lightboxObject = $lightbox;
+        }
+        else
+        {
+            eZDebug::writeDebug( 'Type of submitted lightbox not supported.', __METHOD__ );
+            return false;
+        }
+        return array( 'result' => $lightboxObject->userCanAddItem( $itemTypeID, $item ) );
     }
 
 }

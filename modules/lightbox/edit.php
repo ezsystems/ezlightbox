@@ -1,9 +1,10 @@
 <?php
 //
-// Created on: <11-Sep-2007 09:08:13 ab>
+// Created on: <2007-11-21 13:01:28 ab>
 //
-// ## BEGIN COPYRIGHT, LICENSE AND WARRANTY NOTICE ##
-// COPYRIGHT NOTICE: Copyright (C) 1999-2006 eZ systems AS
+// SOFTWARE NAME: eZ Lightbox extension for eZ Publish
+// SOFTWARE RELEASE: 0.x
+// COPYRIGHT NOTICE: Copyright (C) 1999-2010 eZ Systems AS
 // SOFTWARE LICENSE: GNU General Public License v2.0
 // NOTICE: >
 //   This program is free software; you can redistribute it and/or
@@ -21,11 +22,10 @@
 //   MA 02110-1301, USA.
 //
 //
-// ## END COPYRIGHT, LICENSE AND WARRANTY NOTICE ##
-//
 
 require_once( 'autoload.php' );
 require_once( 'kernel/common/template.php' );
+require_once( 'kernel/common/i18n.php' );
 
 $http           = eZHTTPTool::instance();
 $tpl            = templateInit();
@@ -103,7 +103,7 @@ else if ( $http->hasSessionVariable( $redirectName ) )
     $redirectURI = $http->sessionVariable( $redirectName );
 }
 else if ( $http->hasSessionVariable( 'LastAccessesURI' ) &&
-          !ereg( '(type)', $http->sessionVariable( 'LastAccessesURI' ) )
+          !preg_match( '/\b\(type\)\b/', $http->sessionVariable( 'LastAccessesURI' ) )
         )
 {
     $redirectURI = $http->sessionVariable( 'LastAccessesURI' );

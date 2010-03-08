@@ -1,6 +1,30 @@
 <?php
+//
+// Created on: <2007-11-21 13:01:28 ab>
+//
+// SOFTWARE NAME: eZ Lightbox extension for eZ Publish
+// SOFTWARE RELEASE: 0.x
+// COPYRIGHT NOTICE: Copyright (C) 1999-2010 eZ Systems AS
+// SOFTWARE LICENSE: GNU General Public License v2.0
+// NOTICE: >
+//   This program is free software; you can redistribute it and/or
+//   modify it under the terms of version 2.0  of the GNU General
+//   Public License as published by the Free Software Foundation.
+//
+//   This program is distributed in the hope that it will be useful,
+//   but WITHOUT ANY WARRANTY; without even the implied warranty of
+//   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+//   GNU General Public License for more details.
+//
+//   You should have received a copy of version 2.0 of the GNU General
+//   Public License along with this program; if not, write to the Free
+//   Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+//   MA 02110-1301, USA.
+//
+//
 
 require_once( 'autoload.php' );
+require_once( 'kernel/common/i18n.php' );
 
 function ezlightbox_ContentActionHandler( $module, $http, $objectID )
 {
@@ -31,8 +55,10 @@ function ezlightbox_ContentActionHandler( $module, $http, $objectID )
 
     if ( $http->hasPostVariable( 'ItemID' ) && $http->hasPostVariable( 'ItemType' ) )
     {
-        $itemID = $http->postVariable( 'ItemID' );
         $itemType = $http->postVariable( 'ItemType' );
+        if ( trim( $itemType ) != '' )
+        {
+        $itemID = $http->postVariable( 'ItemID' );
         $itemObject = eZLightboxObjectItem::fetchByName( $itemType );
         if ( !is_object( $itemObject ) )
         {
@@ -46,6 +72,7 @@ function ezlightbox_ContentActionHandler( $module, $http, $objectID )
         {
             eZDebug::writeWarning( 'Failed to fetch lightbox item object for item type ' . $itemType, 'lightbox/action' );
         }
+    }
     }
 
     if ( $http->hasPostVariable( 'ChangeUserCurrentLightbox' ) &&
@@ -70,7 +97,7 @@ function ezlightbox_ContentActionHandler( $module, $http, $objectID )
             $redirectURI = $http->postVariable( 'redirectURI' );
         }
         else if ( $http->hasSessionVariable( 'LastAccessesURI' ) &&
-                  !ereg( '(type)', $http->sessionVariable( 'LastAccessesURI' ) )
+                  !preg_match( '/\b\(type\)\b/', $http->sessionVariable( 'LastAccessesURI' ) )
                 )
         {
             $redirectURI = $http->sessionVariable( 'LastAccessesURI' );

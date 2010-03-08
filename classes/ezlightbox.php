@@ -1,9 +1,10 @@
 <?php
 //
-// Created on: <25-Aug-2007 11:11:11 dis>
+// Created on: <2007-11-21 13:01:28 ab>
 //
-// ## BEGIN COPYRIGHT, LICENSE AND WARRANTY NOTICE ##
-// COPYRIGHT NOTICE: Copyright (C) 1999-2006 eZ systems AS
+// SOFTWARE NAME: eZ Lightbox extension for eZ Publish
+// SOFTWARE RELEASE: 0.x
+// COPYRIGHT NOTICE: Copyright (C) 1999-2010 eZ Systems AS
 // SOFTWARE LICENSE: GNU General Public License v2.0
 // NOTICE: >
 //   This program is free software; you can redistribute it and/or
@@ -20,10 +21,10 @@
 //   Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
 //   MA 02110-1301, USA.
 //
-// ## END COPYRIGHT, LICENSE AND WARRANTY NOTICE ##
 //
 
 require_once( 'autoload.php' );
+require_once( 'kernel/common/i18n.php' );
 
 class eZLightbox extends eZPersistentObject
 {
@@ -38,16 +39,22 @@ class eZLightbox extends eZPersistentObject
     const MOVE_DIRECTION_UP   = 0;
     const MOVE_DIRECTION_DOWN = 1;
 
+    const CLEANUP_OWNER_ACTION_REMOVE  = 11;
+    const CLEANUP_OWNER_ACTION_REPLACE = 12;
+
     private static $__lightbox_cache      = array( 'object' => array(), 'array' => array() ),
+                   $__function_list       = null,
                    $__function_access_map = array( 'view'  => eZLightboxAccess::VIEW,
                                                    'edit'  => eZLightboxAccess::EDIT,
-                                                   'grant' => eZLightboxAccess::GRANT // ToDo: Add 'send' here
+                                                   'grant' => eZLightboxAccess::GRANT,
+                                                   'add'   => eZLightboxAccess::ADD,
+                                                   'send'  => eZLightboxAccess::SEND,
                                                  );
 
 
     private $__permissions = array();
 
-    function eZLightbox( $row = array() )
+    function __construct( $row = array() )
     {
         $this->eZPersistentObject( $row );
     }
@@ -68,72 +75,154 @@ class eZLightbox extends eZPersistentObject
         }
     }
 
-    function checkLimitations( $viewFunction, $persistentObject )
+    public static function generatePermissionFunctionList()
     {
-        if ( !$persistentObject )
+        if ( eZLightbox::$__function_list !== null )
         {
-            ezDebug::writeWarning( 'Invalid object reference.', 'eZLightbox::checkLimitations' );
-            return false;
+            return eZLightbox::$__function_list;
         }
 
-        $user = eZUser::currentUser();
+        $TypeID = array( 'name' => 'Type' );
 
-        if ( !is_object( $user ) )
+        foreach ( eZLightboxObjectItem::itemsByIDAndType() as $itemType )
         {
-            ezDebug::writeWarning( 'Failed to fetch user object.', 'eZLightbox::checkLimitations' );
-            return false;
+            $TypeID['values'][] = array( 'Name'  => $itemType['name'],
+                                         'value' => $itemType['id']
+                                       );
         }
 
-        $accessResults = $user->hasAccessTo( 'lightbox' , $viewFunction );
+        $ClassID = array(
+            'name'      => 'Class',
+            'values'    => array(),
+            'path'      => 'classes/',
+            'file'      => 'ezcontentclass.php',
+            'class'     => 'eZContentClass',
+            'function'  => 'fetchList',
+            'parameter' => array( 0, false, false, array( 'name' => 'asc' ) )
+        );
 
-        if ( !$accessResults )
+        $Owner = array(
+            'name'   => 'Owner',
+            'values' => array( array( 'Name'  => 'Self',
+                                      'value' => '1'
+                                    ),
+                               array( 'Name'  => 'Granted',
+                                      'value' => '2'
+                                    )
+                             )
+        );
+
+        eZLightbox::$__function_list = eZLightbox::getLightboxItemPermissionFunctionList();
+        eZLightbox::$__function_list['add']['Owner']   = $Owner;
+        eZLightbox::$__function_list['add']['Type']    = $TypeID;
+        eZLightbox::$__function_list['edit']['Owner']  = $Owner;
+        eZLightbox::$__function_list['view']['Owner']  = $Owner;
+        eZLightbox::$__function_list['send']['Owner']  = $Owner;
+        eZLightbox::$__function_list['grant']['Owner'] = $Owner;
+        return eZLightbox::$__function_list;
+    }
+
+    private static function getLightboxItemPermissionFunctionList()
         {
-            eZDebug::writeWarning( 'Failed to get access information.',
-                                   'eZLightbox::checkLimitations' );
-            return false;
-        }
-        if ( array_key_exists( 'accessWord', $accessResults ) )
+        $FunctionList = array();
+        foreach ( array( 'add', 'create', 'edit', 'view', 'send', 'grant' ) as $functionName )
         {
-            if ( $accessResults['accessWord'] == 'no' )
+            $FunctionList[$functionName] = array();
+            foreach ( eZLightboxObjectItem::itemsByID() as $itemID => $itemObject )
             {
-                $persistentObject->setPermission( $viewFunction, false );
-            }
-            else if ( $accessResults['accessWord'] == 'yes' )
-            {
-                if ( $this->isOwner() || $viewFunction == 'add' )
+                $result = $itemObject->getPermissionFunctionListByName( $functionName );
+                if ( $result !== false && is_array( $result ) )
                 {
-                    $persistentObject->setPermission( $viewFunction, true );
+                    foreach ( $result as $index => $configuration )
+                    {
+                        foreach ( $configuration as $limitationName => $limitationConfiguration )
+                        {
+                            if ( isset( $limitationConfiguration['name'] ) )
+                            {
+                                $newLimitationName = $itemObject->getItemType() . '_' . $limitationConfiguration['name'];
+                                $limitationConfiguration['name'] = $newLimitationName;
+                                $FunctionList[$functionName][$newLimitationName] = $limitationConfiguration;
+        }
+                        }
+                    }
+                }
+            }
+        }
+        return $FunctionList;
+    }
+
+    public static function cleanUp( $ownerNotFoundAction, $ownerID = false )
+        {
+        switch ( $ownerNotFoundAction )
+            {
+            case eZLightbox::CLEANUP_OWNER_ACTION_REMOVE:
+            {
+                eZDebug::writeDebug( 'Removing lightboxes having invalid owners.', __METHOD__ );
+            }
+            break;
+            case eZLightbox::CLEANUP_OWNER_ACTION_REPLACE:
+            {
+                $userObject = null;
+                if ( $ownerID === false )
+                {
+                    $userObject = eZUser::fetchByName( 'admin' );
                 }
                 else
                 {
-                    $lightboxAccess = eZLightboxAccess::fetch( $this->attribute( 'id' ),
-                                                               $user->attribute( 'contentobject_id' ),
-                                                               false
-                                                             );
-                    $this->checkLightboxAccess( $viewFunction, $lightboxAccess );
+                    $userObject = eZUser::fetch( (int)$ownerID );
                 }
-            }
-            else
+                if ( !is_object( $userObject ) )
             {
-                $persistentObject->setPermission( $viewFunction, false );
-                if ( array_key_exists( 'policies', $accessResults ) )
-                {
-                    $persistentObject->getLimitations( $viewFunction, $accessResults['policies'], $user );
-                }
-                else
-                {
-                    eZDebug::writeWarning( 'Failed to get policies.',
-                                           'eZLightbox::checkLimitations' );
+                    eZDebug::writeWarning( 'Failed to fetch user with ID ' . $ownerID, __METHOD__ );
                     return false;
                 }
+                eZDebug::writeDebug( 'Replacing owner of lightboxes having invalid owners with new owner ID: ' . $ownerID, __METHOD__ );
+            }
+            break;
+            default:
+                {
+                eZDebug::writeWarning( 'Invalid action if owner is not found: ' . $ownerNotFoundAction, __METHOD__ );
+                    return false;
+                }
+            break;
+            }
+        $result = array( 'lightbox' => array( 'removed' => array(), 'skipped' => array(), 'changed' => array() ) );
+        $query  = 'SELECT id FROM ezlightbox WHERE owner_id NOT IN ( SELECT contentobject_id FROM ezuser )';
+        $db     = eZDB::instance();
+        $invalidLightboxIDList = $db->arrayQuery( $query );
+        if ( is_array( $invalidLightboxIDList ) && count( $invalidLightboxIDList ) > 0 )
+        {
+            foreach ( $invalidLightboxIDList as $invalidLightboxIDItem )
+            {
+                $lightboxObject = eZLightbox::fetch( $invalidLightboxIDItem['id'] );
+                if ( !is_object( $lightboxObject ) )
+                {
+                    eZDebug::writeWarning( 'Failed to fetch lightbox with ID ' . $invalidLightboxIDItem['id'] . '. Skipping.', __METHOD__ );
+                    $result['lightbox']['skipped'][] = $invalidLightboxIDItem['id'];
+        }
+                switch ( $ownerNotFoundAction )
+        {
+                    case eZLightbox::CLEANUP_OWNER_ACTION_REMOVE:
+                    {
+                        $db->begin();
+                        $lightboxObject->purge();
+                        $db->commit();
+                        $result['lightbox']['removed'][] = $invalidLightboxIDItem['id'];
+        }
+                    break;
+                    case eZLightbox::CLEANUP_OWNER_ACTION_REPLACE:
+                    {
+                        $db->begin();
+                        $lightboxObject->setAttribute( 'owner_id', $ownerID );
+                        $lightboxObject->store();
+                        $db->commit();
+                        $result['lightbox']['changed'][] = $invalidLightboxIDItem['id'];
+    }
+                    break;
+                }
             }
         }
-        else
-        {
-            ezDebug::writeWarning( 'No access word in access results.', 'eZLightbox::checkLimitations' );
-            return false;
-        }
-        return true;
+        return $result;
     }
 
     public static function definition()
@@ -176,7 +265,6 @@ class eZLightbox extends eZPersistentObject
                                                       'can_view'             => 'canView',
                                                       'can_send'             => 'canSend',
                                                       'can_grant'            => 'canGrant',
-                                                      'can_add_class_list'   => 'canAddClassList',
                                                       'access_list'          => 'fetchAccessList',
                                                       'access_keys'          => 'fetchAccessKeys',
                                                       'access_object'        => 'fetchAccessObject',
@@ -199,7 +287,7 @@ class eZLightbox extends eZPersistentObject
     public static function itemMoveDirectionsByName( $directionName )
     {
         switch ( strtolower( trim( $directionName ) ) )
-        {   // ToDo: Add 'send' here
+        {
             case 'up':
                 return eZLightbox::MOVE_DIRECTION_UP;
             case 'down':
@@ -228,7 +316,14 @@ class eZLightbox extends eZPersistentObject
             $hashArray[] = $lightbox->attribute( 'name' ) . '_' . $lightbox->fetchItemListCount();
         }
         $hashString = implode( ',', $hashArray );
+        if ( function_exists( 'hash' ) )
+        {
         $hashString = hash( 'md5', $hashString );
+        }
+        else
+        {
+            eZDebug::writeError( 'There is not function "hash". Make sure hash support is compiled into PHP.', __METHOD__ );
+        }
         $http = eZHTTPTool::instance();
         $http->setSessionVariable( eZLightbox::PREFERENCE_SESSION_HASHKEY, $hashString );
         return $hashString;
@@ -400,6 +495,34 @@ class eZLightbox extends eZPersistentObject
         }
     }
 
+    public static function create( $name, $userID = false, $storeLightbox = true )
+    {
+        $user_id = $userID;
+        if ( $userID == false )
+        {
+            $user    = eZUser::currentUser();
+            $user_id = $user->attribute( 'contentobject_id' );
+        }
+
+        $lightboxObject = new eZLightbox( array( 'name'     => $name,
+                                                 'owner_id' => $user_id,
+                                                 'created'  => time()
+                                               )
+                                        );
+        if ( is_object( $lightboxObject ) )
+        {
+            if ( $storeLightbox )
+            {
+                $lightboxObject->store();
+            }
+        }
+        else
+        {
+            $lightboxObject = null;
+        }
+        return $lightboxObject;
+    }
+
     public function store( $fieldFilters = null )
     {
         eZLightbox::removeSessionVariable();
@@ -498,34 +621,6 @@ class eZLightbox extends eZPersistentObject
     public function fetchItemIDList( $typeID = false )
     {
         return eZLightboxObject::fetchLightboxItemIDs( $this->attribute( 'id' ), $typeID );
-    }
-
-    public static function create( $name, $userID = false, $storeLightbox = true )
-    {
-        $user_id = $userID;
-        if ( $userID == false )
-        {
-            $user    = eZUser::currentUser();
-            $user_id = $user->attribute( 'contentobject_id' );
-        }
-
-        $lightboxObject = new eZLightbox( array( 'name'     => $name,
-                                                 'owner_id' => $user_id,
-                                                 'created'  => time()
-                                               )
-                                        );
-        if ( is_object( $lightboxObject ) )
-        {
-            if ( $storeLightbox )
-            {
-                $lightboxObject->store();
-            }
-        }
-        else
-        {
-            $lightboxObject = null;
-        }
-        return $lightboxObject;
     }
 
     public function lightboxContains( $itemID, $typeID )
@@ -637,6 +732,44 @@ class eZLightbox extends eZPersistentObject
         return $isOwner;
     }
 
+    public function userCanAddItem( $itemTypeID, $item )
+    {
+        $itemTypeObject = eZLightboxObjectItem::fetchByID( $itemTypeID );
+        if ( !is_object( $itemTypeObject ) )
+        {
+            eZDebug::writeDebug( 'Invalid item type ID ' . $itemTypeID . '.', __METHOD__ );
+            return false;
+        }
+        $itemObject = false;
+        if ( is_numeric( $item ) )
+        {
+            $itemObject = $itemTypeObject->fetchItemObjectById( (int)$item );
+            if ( !is_object( $itemObject ) )
+            {
+                eZDebug::writeDebug( 'Invalid item ID ' . $item . ' for type ID ' . $itemTypeID . '.', __METHOD__ );
+                return false;
+            }
+        }
+        else if ( is_object( $item ) )
+        {
+            if ( !$itemTypeObject->itemObjectIsValid( $item ) )
+            {
+                eZDebug::writeDebug( 'Invalid item object for type ID ' . $itemTypeID . '.', __METHOD__ );
+                return false;
+            }
+            $itemObject = $item;
+        }
+        else
+        {
+            eZDebug::writeDebug( 'Type of submitted item for type ID ' . $itemTypeID . ' not supported.', __METHOD__ );
+            return false;
+        }
+        return $this->checkLimitations( 'add', array( 'itemObject'     => $itemObject,
+                                                      'itemTypeObject' => $itemTypeObject
+                                                    )
+                                      );
+    }
+
     public function canEdit()
     {
         // eZ Publish permission system:
@@ -645,7 +778,7 @@ class eZLightbox extends eZPersistentObject
         {
             $result = $this->__permissions['can_edit'];
         }
-        else if ( eZLightbox::checkLimitations( 'edit', $this ) )
+        else if ( $this->checkLimitations( 'edit' ) )
         {
             $result = ( $this->__permissions['can_edit'] == true );
         }
@@ -671,7 +804,7 @@ class eZLightbox extends eZPersistentObject
         {
             $result = $this->__permissions['can_view'];
         }
-        else if ( eZLightbox::checkLimitations( 'view', $this ) )
+        else if ( $this->checkLimitations( 'view' ) )
         {
             $result = ( $this->__permissions['can_view'] == true );
         }
@@ -697,7 +830,7 @@ class eZLightbox extends eZPersistentObject
         {
             $result = $this->__permissions['can_send'];
         }
-        else if ( eZLightbox::checkLimitations( 'grant', $this ) ) // Should be "send" in future release
+        else if ( $this->checkLimitations( 'send' ) )
         {
             $result = ( $this->__permissions['can_send'] == true );
         }
@@ -712,103 +845,207 @@ class eZLightbox extends eZPersistentObject
         {
             $result = $this->__permissions['can_grant'];
         }
-        else if ( eZLightbox::checkLimitations( 'grant', $this ) )
+        else if ( $this->checkLimitations( 'grant' ) )
         {
             $result = ( $this->__permissions['can_grant'] == true );
         }
         return $result;
     }
 
-    public function canAddClassList()
+    private function checkLimitations( $viewFunction, $itemTypeLimitationCheck = false )
     {
-        $result = false;
-        if ( isset( $this->__permissions['can_add'] ) )
-        {
-            $result = $this->__permissions['can_add'];
-        }
-        else if ( eZLightbox::checkLimitations( 'add', $this ) )
-        {
-            $result = $this->__permissions['can_add'];
-        }
-        return $result;
-    }
+        $user = eZUser::currentUser();
 
-    private function getLimitations( $viewFunction, $policies, $user )
+        if ( !is_object( $user ) )
+        {
+            ezDebug::writeWarning( 'Failed to fetch user object.', __METHOD__ );
+            return false;
+        }
+
+        $accessResults = $user->hasAccessTo( 'lightbox' , $viewFunction );
+
+        if ( !$accessResults )
+        {
+            eZDebug::writeWarning( 'Failed to get access information.', __METHOD__ );
+            return false;
+        }
+        if ( array_key_exists( 'accessWord', $accessResults ) )
+        {
+            if ( $accessResults['accessWord'] == 'no' )
+            {
+                $this->setPermission( $viewFunction, false );
+    }
+            else if ( $accessResults['accessWord'] == 'yes' )
     {
+                if ( $this->isOwner() )
+                {
+                    $this->setPermission( $viewFunction, true );
+                }
+                else
+                {
         $lightboxAccess = eZLightboxAccess::fetch( $this->attribute( 'id' ),
                                                    $user->attribute( 'contentobject_id' ),
                                                    false
                                                  );
+                    if ( !$this->checkLightboxAccess( $viewFunction, $lightboxAccess ) )
+                    {
+                        $this->setPermission( $viewFunction, false );
+                        return false;
+                    }
+                    $this->setPermission( $viewFunction, true );
+                }
+            }
+            else
+            {
+                $this->setPermission( $viewFunction, false );
+                if ( array_key_exists( 'policies', $accessResults ) )
+                {
+                    if ( !$this->getLimitations( $viewFunction, $accessResults['policies'], $user, $itemTypeLimitationCheck ) )
+                    {
+                        $this->setPermission( $viewFunction, false );
+                        return false;
+                    }
+                    $this->setPermission( $viewFunction, true );
+                }
+                else
+                {
+                    eZDebug::writeWarning( 'Failed to get policies.', __METHOD__ );
+                    return false;
+                }
+            }
+        }
+        else
+        {
+            ezDebug::writeWarning( 'No access word in access results.', __METHOD__ );
+            return false;
+        }
+        return true;
+    }
+
+    private function getLimitations( $viewFunction, $policies, $user, $itemTypeLimitationCheck )
+    {
+        $itemTypeObject = false;
+        $itemObject     = false;
+        $allowed        = false;
+        $lightboxAccess = false;
+        if ( is_array( $itemTypeLimitationCheck ) &&
+             isset( $itemTypeLimitationCheck['itemTypeObject'] ) &&
+             isset( $itemTypeLimitationCheck['itemObject'] ) &&
+             is_object( $itemTypeLimitationCheck['itemTypeObject'] ) &&
+             is_object( $itemTypeLimitationCheck['itemObject'] )
+           )
+        {
+            $itemTypeObject = $itemTypeLimitationCheck['itemTypeObject'];
+            $itemObject     = $itemTypeLimitationCheck['itemObject'];
+        }
         foreach ( array_keys( $policies ) as $policy_key  )
         {
-            $has_class_limit = false;
-            $is_class_ok     = false;
+            if ( $allowed === true )
+            {
+                break;
+            }
             $has_owner_limit = false;
             $is_owner_ok     = false;
+            $itemTypePermission = false;
             $limitationArray = $policies[ $policy_key ];
             foreach ( array_keys( $limitationArray ) as $limitation )
             {
                 switch ( $limitation )
                 {
-                    case 'Class':
-                        $has_class_limit = true;
-                        $is_class_ok     = $limitationArray[ $limitation ];
                     case 'Owner':
+                    {
                         $has_owner_limit = true;
                         if ( in_array( 0, $limitationArray[ $limitation ] ) )
                         {
                             $is_owner_ok = true;
                         }
-                        else if ( in_array( 1, $limitationArray[ $limitation ] ) )
+                        if ( in_array( 1, $limitationArray[ $limitation ] ) )
                         {
-                            if ( $this->attribute( 'owner_id' ) == $user->attribute( 'contentobject_id' ) )
+                            if ( $this->isOwner() )
                             {
                                 $is_owner_ok = true;
                             }
                         }
-                        else if ( in_array( 2, $limitationArray[ $limitation ] ) )
+                        if ( !$is_owner_ok && in_array( 2, $limitationArray[ $limitation ] ) && !$this->isOwner() )
                         {
                             $is_owner_ok = 'granted';
                         }
+                    }
                         break;
                 }
+            }
+            if ( $itemTypeObject !== false )
+            {
+                $itemTypePermission = $itemTypeObject->policyMatchItemObject( $policies[ $policy_key ], $itemObject );
+            }
+            else
+            {
+                $itemTypePermission = true;
             }
             switch ( $viewFunction )
             {
                 case 'add':
-                    if ( $has_class_limit )
-                    {
-                        $this->setPermission( $viewFunction, $is_class_ok );
-                    }
-                    break;
                 case 'edit':
                 case 'view':
                 case 'send':
                 case 'grant':
-                    if ( $has_owner_limit && $is_owner_ok )
                     {
-                        $this->setPermission( $viewFunction, $is_owner_ok );
+                    if ( $has_owner_limit )
+                    {
+                        if ( $is_owner_ok === true )
+                        {
+                            $allowed = true;
+                    }
+                        else if ( $is_owner_ok === 'granted' )
+                        {
+                            if ( $lightboxAccess === false )
+                            {
+                                $lightboxAccess = eZLightboxAccess::fetch( $this->attribute( 'id' ),
+                                                                           $user->attribute( 'contentobject_id' ),
+                                                                           false
+                                                                         );
+                            }
+                            if ( $this->checkLightboxAccess( $viewFunction, $lightboxAccess ) )
+                            {
+                                $allowed = true;
+                            }
+                        }
                     }
                     else
                     {
-                        $this->checkLightboxAccess( $viewFunction, $lightboxAccess );
+                        if ( $this->isOwner() )
+                        {
+                            $allowed = true;
                     }
-                    /*
-                    else if ( isset( $lightboxAccess['access_mask'] ) &&
-                              isset( eZLightbox::$__function_access_map[ $viewFunction ] )
-                            )
+                        else
                     {
-                        $permission = ( $lightboxAccess['access_mask'] & eZLightbox::$__function_access_map[ $viewFunction ] ) == true;
-                        $this->setPermission( $viewFunction, $permission );
+                            if ( $lightboxAccess === false )
+                            {
+                                $lightboxAccess = eZLightboxAccess::fetch( $this->attribute( 'id' ),
+                                                                        $user->attribute( 'contentobject_id' ),
+                                                                        false
+                                                                        );
                     }
-                    */
+                            if ( $this->checkLightboxAccess( $viewFunction, $lightboxAccess ) )
+                            {
+                                $allowed = true;
+                            }
+                        }
+                    }
+                    if ( $itemTypePermission !== true )
+                    {
+                        $allowed = false;
+                    }
+                }
                     break;
                 default:
-                    eZDebug::writeWarning( 'Unknown view function: ' . $viewFunction,
-                                           'eZLightbox::getLimitations' );
+                {
+                    eZDebug::writeWarning( 'Unknown view function: ' . $viewFunction, __METHOD__ );
+                }
                     break;
             }
         }
+        return $allowed;
     }
 
     private function checkLightboxAccess( $viewFunction, $lightboxAccess )
@@ -817,53 +1054,43 @@ class eZLightbox extends eZPersistentObject
              isset( eZLightbox::$__function_access_map[ $viewFunction ] )
            )
         {
-            $permission = ( $lightboxAccess['access_mask'] & eZLightbox::$__function_access_map[ $viewFunction ] ) == true;
-            $this->setPermission( $viewFunction, $permission );
+            return ( $lightboxAccess['access_mask'] & eZLightbox::$__function_access_map[ $viewFunction ] ) == true;
         }
-        else
-        {
-            $this->setPermission( $viewFunction, false );
+        return false;
         }
-    }
 
     private function setPermission( $viewFunction, $limitation )
     {
         switch ( $viewFunction )
         {
-            case 'add':
-                    if ( $limitation === true )
+            case 'add': // Adding depends on the item. Therefore storing result does not make sense
                     {
-                        $result = array();
-                        $classIDList = eZContentClass::fetchList(
-                            0, false, false, array( 'name' => 'asc' ), array( 'id' )
-                        );
-                        foreach ( $classIDList as $key => $row )
-                        {
-                            $result[] = $row['id'];
                         }
-                        $this->__permissions['can_add'] = $result;
-                    }
-                    else
-                    {
-                        $this->__permissions['can_add']   = $limitation;
-                    }
                 break;
             case 'edit':
+            {
                     $this->__permissions['can_edit']  = $limitation;
+            }
                 break;
             case 'view':
+            {
                     $this->__permissions['can_view']  = $limitation;
+            }
                 break;
             case 'send':
+            {
                     $this->__permissions['can_send']  = $limitation;
+            }
                 break;
             case 'grant':
+            {
                     $this->__permissions['can_grant'] = $limitation;
-                    $this->__permissions['can_send']  = $limitation; // Should be removed if "send" is introduced
+            }
                 break;
             default:
-                eZDebug::writeWarning( 'Unknown view function: ' . $viewFunction,
-                                       'eZLightbox::setPermission' );
+            {
+                eZDebug::writeWarning( 'Unknown view function: ' . $viewFunction, __METHOD__ );
+            }
                 break;
         }
     }
