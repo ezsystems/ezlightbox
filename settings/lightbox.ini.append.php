@@ -1,0 +1,6 @@
+<?php /*
+
+[CommonSettings]
+UserSendOwnLightbox=enabled
+
+*/ ?>
