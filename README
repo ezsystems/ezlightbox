@@ -1,0 +1,57 @@
+eZ Lightbox extension README
+
+What is the eZ Lightbox extension?
+==================================
+
+   This extension adds support for lightboxes to eZ Publish by adding a
+   new eZ Publish module named "lightbox" (including operations, triggers,
+   fetch functions). Besides the new modules the extension adds a custom
+   content action handler, a new datatype for the eZ Teamroom extension
+   and a standard design for the provided items.
+
+
+License
+=======
+
+   This software is licensed under the GNU General Public License v2.0.
+   The complete license agreement is included in the LICENSE file. For
+   more information or questions please contact info@ez.no
+
+
+Installation
+============
+
+   To install the eZ Lightbox extension please refer to the INSTALL file
+   provided by the extension.
+
+
+Installation
+============
+
+Please read the INSTALL file for installation instructions.
+
+
+Upgrading
+=========
+
+Please read the update instructions located in the update folder
+of the extension to get further information about how to migrate
+from one version to another.
+
+
+Troubleshooting
+===============
+
+1. Read the FAQ
+   ------------
+
+   Some problems are more common than others. The most common ones are listed
+   in the the FAQ.
+
+2. Support
+   -------
+
+   If you have find any problems not handled by this document or the FAQ you
+   can contact eZ system trough the support system:
+   http://ez.no/support
+

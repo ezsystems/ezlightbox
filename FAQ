@@ -1,0 +1,139 @@
+Frequently asked questions
+--------------------------
+
+What to do if the "Go back" button for users do not work anynmore?
+==================================================================
+
+Most likely this is because the system got confused with storing
+information about recently visited URLs in the session of the user.
+After removing the session of the user everything should work as
+expected. Removing the session can be done using "Setup" -> "Sessions"
+in the administration interface.
+
+Why can't I send a lightbox to anybody?
+=======================================
+
+The current version of eZ Lightbox does not allow to send a lightbox
+to users that are not already registered. Therefore lightboxes can only
+be sent to users that have already been registered.
+
+How can I create a custom item type ?
+=====================================
+
+New item types will enable users to put items of a new type into
+a lightbox. By default only items of type "eZ Content Object" and
+"eZ Content Node" can be put into a lightbox.
+
+Creating a new item type for use with eZ Lightbox is a three step
+process:
+
+1. Make the new item type available by adding a setting in lightbox.ini
+2. Create a new PHP class for the item type
+3. Create a new (set of) template(s) for displaying the new item type
+4. Clear the cache
+5. Update the autoloads
+
+
+Modify ezlightbox.ini
+---------------------
+
+In your lightbox.ini file below the configuration block
+[LightboxItemSettings] the new item type must be made availabile
+using the setting AvailableItemList[]. Example:
+
+[LightboxItemSettings]
+AvailableItemList[]=MyNewItem
+
+
+Create a new PHP class for the item type
+----------------------------------------
+
+A new PHP class is required for the new item. A good place to store
+the class is in "classes/lightboxitems/". The file name of the classes
+should be "<LOWERCASE_ITEM_NAME>lightboxitem.php" where the placeholder
+<LOWERCASE_ITEM_NAME> must be replaced with the name of the item type as
+configured with "AvailableItemList[]" in lower case letters. Example:
+
+classes/lightboxitems/mynewitemlightboxitem.php
+
+According to the file name the name of the class follows the same
+schema, but has not to be written in lower case. The class must extend
+the class "eZLightboxObjectItem" and implement the interface
+"ieZLightboxObjectItem". Example:
+
+class MyNewItemLightboxObjectItem extends eZLightboxObjectItem implements ieZLightboxObjectItem
+{
+}
+
+Implementing the interface "ieZLightboxObjectItem" means that the class
+must implement the following three functions:
+
+public function getID();
+
+public function itemIDisValid( $itemID );
+
+public function cleanUp();
+
+The "getID()" function will return a unique ID for the item type. Currently
+the following IDs are already used:
+
+- 1: eZ Content Object Item
+- 2: eZ Content Node Item
+
+You will get a warning during runtime if an ID is used twice. The ID
+must be an integer value that is not used as an item type ID so far.
+
+The "itemIDisValid( $itemID )" will be used to verify if an item of the
+new item type is a valid item (when thinking for example about the existing
+item types if the item is a valid content object or a valid content node).
+
+The "cleanUp()" function is used to remove "invalid" items from the
+ezlightbox_object database table. An item is "invalid" if it does not
+exist anymore and therefore a reference from a lightbox to that item will
+lead to errors (when thinking for example about the existing item types if
+a content object or a content node have been removed).
+
+
+Create a new (set of) template(s) for displaying the new item type
+------------------------------------------------------------------
+
+The default items make use of the eZ Publish default template mechanism
+to display them. Their templates are located in
+
+design/standard/templates/content/view/lightbox_line.tpl
+design/standard/templates/node/view/lightbox_line.tpl
+
+These templates are "included" by default in
+
+design/standard/templates/lightbox/views/list.tpl
+
+To get items of the new type displayed in your lightbox, you will have to
+modify that template and include a new template if a lightbox item matches
+the ID of your new item type (see getID() above). Example:
+
+{if $itemObject.type_id|eq( 4711 )}
+
+    {include uri='design:lightbox/mynewitem.tpl' itemObject = $itemObject}
+
+{/if}
+
+In this case "itemObject" is an object of the newly created item type class.
+
+
+Clear the cache
+---------------
+
+To clear the cache of your eZ Publish installation you can use the
+functionality provided by the admin interface ( "Setup" -> "Cache management"
+in the top menu). Furthermore the PHP script bin/php/ezcache.php can be used
+on the commandline to clear the cache.
+
+
+Update the autoloads
+--------------------
+
+To update the autoloads just run the script
+
+php bin/php/ezpgenerateautoloads.php -e
+
+on the commandline.
