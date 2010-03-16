@@ -1,0 +1,3 @@
+- Add action dependent redirection (redirectUri_<ACTIONNAME>) to be more flexible
+- Add multilanguage support for lightbox names
+
