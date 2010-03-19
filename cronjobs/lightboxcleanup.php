@@ -74,7 +74,7 @@ if ( !$isQuiet )
     {
         $cli->notice( '', implode( ', ', $lightboxCleanUpResult['lightbox']['changed'] ) );
     }
-    if ( )
+    //if ( )
 }
 
 ?>
