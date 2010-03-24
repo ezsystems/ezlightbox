@@ -3,7 +3,7 @@
 // Created on: <25-Aug-2007 11:11:11 ab>
 //
 // ## BEGIN COPYRIGHT, LICENSE AND WARRANTY NOTICE ##
-// COPYRIGHT NOTICE: Copyright (C) 1999-2006 eZ systems AS
+// COPYRIGHT NOTICE: Copyright (C) 1999-2010 eZ systems AS
 // SOFTWARE LICENSE: GNU General Public License v2.0
 // NOTICE: >
 //   This program is free software; you can redistribute it and/or
