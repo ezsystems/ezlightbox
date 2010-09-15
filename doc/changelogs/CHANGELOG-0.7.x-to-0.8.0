@@ -65,4 +65,4 @@ Bugfixes
 
 - Implemented missing functional attribute available_items
 - Fixed issues related to the permission system
-
+- ixed bug #016547: EzTeamRoom: PostGres: Create new lightbox [Error] Transaction in progress failed due to DB error, transaction was rollbacked.
