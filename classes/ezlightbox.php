@@ -398,7 +398,7 @@ class eZLightbox extends eZPersistentObject
             $rows = eZPersistentObject::fetchObjectList( eZLightbox::definition(),                      // Definition
                                                          array(),                                       // Field filters
                                                          null,                                          // Conditions
-                                                         null,                                          // Sorting
+                                                         false,                                         // Sorting
                                                          null,                                          // Limit
                                                          false,                                         // As object
                                                          false,                                         // Grouping
@@ -449,7 +449,7 @@ class eZLightbox extends eZPersistentObject
             $rows = eZPersistentObject::fetchObjectList( eZLightbox::definition(),                      // Definition
                                                          array(),                                       // Field filters
                                                          $conditions,                                   // Conditions
-                                                         null,                                          // Sorting
+                                                         false,                                         // Sorting
                                                          null,                                          // Limit
                                                          false,                                         // As object
                                                          false,                                         // Grouping
