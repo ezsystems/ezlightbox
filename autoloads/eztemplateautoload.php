@@ -23,8 +23,6 @@
 //
 //
 
-require_once( 'autoload.php' );
-
 $eZTemplateFunctionArray   = array();
 
 $eZTemplateFunctionArray[] = array( 'function'       => 'eZLightboxForwardInit',

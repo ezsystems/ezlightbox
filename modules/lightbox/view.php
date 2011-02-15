@@ -185,7 +185,7 @@ if ( !$error )
     }
 }
 
-$parsed_uri = parse_url( $_SERVER['SCRIPT_URI'] );
+$parsed_uri = parse_url( $_SERVER['REQUEST_URI'] );
 
 if ( isset( $parsed_uri['host'] ) )
 {

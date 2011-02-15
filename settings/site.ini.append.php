@@ -4,6 +4,6 @@
 TranslationExtensions[]=ezlightbox
 
 [TemplateSettings]
-AutoloadPathList[]=extension/ezlightbox/autoloads
+ExtensionAutoloadPath[]=ezlightbox
 
 */ ?>
