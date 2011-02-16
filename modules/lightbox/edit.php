@@ -39,10 +39,10 @@ $messages       = array();
 $actionSuccess  = false;
 $redirectURI    = '';
 $redirectName   = 'LastLightboxURI_edit';
-$path           = array( array( 'text' => ezi18n( 'lightbox/edit/path', 'Lightbox' ),
+$path           = array( array( 'text' => ezpI18n::tr( 'lightbox/edit/path', 'Lightbox' ),
                                 'url'  => null
                               ),
-                         array( 'text' => ezi18n( 'lightbox/edit/path', 'Edit' ),
+                         array( 'text' => ezpI18n::tr( 'lightbox/edit/path', 'Edit' ),
                                 'url'  => $url
                               )
                        );
@@ -158,7 +158,7 @@ if ( !$error )
         }
         else
         {
-            $messages[] = ezi18n( 'lightbox/edit', 'No users have been selected for deletion.' );
+            $messages[] = ezpI18n::tr( 'lightbox/edit', 'No users have been selected for deletion.' );
         }
     }
 
@@ -195,7 +195,7 @@ if ( !$error )
                         else
                         {
                             $error = true;
-                            $messages[] = ezi18n( 'lightbox/edit', 'Failed to fetch access object for user ID "%1"',
+                            $messages[] = ezpI18n::tr( 'lightbox/edit', 'Failed to fetch access object for user ID "%1"',
                                                   null, array( $userID )
                                                 );
                         }
@@ -209,19 +209,19 @@ if ( !$error )
                 if ( !$error )
                 {
                     $actionSuccess = true;
-                    $messages[] = ezi18n( 'lightbox/edit', 'Successfully stored lightbox.' );
+                    $messages[] = ezpI18n::tr( 'lightbox/edit', 'Successfully stored lightbox.' );
                 }
             }
             else
             {
-                $messages[] = ezi18n( 'lightbox/edit', 'Invalid lightbox name "%1"',
+                $messages[] = ezpI18n::tr( 'lightbox/edit', 'Invalid lightbox name "%1"',
                                       null, array( $newName )
                                     );
             }
         }
         else
         {
-            $messages[] = ezi18n( 'lightbox/edit', 'No name for lightbox available.' );
+            $messages[] = ezpI18n::tr( 'lightbox/edit', 'No name for lightbox available.' );
         }
     }
 

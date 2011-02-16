@@ -48,10 +48,10 @@ $redirectURI    = '';
 $redirectName   = 'LastLightboxURI_send';
 $sendout        = false;
 $lightboxIni    = eZINI::instance( 'lightbox.ini' );
-$path           = array( array( 'text' => ezi18n( 'lightbox/send/path', 'Lightbox' ),
+$path           = array( array( 'text' => ezpI18n::tr( 'lightbox/send/path', 'Lightbox' ),
                                 'url'  => null
                               ),
-                         array( 'text' => ezi18n( 'lightbox/send/path', 'Send' ),
+                         array( 'text' => ezpI18n::tr( 'lightbox/send/path', 'Send' ),
                                 'url'  => $url
                               )
                        );
@@ -191,7 +191,7 @@ if ( !$error )
                 {
                     if ( $subject != '' )
                     {
-                        $messages[] = ezi18n( 'lightbox/send',
+                        $messages[] = ezpI18n::tr( 'lightbox/send',
                                               'A user with the EMail address "%1" has been found. Please verify if this is the person you want to grant access to your lightbox.',
                                                null, array( $receiver )
                                             );
@@ -200,13 +200,13 @@ if ( !$error )
                     else
                     {
                         $userObject = null;
-                        $messages[] = ezi18n( 'lightbox/send', 'Please enter a subject.' );
+                        $messages[] = ezpI18n::tr( 'lightbox/send', 'Please enter a subject.' );
                     }
                 }
                 else
                 {
                     $userContentObject = $userObject->attribute( 'contentobject' );
-                    $messages[] = ezi18n( 'lightbox/send', 'The user "%1" already has access to this lightbox.',
+                    $messages[] = ezpI18n::tr( 'lightbox/send', 'The user "%1" already has access to this lightbox.',
                                            null, array( $userContentObject->attribute( 'name' ) )
                                         );
                     $userObject = null;
@@ -215,12 +215,12 @@ if ( !$error )
             else
             {
                 $userObject = null;
-                $messages[] = ezi18n( 'lightbox/send', 'It is not allowed to send the lightbox to yourself.' );
+                $messages[] = ezpI18n::tr( 'lightbox/send', 'It is not allowed to send the lightbox to yourself.' );
             }
         }
         else
         {
-            $messages[] = ezi18n( 'lightbox/send', 'No user with an EMail address "%1" found.',
+            $messages[] = ezpI18n::tr( 'lightbox/send', 'No user with an EMail address "%1" found.',
                                    null, array( $receiver )
                                 );
         }
@@ -257,14 +257,14 @@ if ( !$error )
             }
             else
             {
-                $messages[] = ezi18n( 'lightbox/send', 'User with ID %1 does not exist.',
+                $messages[] = ezpI18n::tr( 'lightbox/send', 'User with ID %1 does not exist.',
                                        null, array( $userID )
                                     );
             }
         }
         else
         {
-            $messages[] = ezi18n( 'lightbox/send', 'Not all parameters have been submitted.' );
+            $messages[] = ezpI18n::tr( 'lightbox/send', 'Not all parameters have been submitted.' );
         }
     }
 }

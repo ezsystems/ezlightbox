@@ -34,7 +34,7 @@ class eZLightBoxWrapperType extends eZDataType
     */
     function eZLightBoxWrapperType()
     {
-        $this->eZDataType( self::DATA_TYPE_STRING, ezi18n( 'datatype/lightboxwrapper', 'Lightbox Wrapper', 'Datatype name' ),
+        $this->eZDataType( self::DATA_TYPE_STRING, ezpI18n::tr( 'datatype/lightboxwrapper', 'Lightbox Wrapper', 'Datatype name' ),
                            array( 'serialize_supported' => true,
                                   'object_serialize_map' => array( 'data_text' => 'text' ) ) );
     }

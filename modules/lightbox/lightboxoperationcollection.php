@@ -61,28 +61,28 @@ class lightboxOperationCollection
                                                );
                     }
                     $lightbox_id = $lightboxObject->attribute( 'id' );
-                    $messages[]   = ezi18n( 'eZLightboxOperationCollection::createLightbox',
+                    $messages[]   = ezpI18n::tr( 'eZLightboxOperationCollection::createLightbox',
                                             'Successfully created new lightbox.'
                                           );
                     $status = eZModuleOperationInfo::STATUS_CONTINUE;
                 }
                 else
                 {
-                    $messages[]   = ezi18n( 'eZLightboxOperationCollection::createLightbox',
+                    $messages[]   = ezpI18n::tr( 'eZLightboxOperationCollection::createLightbox',
                                             'An error occured while trying to create the lightbox.'
                                           );
                 }
             }
             else
             {
-                $messages[]   = ezi18n( 'eZLightboxOperationCollection::createLightbox',
+                $messages[]   = ezpI18n::tr( 'eZLightboxOperationCollection::createLightbox',
                                         'Lightbox name %1 is invalid.', null, array( $lightbox_name )
                                       );
             }
         }
         else
         {
-            $messages[] = ezi18n( 'eZLightboxOperationCollection::createLightbox',
+            $messages[] = ezpI18n::tr( 'eZLightboxOperationCollection::createLightbox',
                                   'You do not have the permission to create a lightbox.'
                                 );
         }
@@ -119,7 +119,7 @@ class lightboxOperationCollection
                         eZPreferences::setValue( eZLightbox::PREFERENCE_CURRENT_LIGHTBOX,
                                                  $lightboxList[0]->attribute( 'id' )
                                                );
-                        $messages[] = ezi18n( 'eZLightboxOperationCollection::deleteLightbox',
+                        $messages[] = ezpI18n::tr( 'eZLightboxOperationCollection::deleteLightbox',
                                               'Lightbox "%1" is now the current lightbox.',
                                               null, array( $lightboxList[0]->attribute( 'name' ) )
                                             );
@@ -129,12 +129,12 @@ class lightboxOperationCollection
                         eZPreferences::setValue( eZLightbox::PREFERENCE_CURRENT_LIGHTBOX,
                                                  null
                                                );
-                        $messages[] = ezi18n( 'eZLightboxOperationCollection::deleteLightbox',
+                        $messages[] = ezpI18n::tr( 'eZLightboxOperationCollection::deleteLightbox',
                                               'No more lightboxes available. No current lightbox set.'
                                             );
                     }
                 }
-                $messages[] = ezi18n( 'eZLightboxOperationCollection::deleteLightbox',
+                $messages[] = ezpI18n::tr( 'eZLightboxOperationCollection::deleteLightbox',
                                       'Successfully deleted lightbox with ID %1.',
                                        null, array( $lightbox_id )
                                     );
@@ -142,7 +142,7 @@ class lightboxOperationCollection
             }
             else
             {
-                $messages[] = ezi18n( 'eZLightboxOperationCollection::deleteLightbox',
+                $messages[] = ezpI18n::tr( 'eZLightboxOperationCollection::deleteLightbox',
                                       'The lightbox with ID %1 can not be deleted by the current user.',
                                        null, array( $lightbox_id )
                                     );
@@ -150,7 +150,7 @@ class lightboxOperationCollection
         }
         else
         {
-            $messages[] = ezi18n( 'eZLightboxOperationCollection::deleteLightbox',
+            $messages[] = ezpI18n::tr( 'eZLightboxOperationCollection::deleteLightbox',
                                   'A lightbox with ID %1 does not exist.', null, array( $lightbox_id )
                                 );
         }
@@ -187,7 +187,7 @@ class lightboxOperationCollection
                 }
                 else
                 {
-                    $messages[] = ezi18n( 'eZLightboxOperationCollection::emptyLightbox',
+                    $messages[] = ezpI18n::tr( 'eZLightboxOperationCollection::emptyLightbox',
                                           'Failed to fetch content of lightbox with ID %1.',
                                            null, array( $lightbox_id )
                                         );
@@ -195,7 +195,7 @@ class lightboxOperationCollection
             }
             else
             {
-                $messages[] = ezi18n( 'eZLightboxOperationCollection::emptyLightbox',
+                $messages[] = ezpI18n::tr( 'eZLightboxOperationCollection::emptyLightbox',
                                       'The lightbox with ID %1 can not be emptied by the current user.',
                                        null, array( $lightbox_id )
                                     );
@@ -203,7 +203,7 @@ class lightboxOperationCollection
         }
         else
         {
-            $messages[] = ezi18n( 'eZLightboxOperationCollection::emptyLightbox',
+            $messages[] = ezpI18n::tr( 'eZLightboxOperationCollection::emptyLightbox',
                                   'A lightbox with ID %1 does not exist.', null, array( $lightbox_id )
                                 );
         }
@@ -233,7 +233,7 @@ class lightboxOperationCollection
                         }
                         else
                         {
-                            $messages[] = ezi18n( 'eZLightboxOperationCollection::addItem',
+                            $messages[] = ezpI18n::tr( 'eZLightboxOperationCollection::addItem',
                                                   'The current user is not allowed to add content object items of this class to a lightbox.',
                                                   null, array( $lightbox_id )
                                                 );
@@ -241,7 +241,7 @@ class lightboxOperationCollection
                     }
                     else
                     {
-                        $messages[] = ezi18n( 'eZLightboxOperationCollection::addItem',
+                        $messages[] = ezpI18n::tr( 'eZLightboxOperationCollection::addItem',
                                               'No content object item with ID %1 found.',
                                               null, array( $item_id )
                                             );
@@ -255,7 +255,7 @@ class lightboxOperationCollection
                     }
                     else
                     {
-                        $messages[] = ezi18n( 'eZLightboxOperationCollection::addItem',
+                        $messages[] = ezpI18n::tr( 'eZLightboxOperationCollection::addItem',
                                               'No content node item with ID %1 found.',
                                               null, array( $item_id )
                                             );
@@ -279,7 +279,7 @@ class lightboxOperationCollection
                     $db->begin();
                     $newObject->store();
                     $db->commit();
-                    $messages[] = ezi18n( 'eZLightboxOperationCollection::addItem',
+                    $messages[] = ezpI18n::tr( 'eZLightboxOperationCollection::addItem',
                                           'Successfully added item of type %1 with ID %2 to lightbox with ID %3.',
                                           null, array( $type_id, $item_id, $lightbox_id )
                                         );
@@ -287,7 +287,7 @@ class lightboxOperationCollection
                 }
                 else
                 {
-                    $messages[] = ezi18n( 'eZLightboxOperationCollection::addItem',
+                    $messages[] = ezpI18n::tr( 'eZLightboxOperationCollection::addItem',
                                           'Failed to add item of type %1 with ID %2 to lightbox with ID %3.',
                                           null, array( $type_id, $item_id, $lightbox_id )
                                         );
@@ -296,7 +296,7 @@ class lightboxOperationCollection
         }
         else
         {
-            $messages[] = ezi18n( 'eZLightboxOperationCollection::addItem',
+            $messages[] = ezpI18n::tr( 'eZLightboxOperationCollection::addItem',
                                   'A lightbox with ID %1 does not exist.', null, array( $lightbox_id )
                                 );
         }
@@ -324,7 +324,7 @@ class lightboxOperationCollection
                 $db->begin();
                 $lightboxItemObject->purge();
                 $db->commit();
-                $messages[] = ezi18n( 'eZLightboxOperationCollection::removeItem',
+                $messages[] = ezpI18n::tr( 'eZLightboxOperationCollection::removeItem',
                                       'Successfully deleted item of type %1 with ID %2 from lightbox with ID %3.',
                                       null, array( $type_id, $item_id, $lightbox_id )
                                     );
@@ -332,7 +332,7 @@ class lightboxOperationCollection
             }
             else
             {
-                $messages[] = ezi18n( 'eZLightboxOperationCollection::removeItem',
+                $messages[] = ezpI18n::tr( 'eZLightboxOperationCollection::removeItem',
                                       'No item of type %1 with ID %2 found in lightbox ID %3.',
                                        null, array( $type_id, $item_id, $lightbox_id )
                                     );
@@ -340,7 +340,7 @@ class lightboxOperationCollection
         }
         else
         {
-            $messages[] = ezi18n( 'eZLightboxOperationCollection::removeItem',
+            $messages[] = ezpI18n::tr( 'eZLightboxOperationCollection::removeItem',
                                   'A lightbox with ID %1 does not exist.', null, array( $lightbox_id )
                                 );
         }
@@ -378,7 +378,7 @@ class lightboxOperationCollection
                             $lightboxItemObject->purge();
                             $targetLightboxItemObject->store();
                             $db->commit();
-                            $messages[] = ezi18n( 'eZLightboxOperationCollection::moveItem',
+                            $messages[] = ezpI18n::tr( 'eZLightboxOperationCollection::moveItem',
                                                   'Successfully moved item of type %1 with ID %2 from lightbox ID %3 to lightbox ID %4.',
                                                   null, array( $type_id, $item_id, $lightbox_id, $target_lightbox_id )
                                                 );
@@ -394,7 +394,7 @@ class lightboxOperationCollection
                 }
                 else
                 {
-                    $messages[] = ezi18n( 'eZLightboxOperationCollection::moveItem',
+                    $messages[] = ezpI18n::tr( 'eZLightboxOperationCollection::moveItem',
                                           'No item of type %1 with ID %2 found in lightbox ID %3.',
                                            null, array( $type_id, $item_id, $lightbox_id )
                                         );
@@ -402,7 +402,7 @@ class lightboxOperationCollection
             }
             else
             {
-                $messages[] = ezi18n( 'eZLightboxOperationCollection::moveItem',
+                $messages[] = ezpI18n::tr( 'eZLightboxOperationCollection::moveItem',
                                       'A target lightbox with ID %1 does not exist.',
                                       null, array( $target_lightbox_id )
                                     );
@@ -410,7 +410,7 @@ class lightboxOperationCollection
         }
         else
         {
-            $messages[] = ezi18n( 'eZLightboxOperationCollection::moveItem',
+            $messages[] = ezpI18n::tr( 'eZLightboxOperationCollection::moveItem',
                                   'A lightbox with ID %1 does not exist.', null, array( $lightbox_id )
                                 );
         }
@@ -438,14 +438,14 @@ class lightboxOperationCollection
                         $db->begin();
                         $lightboxAccessObject->purge();
                         $db->commit();
-                        $messages[] = ezi18n( 'eZLightboxOperationCollection::removeLightboxAccess',
+                        $messages[] = ezpI18n::tr( 'eZLightboxOperationCollection::removeLightboxAccess',
                                               'Successfully removed user with ID %1 from access list for lightbox ID %2.',
                                               null, array( $user_id, $lightbox_id )
                                             );
                     }
                     else
                     {
-                        $messages[] = ezi18n( 'eZLightboxOperationCollection::removeLightboxAccess',
+                        $messages[] = ezpI18n::tr( 'eZLightboxOperationCollection::removeLightboxAccess',
                                               'User with ID %1 does not have access to lightbox ID %2.',
                                               null, array( $user_id, $lightbox_id )
                                             );
@@ -455,14 +455,14 @@ class lightboxOperationCollection
             }
             else
             {
-                $messages[] = ezi18n( 'eZLightboxOperationCollection::removeLightboxAccess',
+                $messages[] = ezpI18n::tr( 'eZLightboxOperationCollection::removeLightboxAccess',
                                       'Unable to identify the users.'
                                     );
             }
         }
         else
         {
-            $messages[] = ezi18n( 'eZLightboxOperationCollection::removeLightboxAccess',
+            $messages[] = ezpI18n::tr( 'eZLightboxOperationCollection::removeLightboxAccess',
                                   'A lightbox with ID %1 does not exist.', null, array( $lightbox_id )
                                 );
         }
@@ -485,7 +485,7 @@ class lightboxOperationCollection
         $selfSend = ( $user_id == eZUser::currentUserID() );
         if ( $UserSendOwnLightbox && $selfSend )
         {
-            $messages[] = ezi18n( 'eZLightboxOperationCollection::createLightboxAccess',
+            $messages[] = ezpI18n::tr( 'eZLightboxOperationCollection::createLightboxAccess',
                                   'No special access rights must be created when sending a lightbox to yourself.'
                                 );
             return array( 'status'   => eZModuleOperationInfo::STATUS_CONTINUE,
@@ -494,7 +494,7 @@ class lightboxOperationCollection
         }
         else if ( !$UserSendOwnLightbox && $selfSend )
         {
-            $messages[] = ezi18n( 'eZLightboxOperationCollection::createLightboxAccess',
+            $messages[] = ezpI18n::tr( 'eZLightboxOperationCollection::createLightboxAccess',
                                   'It is not allowed to send the lightbox to yourself'
                                 );
             return array( 'status'   => eZModuleOperationInfo::STATUS_CANCELLED,
@@ -521,7 +521,7 @@ class lightboxOperationCollection
                         $db->begin();
                         $lightboxAccessObject->store();
                         $db->commit();
-                        $messages[] = ezi18n( 'eZLightboxOperationCollection::createLightboxAccess',
+                        $messages[] = ezpI18n::tr( 'eZLightboxOperationCollection::createLightboxAccess',
                                               'Successfully granted access for user ID %1 to lightbox ID %2.',
                                               null, array( $user_id, $lightbox_id )
                                             );
@@ -529,7 +529,7 @@ class lightboxOperationCollection
                     }
                     else
                     {
-                        $messages[] = ezi18n( 'eZLightboxOperationCollection::createLightboxAccess',
+                        $messages[] = ezpI18n::tr( 'eZLightboxOperationCollection::createLightboxAccess',
                                               'Failed to create access object for user ID %1 and lightbox ID %2.',
                                                null, array( $user_id, $lightbox_id )
                                             );
@@ -537,7 +537,7 @@ class lightboxOperationCollection
                 }
                 else
                 {
-                    $messages[] = ezi18n( 'eZLightboxOperationCollection::createLightboxAccess',
+                    $messages[] = ezpI18n::tr( 'eZLightboxOperationCollection::createLightboxAccess',
                                           'User with ID %1 already has access to lightbox ID %2.',
                                            null, array( $user_id, $lightbox_id )
                                         );
@@ -545,14 +545,14 @@ class lightboxOperationCollection
             }
             else
             {
-                $messages[] = ezi18n( 'eZLightboxOperationCollection::createLightboxAccess',
+                $messages[] = ezpI18n::tr( 'eZLightboxOperationCollection::createLightboxAccess',
                                       'A lightbox with ID %1 does not exist.', null, array( $lightbox_id )
                                     );
             }
         }
         else
         {
-            $messages[] = ezi18n( 'eZLightboxOperationCollection::createLightboxAccess',
+            $messages[] = ezpI18n::tr( 'eZLightboxOperationCollection::createLightboxAccess',
                                   'Submitted user object is not valid.'
                                 );
         }
@@ -570,7 +570,7 @@ class lightboxOperationCollection
         {
             $uri      = '/lightbox/view/list/' . $lightbox_id;
             eZURI::transformURI( $uri, false, 'full' );
-            $body     = ezi18n( 'eZLightboxOperationCollection::sendLightboxEMail',
+            $body     = ezpI18n::tr( 'eZLightboxOperationCollection::sendLightboxEMail',
                                 'Use the following link to view the lightbox'
                               );
             $body .= "\n$uri";
@@ -610,28 +610,28 @@ class lightboxOperationCollection
                     }
                     else
                     {
-                        $messages[] = ezi18n( 'eZLightboxOperationCollection::sendLightboxEMail',
+                        $messages[] = ezpI18n::tr( 'eZLightboxOperationCollection::sendLightboxEMail',
                                               'An error occured while sending the email.'
                                             );
                     }
                 }
                 else
                 {
-                    $messages[] = ezi18n( 'eZLightboxOperationCollection::sendLightboxEMail',
+                    $messages[] = ezpI18n::tr( 'eZLightboxOperationCollection::sendLightboxEMail',
                                           'Failed to create email object.'
                                         );
                 }
             }
             else
             {
-                $messages[] = ezi18n( 'eZLightboxOperationCollection::sendLightboxEMail',
+                $messages[] = ezpI18n::tr( 'eZLightboxOperationCollection::sendLightboxEMail',
                                       'Failed to create object for site.ini.'
                                     );
             }
         }
         else
         {
-            $messages[] = ezi18n( 'eZLightboxOperationCollection::sendLightboxEMail',
+            $messages[] = ezpI18n::tr( 'eZLightboxOperationCollection::sendLightboxEMail',
                                   'No subject in email data found.'
                                 );
         }

@@ -169,10 +169,10 @@ $res->setKeys( array( array( 'navigation_part_identifier', 'ezlightboxnavigation
 $Result               = array();
 $Result['content']    = $tpl->fetch( 'design:lightbox/create.tpl' );
 $Result['pagelayout'] = true;
-$Result['path']       = array( array( 'text' => ezi18n( 'lightbox/create/path', 'Lightbox' ),
+$Result['path']       = array( array( 'text' => ezpI18n::tr( 'lightbox/create/path', 'Lightbox' ),
                                       'url'  => null
                                     ),
-                               array( 'text' => ezi18n( 'lightbox/create/path', 'Create' ),
+                               array( 'text' => ezpI18n::tr( 'lightbox/create/path', 'Create' ),
                                       'url'  => $url
                                     )
                              );

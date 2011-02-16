@@ -268,8 +268,8 @@ class eZLightbox extends eZPersistentObject
 
     public static function itemMoveDirections()
     {
-        return array( eZLightbox::MOVE_DIRECTION_UP   => ezi18n( 'class/ezlightbox/itemMoveDirections', 'Up'  ),
-                      eZLightbox::MOVE_DIRECTION_DOWN => ezi18n( 'class/ezlightbox/itemMoveDirections', 'Down' )
+        return array( eZLightbox::MOVE_DIRECTION_UP   => ezpI18n::tr( 'class/ezlightbox/itemMoveDirections', 'Up'  ),
+                      eZLightbox::MOVE_DIRECTION_DOWN => ezpI18n::tr( 'class/ezlightbox/itemMoveDirections', 'Down' )
                     );
     }
 

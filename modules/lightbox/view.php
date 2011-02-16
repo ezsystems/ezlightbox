@@ -44,10 +44,10 @@ $actionSuccess     = false;
 $template          = 'design:lightbox/views/' . $view_mode . '.tpl';
 $redirectURI       = '';
 $redirectName      = 'LastLightboxURI_view';
-$path              = array( array( 'text' => ezi18n( 'lightbox/view/path', 'Lightbox' ),
+$path              = array( array( 'text' => ezpI18n::tr( 'lightbox/view/path', 'Lightbox' ),
                                    'url'  => null
                                  ),
-                            array( 'text' => ezi18n( 'lightbox/view/path', 'View' ),
+                            array( 'text' => ezpI18n::tr( 'lightbox/view/path', 'View' ),
                                    'url'  => $url
                                  )
                           );

@@ -43,7 +43,7 @@ function ezlightbox_ContentActionHandler( $module, $http, $objectID )
         if ( !$lightboxID || !is_numeric( $lightboxID ) || $lightboxID <= 0 )
         {
             $lightboxID    = false;
-            $error_message = ezi18n( 'lightbox/error', 'Missing or invalid lightbox ID %1.',
+            $error_message = ezpI18n::tr( 'lightbox/error', 'Missing or invalid lightbox ID %1.',
                                      null, array( $lightboxID )
                                    );
         }
@@ -321,7 +321,7 @@ function ezlightbox_ContentActionHandler( $module, $http, $objectID )
             return true;
         }
         $targetLightboxID = false;
-        $error_message    = ezi18n( 'lightbox/error', 'Missing target lightbox ID.' );
+        $error_message    = ezpI18n::tr( 'lightbox/error', 'Missing target lightbox ID.' );
         if ( $http->hasPostVariable( 'MoveToLightboxID' ) )
         {
             $targetLightboxID = $http->postVariable( 'MoveToLightboxID' );

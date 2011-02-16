@@ -80,9 +80,9 @@ class eZLightboxAccess extends eZPersistentObject
 
     public static function accessKeys()
     {
-        return array( eZLightboxAccess::VIEW  => ezi18n( 'class/ezlightboxaccess/accessKeys', 'View'  ),
-                      eZLightboxAccess::EDIT  => ezi18n( 'class/ezlightboxaccess/accessKeys', 'Edit'  ),
-                      eZLightboxAccess::GRANT => ezi18n( 'class/ezlightboxaccess/accessKeys', 'Grant' ) // ToDo: Add 'Send' here
+        return array( eZLightboxAccess::VIEW  => ezpI18n::tr( 'class/ezlightboxaccess/accessKeys', 'View'  ),
+                      eZLightboxAccess::EDIT  => ezpI18n::tr( 'class/ezlightboxaccess/accessKeys', 'Edit'  ),
+                      eZLightboxAccess::GRANT => ezpI18n::tr( 'class/ezlightboxaccess/accessKeys', 'Grant' ) // ToDo: Add 'Send' here
                     );
     }
 
