@@ -164,10 +164,10 @@ if ( $scriptMode )
 }
 
 $Result['pagelayout'] = true;
-$Result['path']       = array( array( 'text' => ezi18n( 'lightbox/add/path', 'Lightbox' ),
+$Result['path']       = array( array( 'text' => ezpI18n::tr( 'lightbox/add/path', 'Lightbox' ),
                                       'url'  => null
                                     ),
-                               array( 'text' => ezi18n( 'lightbox/add/path', 'Add' ),
+                               array( 'text' => ezpI18n::tr( 'lightbox/add/path', 'Add' ),
                                       'url'  => $url
                                     )
                              );
