@@ -23,7 +23,6 @@
 //
 //
 
-require_once( 'autoload.php' );
 
 class lightboxOperationCollection
 {

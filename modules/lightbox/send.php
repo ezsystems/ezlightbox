@@ -24,7 +24,6 @@
 // ## END COPYRIGHT, LICENSE AND WARRANTY NOTICE ##
 //
 
-require_once( 'autoload.php' );
 $http           = eZHTTPTool::instance();
 $tpl            = eZTemplate::factory();
 $db             = eZDB::instance();
