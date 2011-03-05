@@ -24,8 +24,6 @@
 //
 
 require_once( 'autoload.php' );
-require_once( 'kernel/common/template.php' );
-
 $http                 = eZHTTPTool::instance();
 $tpl                  = eZTemplate::factory();
 $db                   = eZDB::instance();

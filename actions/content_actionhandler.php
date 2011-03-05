@@ -23,7 +23,6 @@
 //
 //
 
-require_once( 'autoload.php' );
 
 function ezlightbox_ContentActionHandler( $module, $http, $objectID )
 {
