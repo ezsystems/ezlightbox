@@ -1,4 +1,32 @@
-<!DOCTYPE TS><TS>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.0">
+<context>
+    <name>class/ezlightbox/itemMoveDirections</name>
+    <message>
+        <source>Up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Down</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>class/ezlightboxaccess/accessKeys</name>
+    <message>
+        <source>View</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Grant</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
 <context>
     <name>datatype/lightboxwrapper</name>
     <message>
@@ -11,6 +39,11 @@
     </message>
     <message>
         <source>Version: %new</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lightbox Wrapper</source>
+        <comment>Datatype name</comment>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -125,6 +158,197 @@
     </message>
 </context>
 <context>
+    <name>eZLightboxOperationCollection::addItem</name>
+    <message>
+        <source>The current user is not allowed to add content object items of this class to a lightbox.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No content object item with ID %1 found.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No content node item with ID %1 found.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Successfully added item of type %1 with ID %2 to lightbox with ID %3.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to add item of type %1 with ID %2 to lightbox with ID %3.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A lightbox with ID %1 does not exist.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>eZLightboxOperationCollection::createLightbox</name>
+    <message>
+        <source>Successfully created new lightbox.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>An error occured while trying to create the lightbox.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lightbox name %1 is invalid.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You do not have the permission to create a lightbox.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>eZLightboxOperationCollection::createLightboxAccess</name>
+    <message>
+        <source>No special access rights must be created when sending a lightbox to yourself.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>It is not allowed to send the lightbox to yourself</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Successfully granted access for user ID %1 to lightbox ID %2.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to create access object for user ID %1 and lightbox ID %2.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>User with ID %1 already has access to lightbox ID %2.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A lightbox with ID %1 does not exist.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Submitted user object is not valid.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>eZLightboxOperationCollection::deleteLightbox</name>
+    <message>
+        <source>Lightbox &quot;%1&quot; is now the current lightbox.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No more lightboxes available. No current lightbox set.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Successfully deleted lightbox with ID %1.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The lightbox with ID %1 can not be deleted by the current user.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A lightbox with ID %1 does not exist.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>eZLightboxOperationCollection::emptyLightbox</name>
+    <message>
+        <source>Failed to fetch content of lightbox with ID %1.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The lightbox with ID %1 can not be emptied by the current user.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A lightbox with ID %1 does not exist.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>eZLightboxOperationCollection::moveItem</name>
+    <message>
+        <source>Successfully moved item of type %1 with ID %2 from lightbox ID %3 to lightbox ID %4.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No item of type %1 with ID %2 found in lightbox ID %3.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A target lightbox with ID %1 does not exist.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A lightbox with ID %1 does not exist.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>eZLightboxOperationCollection::removeItem</name>
+    <message>
+        <source>Successfully deleted item of type %1 with ID %2 from lightbox with ID %3.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No item of type %1 with ID %2 found in lightbox ID %3.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A lightbox with ID %1 does not exist.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>eZLightboxOperationCollection::removeLightboxAccess</name>
+    <message>
+        <source>Successfully removed user with ID %1 from access list for lightbox ID %2.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>User with ID %1 does not have access to lightbox ID %2.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unable to identify the users.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A lightbox with ID %1 does not exist.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>eZLightboxOperationCollection::sendLightboxEMail</name>
+    <message>
+        <source>Use the following link to view the lightbox</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>An error occured while sending the email.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to create email object.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to create object for site.ini.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No subject in email data found.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>lightbox/create</name>
     <message>
         <source>Name</source>
@@ -152,6 +376,17 @@
     </message>
     <message>
         <source>Once the lightbox has been created successfully, a new item will be added to it.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>lightbox/create/path</name>
+    <message>
+        <source>Lightbox</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Create</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -223,6 +458,48 @@
     </message>
     <message>
         <source>No lightbox selected</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No users have been selected for deletion.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to fetch access object for user ID &quot;%1&quot;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Successfully stored lightbox.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Invalid lightbox name &quot;%1&quot;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No name for lightbox available.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>lightbox/edit/path</name>
+    <message>
+        <source>Lightbox</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>lightbox/error</name>
+    <message>
+        <source>Missing or invalid lightbox ID %1.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Missing target lightbox ID.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -297,6 +574,45 @@
     </message>
     <message>
         <source>Access</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A user with the EMail address &quot;%1&quot; has been found. Please verify if this is the person you want to grant access to your lightbox.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Please enter a subject.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The user &quot;%1&quot; already has access to this lightbox.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>It is not allowed to send the lightbox to yourself.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No user with an EMail address &quot;%1&quot; found.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>User with ID %1 does not exist.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Not all parameters have been submitted.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>lightbox/send/path</name>
+    <message>
+        <source>Lightbox</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Send</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -420,6 +736,17 @@
     </message>
     <message>
         <source>Unknown item type for item ID %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>lightbox/view/path</name>
+    <message>
+        <source>Lightbox</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>View</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

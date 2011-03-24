@@ -1,28 +1,30 @@
-<!DOCTYPE TS><TS>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.0">
 <context>
     <name>class/ezlightbox/itemMoveDirections</name>
     <message>
         <source>Up</source>
-        <translation type="obsolete">Arriba</translation>
+        <translation type="unfinished">Arriba</translation>
     </message>
     <message>
         <source>Down</source>
-        <translation type="obsolete">Abajo</translation>
+        <translation type="unfinished">Abajo</translation>
     </message>
 </context>
 <context>
     <name>class/ezlightboxaccess/accessKeys</name>
     <message>
         <source>View</source>
-        <translation type="obsolete">Ver</translation>
+        <translation type="unfinished">Ver</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation type="obsolete">Editar</translation>
+        <translation type="unfinished">Editar</translation>
     </message>
     <message>
         <source>Grant</source>
-        <translation type="obsolete">Permitir</translation>
+        <translation type="unfinished">Permitir</translation>
     </message>
 </context>
 <context>
@@ -30,7 +32,7 @@
     <message>
         <source>Lightbox Wrapper</source>
         <comment>Datatype name</comment>
-        <translation type="obsolete">Contenedor de Lightbox</translation>
+        <translation type="unfinished">Contenedor de Lightbox</translation>
     </message>
     <message>
         <source>Version: %old</source>
@@ -159,187 +161,191 @@
     <name>eZLightboxOperationCollection::addItem</name>
     <message>
         <source>The current user is not allowed to add content object items of this class to a lightbox.</source>
-        <translation type="obsolete">Este usuario no tiene permisos para añadir objetos de contenido de esta clase a un lightbox.</translation>
+        <translation type="unfinished">Este usuario no tiene permisos para añadir objetos de contenido de esta clase a un lightbox.</translation>
     </message>
     <message>
         <source>No content object item with ID %1 found.</source>
-        <translation type="obsolete">No se ha encontrado el objeto de contenido con ID %1.</translation>
+        <translation type="unfinished">No se ha encontrado el objeto de contenido con ID %1.</translation>
     </message>
     <message>
         <source>No content node item with ID %1 found.</source>
-        <translation type="obsolete">No se encontrado el nodo con ID %1.</translation>
+        <translation type="unfinished">No se encontrado el nodo con ID %1.</translation>
     </message>
     <message>
         <source>Successfully added item of type %1 with ID %2 to lightbox with ID %3.</source>
-        <translation type="obsolete">El elemento de tipo %1 con ID %2 se ha añadido al lightbox con ID %3 satisfactoriamente.</translation>
+        <translation type="unfinished">El elemento de tipo %1 con ID %2 se ha añadido al lightbox con ID %3 satisfactoriamente.</translation>
     </message>
     <message>
         <source>Failed to add item of type %1 with ID %2 to lightbox with ID %3.</source>
-        <translation type="obsolete">El elemento de tipo %1 con ID %2 no ha podido ser añadido al lightbox con ID %3.</translation>
+        <translation type="unfinished">El elemento de tipo %1 con ID %2 no ha podido ser añadido al lightbox con ID %3.</translation>
     </message>
     <message>
         <source>A lightbox with ID %1 does not exist.</source>
-        <translation type="obsolete">No existe ningún lightbox con ID %1.</translation>
+        <translation type="unfinished">No existe ningún lightbox con ID %1.</translation>
     </message>
 </context>
 <context>
     <name>eZLightboxOperationCollection::createLightbox</name>
     <message>
         <source>Successfully created new lightbox.</source>
-        <translation type="obsolete">El nuevo lightbox se ha creado correctamente.</translation>
+        <translation type="unfinished">El nuevo lightbox se ha creado correctamente.</translation>
     </message>
     <message>
         <source>An error occured while trying to create the lightbox.</source>
-        <translation type="obsolete">Se ha producido un error al intentar crear el lightbox.</translation>
+        <translation type="unfinished">Se ha producido un error al intentar crear el lightbox.</translation>
     </message>
     <message>
         <source>Lightbox name %1 is invalid.</source>
-        <translation type="obsolete">El nombre de lightbox %1 no es válido.</translation>
+        <translation type="unfinished">El nombre de lightbox %1 no es válido.</translation>
     </message>
     <message>
         <source>You do not have the permission to create a lightbox.</source>
-        <translation type="obsolete">No tinees permisos para crear un lightbox.</translation>
+        <translation type="unfinished">No tinees permisos para crear un lightbox.</translation>
     </message>
 </context>
 <context>
     <name>eZLightboxOperationCollection::createLightboxAccess</name>
     <message>
         <source>No special access rights must be created when sending a lightbox to yourself.</source>
-        <translation type="obsolete">No es necerario crear permisos de acceso especiales para enviar un lightbox a ti mismo.</translation>
+        <translation type="unfinished">No es necerario crear permisos de acceso especiales para enviar un lightbox a ti mismo.</translation>
     </message>
     <message>
         <source>It is not allowed to send the lightbox to yourself</source>
-        <translation type="obsolete">No está permitido enviar el lightbox a ti mismo</translation>
+        <translation type="unfinished">No está permitido enviar el lightbox a ti mismo</translation>
     </message>
     <message>
         <source>Successfully granted access for user ID %1 to lightbox ID %2.</source>
-        <translation type="obsolete">Se ha concedido acceso al usuario con ID %1 al lightbox con ID %2.</translation>
+        <translation type="unfinished">Se ha concedido acceso al usuario con ID %1 al lightbox con ID %2.</translation>
     </message>
     <message>
         <source>Failed to create access object for user ID %1 and lightbox ID %2.</source>
-        <translation type="obsolete">Se ha producido un error al intentar crear acceso al objeto para el usuario con ID %1 y el lightbox con ID %2.</translation>
+        <translation type="unfinished">Se ha producido un error al intentar crear acceso al objeto para el usuario con ID %1 y el lightbox con ID %2.</translation>
     </message>
     <message>
         <source>User with ID %1 already has access to lightbox ID %2.</source>
-        <translation type="obsolete">El usuario con ID %1 ya tenía accesso al lightbox ID %2.</translation>
+        <translation type="unfinished">El usuario con ID %1 ya tenía accesso al lightbox ID %2.</translation>
     </message>
     <message>
         <source>A lightbox with ID %1 does not exist.</source>
-        <translation type="obsolete">No existe ningún lightbox con ID %1.</translation>
+        <translation type="unfinished">No existe ningún lightbox con ID %1.</translation>
     </message>
     <message>
         <source>Submitted user object is not valid.</source>
-        <translation type="obsolete">El objeto usuario enviado no es válido.</translation>
+        <translation type="unfinished">El objeto usuario enviado no es válido.</translation>
     </message>
 </context>
 <context>
     <name>eZLightboxOperationCollection::deleteLightbox</name>
     <message>
         <source>Lightbox &quot;%1&quot; is now the current lightbox.</source>
-        <translation type="obsolete">El lightbox &quot;%1&quot; es ahora el lightbox actual.</translation>
+        <translation type="unfinished">El lightbox &quot;%1&quot; es ahora el lightbox actual.</translation>
     </message>
     <message>
         <source>No more lightboxes available. No current lightbox set.</source>
-        <translation type="obsolete">No hay más lightboxes disponsibles. Ningún lightbox está definido como el actual.</translation>
+        <translation type="unfinished">No hay más lightboxes disponsibles. Ningún lightbox está definido como el actual.</translation>
     </message>
     <message>
         <source>Successfully deleted lightbox with ID %1.</source>
-        <translation type="obsolete">El lightbox con ID %1 ha sido eliminado correctamente.</translation>
+        <translation type="unfinished">El lightbox con ID %1 ha sido eliminado correctamente.</translation>
     </message>
     <message>
         <source>The lightbox with ID %1 can not be deleted by the current user.</source>
-        <translation type="obsolete">El lightbox con ID %1 no puede ser eliminado por el usuario actual.</translation>
+        <translation type="unfinished">El lightbox con ID %1 no puede ser eliminado por el usuario actual.</translation>
     </message>
     <message>
         <source>A lightbox with ID %1 does not exist.</source>
-        <translation type="obsolete">No existe ningún lightbox con ID %1.</translation>
+        <translation type="unfinished">No existe ningún lightbox con ID %1.</translation>
     </message>
 </context>
 <context>
     <name>eZLightboxOperationCollection::emptyLightbox</name>
     <message>
         <source>Failed to fetch content of lightbox with ID %1.</source>
-        <translation type="obsolete">Error al cargar el contenido del lightbox con ID %1.</translation>
+        <translation type="unfinished">Error al cargar el contenido del lightbox con ID %1.</translation>
     </message>
     <message>
         <source>The lightbox with ID %1 can not be emptied by the current user.</source>
-        <translation type="obsolete">El lightbox con ID %1 no puede ser vaciado por el usuario actual.</translation>
+        <translation type="unfinished">El lightbox con ID %1 no puede ser vaciado por el usuario actual.</translation>
     </message>
     <message>
         <source>A lightbox with ID %1 does not exist.</source>
-        <translation type="obsolete">No existe ningún lightbox con ID %1.</translation>
+        <translation type="unfinished">No existe ningún lightbox con ID %1.</translation>
     </message>
 </context>
 <context>
     <name>eZLightboxOperationCollection::moveItem</name>
     <message>
         <source>Successfully moved item of type %1 with ID %2 from lightbox ID %3 to lightbox ID %4.</source>
-        <translation type="obsolete">El item de tipo %1 con ID %2 del lightbox con ID %3 se ha movido al lightbox con ID %4.</translation>
+        <translation type="unfinished">El item de tipo %1 con ID %2 del lightbox con ID %3 se ha movido al lightbox con ID %4.</translation>
     </message>
     <message>
         <source>No item of type %1 with ID %2 found in lightbox ID %3.</source>
-        <translation type="obsolete">No se encontrado ningún elemento de tipo %1 con ID %2 en el lightbox %3.</translation>
+        <translation type="unfinished">No se encontrado ningún elemento de tipo %1 con ID %2 en el lightbox %3.</translation>
     </message>
     <message>
         <source>A target lightbox with ID %1 does not exist.</source>
-        <translation type="obsolete">No existe ningún lightbox de destino con ID %1.</translation>
+        <translation type="unfinished">No existe ningún lightbox de destino con ID %1.</translation>
     </message>
     <message>
         <source>A lightbox with ID %1 does not exist.</source>
-        <translation type="obsolete">No existe ningún lightbox con ID %1.</translation>
+        <translation type="unfinished">No existe ningún lightbox con ID %1.</translation>
     </message>
 </context>
 <context>
     <name>eZLightboxOperationCollection::removeItem</name>
     <message>
         <source>Successfully deleted item of type %1 with ID %2 from lightbox with ID %3.</source>
-        <translation type="obsolete">El elemento de tipo %1 con ID %2 se ha eliminado del lightbox con ID %3.</translation>
+        <translation type="unfinished">El elemento de tipo %1 con ID %2 se ha eliminado del lightbox con ID %3.</translation>
     </message>
     <message>
         <source>No item of type %1 with ID %2 found in lightbox ID %3.</source>
-        <translation type="obsolete">No se encontrado ningún elemento de tipo %1 con ID %2 en el lightbox %3.</translation>
+        <translation type="unfinished">No se encontrado ningún elemento de tipo %1 con ID %2 en el lightbox %3.</translation>
     </message>
     <message>
         <source>A lightbox with ID %1 does not exist.</source>
-        <translation type="obsolete">No existe ningún lightbox con ID %1.</translation>
+        <translation type="unfinished">No existe ningún lightbox con ID %1.</translation>
     </message>
 </context>
 <context>
     <name>eZLightboxOperationCollection::removeLightboxAccess</name>
     <message>
         <source>Successfully removed user with ID %1 from access list for lightbox ID %2.</source>
-        <translation type="obsolete">El usuario con ID %1 ha sido eliminado de lista de usuarios con accesso al lightbox con ID %2.</translation>
+        <translation type="unfinished">El usuario con ID %1 ha sido eliminado de lista de usuarios con accesso al lightbox con ID %2.</translation>
     </message>
     <message>
         <source>User with ID %1 does not have access to lightbox ID %2.</source>
-        <translation type="obsolete">El usuario con ID %1 no tiene acceso al lightbox con ID %2.</translation>
+        <translation type="unfinished">El usuario con ID %1 no tiene acceso al lightbox con ID %2.</translation>
     </message>
     <message>
         <source>Unable to identify the users.</source>
-        <translation type="obsolete">No se ha podido identificar a los usuarios.</translation>
+        <translation type="unfinished">No se ha podido identificar a los usuarios.</translation>
+    </message>
+    <message>
+        <source>A lightbox with ID %1 does not exist.</source>
+        <translation type="unfinished">No existe ningún lightbox con ID %1.</translation>
     </message>
 </context>
 <context>
     <name>eZLightboxOperationCollection::sendLightboxEMail</name>
     <message>
         <source>Use the following link to view the lightbox</source>
-        <translation type="obsolete">Usa el enlace siguiente para ver el lightbox</translation>
+        <translation type="unfinished">Usa el enlace siguiente para ver el lightbox</translation>
     </message>
     <message>
         <source>An error occured while sending the email.</source>
-        <translation type="obsolete">Se ha producido un error al enviar el email.</translation>
+        <translation type="unfinished">Se ha producido un error al enviar el email.</translation>
     </message>
     <message>
         <source>Failed to create email object.</source>
-        <translation type="obsolete">Error al crear el objeto email.</translation>
+        <translation type="unfinished">Error al crear el objeto email.</translation>
     </message>
     <message>
         <source>Failed to create object for site.ini.</source>
-        <translation type="obsolete">Error al crear el objeto para el site.ini.</translation>
+        <translation type="unfinished">Error al crear el objeto para el site.ini.</translation>
     </message>
     <message>
         <source>No subject in email data found.</source>
-        <translation type="obsolete">No se ha entrado el asunto en los datos del email.</translation>
+        <translation type="unfinished">No se ha entrado el asunto en los datos del email.</translation>
     </message>
 </context>
 <context>
@@ -377,11 +383,11 @@
     <name>lightbox/create/path</name>
     <message>
         <source>Lightbox</source>
-        <translation type="obsolete">Lightbox</translation>
+        <translation type="unfinished">Lightbox</translation>
     </message>
     <message>
         <source>Create</source>
-        <translation type="obsolete">Crear</translation>
+        <translation type="unfinished">Crear</translation>
     </message>
 </context>
 <context>
@@ -456,45 +462,45 @@
     </message>
     <message>
         <source>No users have been selected for deletion.</source>
-        <translation type="obsolete">No se ha seleccionado ningún usuario para ser eliminado.</translation>
+        <translation type="unfinished">No se ha seleccionado ningún usuario para ser eliminado.</translation>
     </message>
     <message>
         <source>Failed to fetch access object for user ID &quot;%1&quot;</source>
-        <translation type="obsolete">Error al cargar los accesso al objeto para el usuario con ID &quot;%1&quot;</translation>
+        <translation type="unfinished">Error al cargar los accesso al objeto para el usuario con ID &quot;%1&quot;</translation>
     </message>
     <message>
         <source>Successfully stored lightbox.</source>
-        <translation type="obsolete">Lightbox guardado correctamente.</translation>
+        <translation type="unfinished">Lightbox guardado correctamente.</translation>
     </message>
     <message>
         <source>Invalid lightbox name &quot;%1&quot;</source>
-        <translation type="obsolete">El nombre &quot;%1&quot; no es un nombre de lightbox válido</translation>
+        <translation type="unfinished">El nombre &quot;%1&quot; no es un nombre de lightbox válido</translation>
     </message>
     <message>
         <source>No name for lightbox available.</source>
-        <translation type="obsolete">No hay disponible ningún nombre para lightbox.</translation>
+        <translation type="unfinished">No hay disponible ningún nombre para lightbox.</translation>
     </message>
 </context>
 <context>
     <name>lightbox/edit/path</name>
     <message>
         <source>Lightbox</source>
-        <translation type="obsolete">Lightbox</translation>
+        <translation type="unfinished">Lightbox</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation type="obsolete">Editar</translation>
+        <translation type="unfinished">Editar</translation>
     </message>
 </context>
 <context>
     <name>lightbox/error</name>
     <message>
         <source>Missing or invalid lightbox ID %1.</source>
-        <translation type="obsolete">El lightbox con ID %1 falta o no es válido.</translation>
+        <translation type="unfinished">El lightbox con ID %1 falta o no es válido.</translation>
     </message>
     <message>
         <source>Missing target lightbox ID.</source>
-        <translation type="obsolete">Falta el ID del lightbox de destino.</translation>
+        <translation type="unfinished">Falta el ID del lightbox de destino.</translation>
     </message>
 </context>
 <context>
@@ -572,42 +578,42 @@
     </message>
     <message>
         <source>A user with the EMail address &quot;%1&quot; has been found. Please verify if this is the person you want to grant access to your lightbox.</source>
-        <translation type="obsolete">Se ha encontrado un usuario con la dirección de Email &quot;%1&quot;. Por favor confirma que esta es la persona a la que quieres conceder acceso a tu lightbox.</translation>
+        <translation type="unfinished">Se ha encontrado un usuario con la dirección de Email &quot;%1&quot;. Por favor confirma que esta es la persona a la que quieres conceder acceso a tu lightbox.</translation>
     </message>
     <message>
         <source>Please enter a subject.</source>
-        <translation type="obsolete">Por favor, introdue un asunto.</translation>
+        <translation type="unfinished">Por favor, introdue un asunto.</translation>
     </message>
     <message>
         <source>The user &quot;%1&quot; already has access to this lightbox.</source>
-        <translation type="obsolete">El usuario con ID %1 ya tenía accesso a este lightbox.</translation>
+        <translation type="unfinished">El usuario con ID %1 ya tenía accesso a este lightbox.</translation>
     </message>
     <message>
         <source>It is not allowed to send the lightbox to yourself.</source>
-        <translation type="obsolete">No está permitido enviar el lightbox a ti mismo.</translation>
+        <translation type="unfinished">No está permitido enviar el lightbox a ti mismo.</translation>
     </message>
     <message>
         <source>No user with an EMail address &quot;%1&quot; found.</source>
-        <translation type="obsolete">No se ha encontrado ningún usuario con la dirección de Email &quot;%1&quot;.</translation>
+        <translation type="unfinished">No se ha encontrado ningún usuario con la dirección de Email &quot;%1&quot;.</translation>
     </message>
     <message>
         <source>User with ID %1 does not exist.</source>
-        <translation type="obsolete">No existe ningún usuario con ID %1.</translation>
+        <translation type="unfinished">No existe ningún usuario con ID %1.</translation>
     </message>
     <message>
         <source>Not all parameters have been submitted.</source>
-        <translation type="obsolete">No se han enviado todos los parámetros.</translation>
+        <translation type="unfinished">No se han enviado todos los parámetros.</translation>
     </message>
 </context>
 <context>
     <name>lightbox/send/path</name>
     <message>
         <source>Lightbox</source>
-        <translation type="obsolete">Lightbox</translation>
+        <translation type="unfinished">Lightbox</translation>
     </message>
     <message>
         <source>Send</source>
-        <translation type="obsolete">Enviar</translation>
+        <translation type="unfinished">Enviar</translation>
     </message>
 </context>
 <context>
@@ -737,11 +743,11 @@
     <name>lightbox/view/path</name>
     <message>
         <source>Lightbox</source>
-        <translation type="obsolete">Lightbox</translation>
+        <translation type="unfinished">Lightbox</translation>
     </message>
     <message>
         <source>View</source>
-        <translation type="obsolete">Ver</translation>
+        <translation type="unfinished">Ver</translation>
     </message>
 </context>
 </TS>
