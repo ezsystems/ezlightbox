@@ -1,44 +1,36 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.0" language="es_ES">
+<!DOCTYPE TS><TS>
 <context>
     <name>class/ezlightbox/itemMoveDirections</name>
     <message>
-        <location filename="ezlightbox.php" line="271"/>
         <source>Up</source>
-        <translation>Arriba</translation>
+        <translation type="obsolete">Arriba</translation>
     </message>
     <message>
-        <location filename="ezlightbox.php" line="272"/>
         <source>Down</source>
-        <translation>Abajo</translation>
+        <translation type="obsolete">Abajo</translation>
     </message>
 </context>
 <context>
     <name>class/ezlightboxaccess/accessKeys</name>
     <message>
-        <location filename="ezlightboxaccess.php" line="83"/>
         <source>View</source>
-        <translation>Ver</translation>
+        <translation type="obsolete">Ver</translation>
     </message>
     <message>
-        <location filename="ezlightboxaccess.php" line="84"/>
         <source>Edit</source>
-        <translation>Editar</translation>
+        <translation type="obsolete">Editar</translation>
     </message>
     <message>
-        <location filename="ezlightboxaccess.php" line="85"/>
         <source>Grant</source>
-        <translation>Permitir</translation>
+        <translation type="obsolete">Permitir</translation>
     </message>
 </context>
 <context>
     <name>datatype/lightboxwrapper</name>
     <message>
-        <location filename="ezlightboxwrappertype.php" line="37"/>
         <source>Lightbox Wrapper</source>
         <comment>Datatype name</comment>
-        <translation>Contenedor de Lightbox</translation>
+        <translation type="obsolete">Contenedor de Lightbox</translation>
     </message>
     <message>
         <source>Version: %old</source>
@@ -166,233 +158,188 @@
 <context>
     <name>eZLightboxOperationCollection::addItem</name>
     <message>
-        <location filename="lightboxoperationcollection.php" line="236"/>
         <source>The current user is not allowed to add content object items of this class to a lightbox.</source>
-        <translation>Este usuario no tiene permisos para añadir objetos de contenido de esta clase a un lightbox.</translation>
+        <translation type="obsolete">Este usuario no tiene permisos para añadir objetos de contenido de esta clase a un lightbox.</translation>
     </message>
     <message>
-        <location filename="lightboxoperationcollection.php" line="244"/>
         <source>No content object item with ID %1 found.</source>
-        <translation>No se ha encontrado el objeto de contenido con ID %1.</translation>
+        <translation type="obsolete">No se ha encontrado el objeto de contenido con ID %1.</translation>
     </message>
     <message>
-        <location filename="lightboxoperationcollection.php" line="258"/>
         <source>No content node item with ID %1 found.</source>
-        <translation>No se encontrado el nodo con ID %1.</translation>
+        <translation type="obsolete">No se encontrado el nodo con ID %1.</translation>
     </message>
     <message>
-        <location filename="lightboxoperationcollection.php" line="282"/>
         <source>Successfully added item of type %1 with ID %2 to lightbox with ID %3.</source>
-        <translation>El elemento de tipo %1 con ID %2 se ha añadido al lightbox con ID %3 satisfactoriamente.</translation>
+        <translation type="obsolete">El elemento de tipo %1 con ID %2 se ha añadido al lightbox con ID %3 satisfactoriamente.</translation>
     </message>
     <message>
-        <location filename="lightboxoperationcollection.php" line="290"/>
         <source>Failed to add item of type %1 with ID %2 to lightbox with ID %3.</source>
-        <translation>El elemento de tipo %1 con ID %2 no ha podido ser añadido al lightbox con ID %3.</translation>
+        <translation type="obsolete">El elemento de tipo %1 con ID %2 no ha podido ser añadido al lightbox con ID %3.</translation>
     </message>
     <message>
-        <location filename="lightboxoperationcollection.php" line="299"/>
         <source>A lightbox with ID %1 does not exist.</source>
-        <translation>No existe ningún lightbox con ID %1.</translation>
+        <translation type="obsolete">No existe ningún lightbox con ID %1.</translation>
     </message>
 </context>
 <context>
     <name>eZLightboxOperationCollection::createLightbox</name>
     <message>
-        <location filename="lightboxoperationcollection.php" line="64"/>
         <source>Successfully created new lightbox.</source>
-        <translation>El nuevo lightbox se ha creado correctamente.</translation>
+        <translation type="obsolete">El nuevo lightbox se ha creado correctamente.</translation>
     </message>
     <message>
-        <location filename="lightboxoperationcollection.php" line="71"/>
         <source>An error occured while trying to create the lightbox.</source>
-        <translation>Se ha producido un error al intentar crear el lightbox.</translation>
+        <translation type="obsolete">Se ha producido un error al intentar crear el lightbox.</translation>
     </message>
     <message>
-        <location filename="lightboxoperationcollection.php" line="78"/>
         <source>Lightbox name %1 is invalid.</source>
-        <translation>El nombre de lightbox %1 no es válido.</translation>
+        <translation type="obsolete">El nombre de lightbox %1 no es válido.</translation>
     </message>
     <message>
-        <location filename="lightboxoperationcollection.php" line="85"/>
         <source>You do not have the permission to create a lightbox.</source>
-        <translation>No tinees permisos para crear un lightbox.</translation>
+        <translation type="obsolete">No tinees permisos para crear un lightbox.</translation>
     </message>
 </context>
 <context>
     <name>eZLightboxOperationCollection::createLightboxAccess</name>
     <message>
-        <location filename="lightboxoperationcollection.php" line="488"/>
         <source>No special access rights must be created when sending a lightbox to yourself.</source>
-        <translation>No es necerario crear permisos de acceso especiales para enviar un lightbox a ti mismo.</translation>
+        <translation type="obsolete">No es necerario crear permisos de acceso especiales para enviar un lightbox a ti mismo.</translation>
     </message>
     <message>
-        <location filename="lightboxoperationcollection.php" line="497"/>
         <source>It is not allowed to send the lightbox to yourself</source>
-        <translation>No está permitido enviar el lightbox a ti mismo</translation>
+        <translation type="obsolete">No está permitido enviar el lightbox a ti mismo</translation>
     </message>
     <message>
-        <location filename="lightboxoperationcollection.php" line="524"/>
         <source>Successfully granted access for user ID %1 to lightbox ID %2.</source>
-        <translation>Se ha concedido acceso al usuario con ID %1 al lightbox con ID %2.</translation>
+        <translation type="obsolete">Se ha concedido acceso al usuario con ID %1 al lightbox con ID %2.</translation>
     </message>
     <message>
-        <location filename="lightboxoperationcollection.php" line="532"/>
         <source>Failed to create access object for user ID %1 and lightbox ID %2.</source>
-        <translation>Se ha producido un error al intentar crear acceso al objeto para el usuario con ID %1 y el lightbox con ID %2.</translation>
+        <translation type="obsolete">Se ha producido un error al intentar crear acceso al objeto para el usuario con ID %1 y el lightbox con ID %2.</translation>
     </message>
     <message>
-        <location filename="lightboxoperationcollection.php" line="540"/>
         <source>User with ID %1 already has access to lightbox ID %2.</source>
-        <translation>El usuario con ID %1 ya tenía accesso al lightbox ID %2.</translation>
+        <translation type="obsolete">El usuario con ID %1 ya tenía accesso al lightbox ID %2.</translation>
     </message>
     <message>
-        <location filename="lightboxoperationcollection.php" line="548"/>
         <source>A lightbox with ID %1 does not exist.</source>
-        <translation>No existe ningún lightbox con ID %1.</translation>
+        <translation type="obsolete">No existe ningún lightbox con ID %1.</translation>
     </message>
     <message>
-        <location filename="lightboxoperationcollection.php" line="555"/>
         <source>Submitted user object is not valid.</source>
-        <translation>El objeto usuario enviado no es válido.</translation>
+        <translation type="obsolete">El objeto usuario enviado no es válido.</translation>
     </message>
 </context>
 <context>
     <name>eZLightboxOperationCollection::deleteLightbox</name>
     <message>
-        <location filename="lightboxoperationcollection.php" line="122"/>
         <source>Lightbox &quot;%1&quot; is now the current lightbox.</source>
-        <translation>El lightbox &quot;%1&quot; es ahora el lightbox actual.</translation>
+        <translation type="obsolete">El lightbox &quot;%1&quot; es ahora el lightbox actual.</translation>
     </message>
     <message>
-        <location filename="lightboxoperationcollection.php" line="132"/>
         <source>No more lightboxes available. No current lightbox set.</source>
-        <translation>No hay más lightboxes disponsibles. Ningún lightbox está definido como el actual.</translation>
+        <translation type="obsolete">No hay más lightboxes disponsibles. Ningún lightbox está definido como el actual.</translation>
     </message>
     <message>
-        <location filename="lightboxoperationcollection.php" line="137"/>
         <source>Successfully deleted lightbox with ID %1.</source>
-        <translation>El lightbox con ID %1 ha sido eliminado correctamente.</translation>
+        <translation type="obsolete">El lightbox con ID %1 ha sido eliminado correctamente.</translation>
     </message>
     <message>
-        <location filename="lightboxoperationcollection.php" line="145"/>
         <source>The lightbox with ID %1 can not be deleted by the current user.</source>
-        <translation>El lightbox con ID %1 no puede ser eliminado por el usuario actual.</translation>
+        <translation type="obsolete">El lightbox con ID %1 no puede ser eliminado por el usuario actual.</translation>
     </message>
     <message>
-        <location filename="lightboxoperationcollection.php" line="153"/>
         <source>A lightbox with ID %1 does not exist.</source>
-        <translation>No existe ningún lightbox con ID %1.</translation>
+        <translation type="obsolete">No existe ningún lightbox con ID %1.</translation>
     </message>
 </context>
 <context>
     <name>eZLightboxOperationCollection::emptyLightbox</name>
     <message>
-        <location filename="lightboxoperationcollection.php" line="190"/>
         <source>Failed to fetch content of lightbox with ID %1.</source>
-        <translation>Error al cargar el contenido del lightbox con ID %1.</translation>
+        <translation type="obsolete">Error al cargar el contenido del lightbox con ID %1.</translation>
     </message>
     <message>
-        <location filename="lightboxoperationcollection.php" line="198"/>
         <source>The lightbox with ID %1 can not be emptied by the current user.</source>
-        <translation>El lightbox con ID %1 no puede ser vaciado por el usuario actual.</translation>
+        <translation type="obsolete">El lightbox con ID %1 no puede ser vaciado por el usuario actual.</translation>
     </message>
     <message>
-        <location filename="lightboxoperationcollection.php" line="206"/>
         <source>A lightbox with ID %1 does not exist.</source>
-        <translation>No existe ningún lightbox con ID %1.</translation>
+        <translation type="obsolete">No existe ningún lightbox con ID %1.</translation>
     </message>
 </context>
 <context>
     <name>eZLightboxOperationCollection::moveItem</name>
     <message>
-        <location filename="lightboxoperationcollection.php" line="381"/>
         <source>Successfully moved item of type %1 with ID %2 from lightbox ID %3 to lightbox ID %4.</source>
-        <translation>El item de tipo %1 con ID %2 del lightbox con ID %3 se ha movido al lightbox con ID %4.</translation>
+        <translation type="obsolete">El item de tipo %1 con ID %2 del lightbox con ID %3 se ha movido al lightbox con ID %4.</translation>
     </message>
     <message>
-        <location filename="lightboxoperationcollection.php" line="397"/>
         <source>No item of type %1 with ID %2 found in lightbox ID %3.</source>
-        <translation>No se encontrado ningún elemento de tipo %1 con ID %2 en el lightbox %3.</translation>
+        <translation type="obsolete">No se encontrado ningún elemento de tipo %1 con ID %2 en el lightbox %3.</translation>
     </message>
     <message>
-        <location filename="lightboxoperationcollection.php" line="405"/>
         <source>A target lightbox with ID %1 does not exist.</source>
-        <translation>No existe ningún lightbox de destino con ID %1.</translation>
+        <translation type="obsolete">No existe ningún lightbox de destino con ID %1.</translation>
     </message>
     <message>
-        <location filename="lightboxoperationcollection.php" line="413"/>
         <source>A lightbox with ID %1 does not exist.</source>
-        <translation>No existe ningún lightbox con ID %1.</translation>
+        <translation type="obsolete">No existe ningún lightbox con ID %1.</translation>
     </message>
 </context>
 <context>
     <name>eZLightboxOperationCollection::removeItem</name>
     <message>
-        <location filename="lightboxoperationcollection.php" line="327"/>
         <source>Successfully deleted item of type %1 with ID %2 from lightbox with ID %3.</source>
-        <translation>El elemento de tipo %1 con ID %2 se ha eliminado del lightbox con ID %3.</translation>
+        <translation type="obsolete">El elemento de tipo %1 con ID %2 se ha eliminado del lightbox con ID %3.</translation>
     </message>
     <message>
-        <location filename="lightboxoperationcollection.php" line="335"/>
         <source>No item of type %1 with ID %2 found in lightbox ID %3.</source>
-        <translation>No se encontrado ningún elemento de tipo %1 con ID %2 en el lightbox %3.</translation>
+        <translation type="obsolete">No se encontrado ningún elemento de tipo %1 con ID %2 en el lightbox %3.</translation>
     </message>
     <message>
-        <location filename="lightboxoperationcollection.php" line="343"/>
         <source>A lightbox with ID %1 does not exist.</source>
-        <translation>No existe ningún lightbox con ID %1.</translation>
+        <translation type="obsolete">No existe ningún lightbox con ID %1.</translation>
     </message>
 </context>
 <context>
     <name>eZLightboxOperationCollection::removeLightboxAccess</name>
     <message>
-        <location filename="lightboxoperationcollection.php" line="441"/>
         <source>Successfully removed user with ID %1 from access list for lightbox ID %2.</source>
-        <translation>El usuario con ID %1 ha sido eliminado de lista de usuarios con accesso al lightbox con ID %2.</translation>
+        <translation type="obsolete">El usuario con ID %1 ha sido eliminado de lista de usuarios con accesso al lightbox con ID %2.</translation>
     </message>
     <message>
-        <location filename="lightboxoperationcollection.php" line="448"/>
         <source>User with ID %1 does not have access to lightbox ID %2.</source>
-        <translation>El usuario con ID %1 no tiene acceso al lightbox con ID %2.</translation>
+        <translation type="obsolete">El usuario con ID %1 no tiene acceso al lightbox con ID %2.</translation>
     </message>
     <message>
-        <location filename="lightboxoperationcollection.php" line="458"/>
         <source>Unable to identify the users.</source>
-        <translation>No se ha podido identificar a los usuarios.</translation>
-    </message>
-    <message>
-        <location filename="lightboxoperationcollection.php" line="465"/>
-        <source>A lightbox with ID %1 does not exist.</source>
-        <translation></translation>
+        <translation type="obsolete">No se ha podido identificar a los usuarios.</translation>
     </message>
 </context>
 <context>
     <name>eZLightboxOperationCollection::sendLightboxEMail</name>
     <message>
-        <location filename="lightboxoperationcollection.php" line="573"/>
         <source>Use the following link to view the lightbox</source>
-        <translation>Usa el enlace siguiente para ver el lightbox</translation>
+        <translation type="obsolete">Usa el enlace siguiente para ver el lightbox</translation>
     </message>
     <message>
-        <location filename="lightboxoperationcollection.php" line="613"/>
         <source>An error occured while sending the email.</source>
-        <translation>Se ha producido un error al enviar el email.</translation>
+        <translation type="obsolete">Se ha producido un error al enviar el email.</translation>
     </message>
     <message>
-        <location filename="lightboxoperationcollection.php" line="620"/>
         <source>Failed to create email object.</source>
-        <translation>Error al crear el objeto email.</translation>
+        <translation type="obsolete">Error al crear el objeto email.</translation>
     </message>
     <message>
-        <location filename="lightboxoperationcollection.php" line="627"/>
         <source>Failed to create object for site.ini.</source>
-        <translation>Error al crear el objeto para el site.ini.</translation>
+        <translation type="obsolete">Error al crear el objeto para el site.ini.</translation>
     </message>
     <message>
-        <location filename="lightboxoperationcollection.php" line="634"/>
         <source>No subject in email data found.</source>
-        <translation>No se ha entrado el asunto en los datos del email.</translation>
+        <translation type="obsolete">No se ha entrado el asunto en los datos del email.</translation>
     </message>
 </context>
 <context>
@@ -429,14 +376,12 @@
 <context>
     <name>lightbox/create/path</name>
     <message>
-        <location filename="create.php" line="172"/>
         <source>Lightbox</source>
-        <translation>Lightbox</translation>
+        <translation type="obsolete">Lightbox</translation>
     </message>
     <message>
-        <location filename="create.php" line="175"/>
         <source>Create</source>
-        <translation>Crear</translation>
+        <translation type="obsolete">Crear</translation>
     </message>
 </context>
 <context>
@@ -510,55 +455,46 @@
         <translation>No hay ningún lightbox seleccionad</translation>
     </message>
     <message>
-        <location filename="edit.php" line="161"/>
         <source>No users have been selected for deletion.</source>
-        <translation>No se ha seleccionado ningún usuario para ser eliminado.</translation>
+        <translation type="obsolete">No se ha seleccionado ningún usuario para ser eliminado.</translation>
     </message>
     <message>
-        <location filename="edit.php" line="198"/>
         <source>Failed to fetch access object for user ID &quot;%1&quot;</source>
-        <translation>Error al cargar los accesso al objeto para el usuario con ID &quot;%1&quot;</translation>
+        <translation type="obsolete">Error al cargar los accesso al objeto para el usuario con ID &quot;%1&quot;</translation>
     </message>
     <message>
-        <location filename="edit.php" line="212"/>
         <source>Successfully stored lightbox.</source>
-        <translation>Lightbox guardado correctamente.</translation>
+        <translation type="obsolete">Lightbox guardado correctamente.</translation>
     </message>
     <message>
-        <location filename="edit.php" line="217"/>
         <source>Invalid lightbox name &quot;%1&quot;</source>
-        <translation>El nombre &quot;%1&quot; no es un nombre de lightbox válido</translation>
+        <translation type="obsolete">El nombre &quot;%1&quot; no es un nombre de lightbox válido</translation>
     </message>
     <message>
-        <location filename="edit.php" line="224"/>
         <source>No name for lightbox available.</source>
-        <translation>No hay disponible ningún nombre para lightbox.</translation>
+        <translation type="obsolete">No hay disponible ningún nombre para lightbox.</translation>
     </message>
 </context>
 <context>
     <name>lightbox/edit/path</name>
     <message>
-        <location filename="edit.php" line="42"/>
         <source>Lightbox</source>
-        <translation>Lightbox</translation>
+        <translation type="obsolete">Lightbox</translation>
     </message>
     <message>
-        <location filename="edit.php" line="45"/>
         <source>Edit</source>
-        <translation>Editar</translation>
+        <translation type="obsolete">Editar</translation>
     </message>
 </context>
 <context>
     <name>lightbox/error</name>
     <message>
-        <location filename="content_actionhandler.php" line="46"/>
         <source>Missing or invalid lightbox ID %1.</source>
-        <translation>El lightbox con ID %1 falta o no es válido.</translation>
+        <translation type="obsolete">El lightbox con ID %1 falta o no es válido.</translation>
     </message>
     <message>
-        <location filename="content_actionhandler.php" line="324"/>
         <source>Missing target lightbox ID.</source>
-        <translation>Falta el ID del lightbox de destino.</translation>
+        <translation type="obsolete">Falta el ID del lightbox de destino.</translation>
     </message>
 </context>
 <context>
@@ -635,52 +571,43 @@
         <translation>Econtrar usuario</translation>
     </message>
     <message>
-        <location filename="send.php" line="194"/>
         <source>A user with the EMail address &quot;%1&quot; has been found. Please verify if this is the person you want to grant access to your lightbox.</source>
-        <translation>Se ha encontrado un usuario con la dirección de Email &quot;%1&quot;. Por favor confirma que esta es la persona a la que quieres conceder acceso a tu lightbox.</translation>
+        <translation type="obsolete">Se ha encontrado un usuario con la dirección de Email &quot;%1&quot;. Por favor confirma que esta es la persona a la que quieres conceder acceso a tu lightbox.</translation>
     </message>
     <message>
-        <location filename="send.php" line="203"/>
         <source>Please enter a subject.</source>
-        <translation>Por favor, introdue un asunto.</translation>
+        <translation type="obsolete">Por favor, introdue un asunto.</translation>
     </message>
     <message>
-        <location filename="send.php" line="209"/>
         <source>The user &quot;%1&quot; already has access to this lightbox.</source>
-        <translation>El usuario con ID %1 ya tenía accesso a este lightbox.</translation>
+        <translation type="obsolete">El usuario con ID %1 ya tenía accesso a este lightbox.</translation>
     </message>
     <message>
-        <location filename="send.php" line="218"/>
         <source>It is not allowed to send the lightbox to yourself.</source>
-        <translation>No está permitido enviar el lightbox a ti mismo.</translation>
+        <translation type="obsolete">No está permitido enviar el lightbox a ti mismo.</translation>
     </message>
     <message>
-        <location filename="send.php" line="223"/>
         <source>No user with an EMail address &quot;%1&quot; found.</source>
-        <translation>No se ha encontrado ningún usuario con la dirección de Email &quot;%1&quot;.</translation>
+        <translation type="obsolete">No se ha encontrado ningún usuario con la dirección de Email &quot;%1&quot;.</translation>
     </message>
     <message>
-        <location filename="send.php" line="260"/>
         <source>User with ID %1 does not exist.</source>
-        <translation>No existe ningún usuario con ID %1.</translation>
+        <translation type="obsolete">No existe ningún usuario con ID %1.</translation>
     </message>
     <message>
-        <location filename="send.php" line="267"/>
         <source>Not all parameters have been submitted.</source>
-        <translation>No se han enviado todos los parámetros.</translation>
+        <translation type="obsolete">No se han enviado todos los parámetros.</translation>
     </message>
 </context>
 <context>
     <name>lightbox/send/path</name>
     <message>
-        <location filename="send.php" line="51"/>
         <source>Lightbox</source>
-        <translation>Lightbox</translation>
+        <translation type="obsolete">Lightbox</translation>
     </message>
     <message>
-        <location filename="send.php" line="54"/>
         <source>Send</source>
-        <translation>Enviar</translation>
+        <translation type="obsolete">Enviar</translation>
     </message>
 </context>
 <context>
@@ -809,14 +736,12 @@
 <context>
     <name>lightbox/view/path</name>
     <message>
-        <location filename="view.php" line="47"/>
         <source>Lightbox</source>
-        <translation>Lightbox</translation>
+        <translation type="obsolete">Lightbox</translation>
     </message>
     <message>
-        <location filename="view.php" line="50"/>
         <source>View</source>
-        <translation>Ver</translation>
+        <translation type="obsolete">Ver</translation>
     </message>
 </context>
 </TS>
