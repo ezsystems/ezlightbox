@@ -44,7 +44,7 @@
     <message>
         <source>Lightbox Wrapper</source>
         <comment>Datatype name</comment>
-        <translation>Lightbox conteneur</translation>
+        <translation>Conteneur Lightbox</translation>
     </message>
 </context>
 <context>
