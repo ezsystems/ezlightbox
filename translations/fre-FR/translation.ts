@@ -20,7 +20,7 @@
     </message>
     <message>
         <source>Edit</source>
-        <translation>Éditer</translation>
+        <translation>Modifier</translation>
     </message>
     <message>
         <source>Grant</source>
@@ -63,7 +63,7 @@
     </message>
     <message>
         <source>Edit</source>
-        <translation>Éditer</translation>
+        <translation>Modifier</translation>
     </message>
     <message>
         <source>Use this button to edit the current lightbox.</source>
@@ -242,7 +242,7 @@
     </message>
     <message>
         <source>No more lightboxes available. No current lightbox set.</source>
-        <translation>Aucune lightbox disponible. Aucune lightbox courante défine.</translation>
+        <translation>Plus aucune lightbox disponible. Aucune lightbox courante n'est définie.</translation>
     </message>
     <message>
         <source>Successfully deleted lightbox with ID %1.</source>
@@ -376,7 +376,7 @@
     </message>
     <message>
         <source>Once the lightbox has been created successfully, a new item will be added to it.</source>
-        <translation>Une fois que la lightbox a été créée avec succès, un nouvel élément sera ajouté à celle-ci.</translation>
+        <translation>Une fois la lightbox créée, un nouvel élément sera ajouté à celle-ci.</translation>
     </message>
 </context>
 <context>
@@ -394,7 +394,7 @@
     <name>lightbox/edit</name>
     <message>
         <source>Edit lightbox &quot;%1&quot;</source>
-        <translation>Éditer la lightbox &quot;%1&quot;</translation>
+        <translation>Modifier la lightbox &quot;%1&quot;</translation>
     </message>
     <message>
         <source>Name</source>
@@ -489,7 +489,7 @@
     </message>
     <message>
         <source>Edit</source>
-        <translation>Éditer</translation>
+        <translation>Modifier</translation>
     </message>
 </context>
 <context>
@@ -644,7 +644,7 @@
     </message>
     <message>
         <source>Edit</source>
-        <translation>Éditer</translation>
+        <translation>Modifier</translation>
     </message>
     <message>
         <source>Use this button to edit this lightbox.</source>
@@ -716,7 +716,7 @@
     </message>
     <message>
         <source>Are you sure that you want to delete the lightbox ?</source>
-        <translation>Êtes-vous sûr de vouloir supprimer la lightbox?</translation>
+        <translation>Êtes-vous sûr de vouloir supprimer la lightbox ?</translation>
     </message>
     <message>
         <source>Use this button to move the item one position up</source>
