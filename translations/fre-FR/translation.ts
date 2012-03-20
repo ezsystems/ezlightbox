@@ -242,7 +242,7 @@
     </message>
     <message>
         <source>No more lightboxes available. No current lightbox set.</source>
-        <translation>Plus aucune lightbox disponible. Aucune lightbox courante n'est définie.</translation>
+        <translation>Plus aucune lightbox disponible. Aucune lightbox courante n&apos;est définie.</translation>
     </message>
     <message>
         <source>Successfully deleted lightbox with ID %1.</source>
