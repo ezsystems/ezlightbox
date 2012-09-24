@@ -23,8 +23,6 @@
 //
 //
 
-require_once( 'kernel/common/i18n.php' );
-
 class eZLightBoxWrapperType extends eZDataType
 {
     const DATA_TYPE_STRING = 'ezlightboxwrapper';
